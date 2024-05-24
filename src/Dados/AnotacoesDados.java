@@ -1,17 +1,17 @@
-
 package Dados;
 
-
 public class AnotacoesDados {
+
     private int cod_usuario;
     private String tipo;
     private String conteudo;
-    
-     public AnotacoesDados() {
+
+    public AnotacoesDados() {
         this.cod_usuario = 0;
         this.tipo = null;
         this.conteudo = null;
     }
+
     public AnotacoesDados(int cod_usuario, String tipo, String conteudo) {
         this.cod_usuario = cod_usuario;
         this.tipo = tipo;
@@ -41,5 +41,5 @@ public class AnotacoesDados {
     public void setConteudo(String conteudo) {
         this.conteudo = conteudo;
     }
-    
+
 }

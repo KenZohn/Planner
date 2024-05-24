@@ -1,4 +1,5 @@
 package Banco;
+
 import Dados.GastosDados;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,14 +21,14 @@ public class GastosBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO calendario(cod_usuario,tipo_gasstos, ano, mes,linha_item, descricao, valor) " + "VALUES ('" +
-                    gastosDados.getCod_usuario() + "', '" +
-                    gastosDados.getTipo_gastos()+ "', '" +
-                    gastosDados.getAno() + "', '" +
-                    gastosDados.getMes() + "', '" +
-                    gastosDados.getLinha_item() + "', '" +
-                    gastosDados.getDescricao() + "','" +
-                    gastosDados.getValor()+ "')";
+            String sql = "INSERT INTO calendario(cod_usuario,tipo_gasstos, ano, mes,linha_item, descricao, valor) " + "VALUES ('"
+                    + gastosDados.getCod_usuario() + "', '"
+                    + gastosDados.getTipo_gastos() + "', '"
+                    + gastosDados.getAno() + "', '"
+                    + gastosDados.getMes() + "', '"
+                    + gastosDados.getLinha_item() + "', '"
+                    + gastosDados.getDescricao() + "', '"
+                    + gastosDados.getValor() + "')";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -56,12 +57,12 @@ public class GastosBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "UPDATE calendario SET conteudo = '" + gastosDados.getValor() +
-                    "' WHERE cod_usuario = '"+gastosDados.getCod_usuario() +
-                    "' AND ano = '" + gastosDados.getAno()+
-                    "' AND mes = '" + gastosDados.getMes() +
-                    "' AND linha_item'"+ gastosDados.getLinha_item()+
-                    "' AND  = tipo_gastos'" + gastosDados.getTipo_gastos() + "';";
+            String sql = "UPDATE calendario SET conteudo = '" + gastosDados.getValor()
+                    + "' WHERE cod_usuario = '" + gastosDados.getCod_usuario()
+                    + "' AND ano = '" + gastosDados.getAno()
+                    + "' AND mes = '" + gastosDados.getMes()
+                    + "' AND linha_item = '" + gastosDados.getLinha_item()
+                    + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "';";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -90,9 +91,11 @@ public class GastosBD {
 
         try {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM gastos WHERE cod_usuario = '" + gastosDados.getAno()
-                    + "' AND mes = '" + gastosDados.getMes() + "' AND linha_item= '" + gastosDados.getLinha_item() +
-                            "' AND tipo_gastos = '" + gastosDados.getTipo_gastos () + "';");
+            ResultSet res = stmt.executeQuery("SELECT * FROM gastos"
+                    + " WHERE cod_usuario = '" + gastosDados.getAno()
+                    + "' AND mes = '" + gastosDados.getMes()
+                    + "' AND linha_item = '" + gastosDados.getLinha_item()
+                    + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "';");
 
             res.next();
             dados = res.getString("");
@@ -123,9 +126,11 @@ public class GastosBD {
 
         try {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM gastos WHERE cod_usuario = '" + gastosDados.getAno()
-                    + "' AND mes = '" + gastosDados.getMes() + "' AND linha_item= '" + gastosDados.getLinha_item() +
-                            "' AND tipo_gastos = '" + gastosDados.getTipo_gastos () + "';");
+            ResultSet res = stmt.executeQuery("SELECT * FROM gastos"
+                    + " WHERE cod_usuario = '" + gastosDados.getAno()
+                    + "' AND mes = '" + gastosDados.getMes()
+                    + "' AND linha_item= '" + gastosDados.getLinha_item()
+                    + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "';");
 
             res.next();
             dados = res.getString("");
@@ -158,9 +163,11 @@ public class GastosBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "DELETE FROM gastos WHERE ano = '" + gastosDados.getAno() + "' AND mes = '"
-                    + gastosDados.getMes() + "' AND linha_item = '" + gastosDados.getLinha_item() + 
-                    "' AND tipo_gastos = '" + gastosDados.getTipo_gastos()+"'";
+            String sql = "DELETE FROM gastos"
+                    + " WHERE ano = '" + gastosDados.getAno()
+                    + "' AND mes = '" + gastosDados.getMes()
+                    + "' AND linha_item = '" + gastosDados.getLinha_item()
+                    + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "'";
 
             System.out.println("SQL: " + sql);
 
@@ -181,5 +188,5 @@ public class GastosBD {
             }
         }
         return status;
-    }    
+    }
 }

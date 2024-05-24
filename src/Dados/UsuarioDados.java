@@ -1,14 +1,13 @@
-
 package Dados;
 
-
 public class UsuarioDados {
+
     private int cod_usuario;
     private String nome;
     private String email;
     private String login;
     private String senha;
-    
+
     public UsuarioDados() {
         this.cod_usuario = 0;
         this.nome = null;
@@ -64,6 +63,5 @@ public class UsuarioDados {
     public void setLogin(String login) {
         this.login = login;
     }
-    
-    
+
 }

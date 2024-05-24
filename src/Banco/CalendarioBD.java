@@ -22,12 +22,12 @@ public class CalendarioBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO calendario(cod_usuario, ano, mes, dia, conteudo) " + "VALUES ('" +
-                    calendarioDados.getUsuario() + "', '" +
-                    calendarioDados.getAno() + "', '" +
-                    calendarioDados.getMes() + "', '" +
-                    calendarioDados.getDia() + "', '" +
-                    calendarioDados.getConteudo() + "')";
+            String sql = "INSERT INTO calendario(cod_usuario, ano, mes, dia, conteudo) " + "VALUES ('"
+                    + calendarioDados.getCod_usuario() + "', '"
+                    + calendarioDados.getAno() + "', '"
+                    + calendarioDados.getMes() + "', '"
+                    + calendarioDados.getDia() + "', '"
+                    + calendarioDados.getConteudo() + "')";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -56,11 +56,11 @@ public class CalendarioBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "UPDATE calendario SET conteudo = '" + calendarioDados.getConteudo() +
-                    "' WHERE ano = '" + calendarioDados.getAno() +
-                    "' AND cod_usuario = '" + calendarioDados.getUsuario()+
-                    "' AND mes = '" + calendarioDados.getMes() +
-                    "' AND dia = '" + calendarioDados.getDia() + "';";
+            String sql = "UPDATE calendario SET conteudo = '" + calendarioDados.getConteudo()
+                    + "' WHERE ano = '" + calendarioDados.getAno()
+                    + "' AND cod_usuario = '" + calendarioDados.getCod_usuario()
+                    + "' AND mes = '" + calendarioDados.getMes()
+                    + "' AND dia = '" + calendarioDados.getDia() + "';";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -89,8 +89,10 @@ public class CalendarioBD {
 
         try {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM calendario WHERE ano = '" + calendarioDados.getAno()
-                    + "' AND mes = '" + calendarioDados.getMes() + "' AND dia = '" + calendarioDados.getDia() + "';");
+            ResultSet res = stmt.executeQuery("SELECT * FROM calendario"
+                    + " WHERE ano = '" + calendarioDados.getAno()
+                    + "' AND mes = '" + calendarioDados.getMes()
+                    + "' AND dia = '" + calendarioDados.getDia() + "';");
 
             res.next();
             dados = res.getString("conteudo");
@@ -121,8 +123,10 @@ public class CalendarioBD {
 
         try {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM calendario WHERE ano = '" + calendarioDados.getAno()
-                    + "' AND mes = '" + calendarioDados.getMes() + "' AND dia = '" + calendarioDados.getDia() + "';");
+            ResultSet res = stmt.executeQuery("SELECT * FROM calendario"
+                    + " WHERE ano = '" + calendarioDados.getAno()
+                    + "' AND mes = '" + calendarioDados.getMes()
+                    + "' AND dia = '" + calendarioDados.getDia() + "';");
 
             res.next();
             dados = res.getString("dia");
@@ -155,8 +159,10 @@ public class CalendarioBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "DELETE FROM calendario WHERE ano = '" + calendarioDados.getAno() + "' AND mes = '"
-                    + calendarioDados.getMes() + "' AND dia = '" + calendarioDados.getDia() + "';";
+            String sql = "DELETE FROM calendario"
+                    + " WHERE ano = '" + calendarioDados.getAno()
+                    + "' AND mes = '" + calendarioDados.getMes()
+                    + "' AND dia = '" + calendarioDados.getDia() + "';";
 
             System.out.println("SQL: " + sql);
 

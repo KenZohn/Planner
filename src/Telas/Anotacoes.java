@@ -15,14 +15,14 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         initComponents();
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
-        
+
         UsuarioDados usuarioDados = new UsuarioDados();
-        
+
         Login loginTela = new Login();
-        cod_usuario = loginTela.cod_usuario2;
+        cod_usuario = loginTela.cod_usuario;
         usuarioDados.setCod_usuario(cod_usuario);
         System.out.println(cod_usuario);
-        
+
         desselecionar();
         panelNotas.setBackground(new Color(253, 238, 251));
         labelTitulo.setText("Notas");

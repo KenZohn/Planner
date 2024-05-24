@@ -1,13 +1,12 @@
 package Telas;
 
-
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 
 public class Inicio extends javax.swing.JInternalFrame {
 
     public Inicio() {
         initComponents();
-        BasicInternalFrameUI ui = (BasicInternalFrameUI)this.getUI();
+        BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
     }
 

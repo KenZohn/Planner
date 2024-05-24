@@ -2,18 +2,15 @@ package Telas;
 
 import Banco.UsuarioBD;
 import Dados.UsuarioDados;
-import Telas.Login;
 import javax.swing.JOptionPane;
 
 public class Cadastrar extends javax.swing.JFrame {
 
     private String nome, email, login, senha;
     private int cod_usuario;
-    //private Login telaLogin;
 
     public Cadastrar() {
         initComponents();
-        //telaLogin = new Login();
         setLocationRelativeTo(null);
     }
 
@@ -58,11 +55,6 @@ public class Cadastrar extends javax.swing.JFrame {
         principal.add(TextEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 70, 260, -1));
 
         TextNome.setToolTipText("");
-        TextNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextNomeActionPerformed(evt);
-            }
-        });
         principal.add(TextNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 30, 260, -1));
         principal.add(TextLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, 260, -1));
         principal.add(TextSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 170, 260, -1));
@@ -129,10 +121,6 @@ public class Cadastrar extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_BotaoFinalizarCadastroActionPerformed
-
-    private void TextNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextNomeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_TextNomeActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

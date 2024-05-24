@@ -22,10 +22,10 @@ public class AnotacoesBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO anotacoes(cod_usuario, tipo, conteudo) " + "VALUES ('" +
-                    anotacoesDados.getCod_usuario() + "','" +
-                    anotacoesDados.getTipo() + "','" +
-                    anotacoesDados.getConteudo() + "')";
+            String sql = "INSERT INTO anotacoes(cod_usuario, tipo, conteudo) " + "VALUES ('"
+                    + anotacoesDados.getCod_usuario() + "','"
+                    + anotacoesDados.getTipo() + "','"
+                    + anotacoesDados.getConteudo() + "')";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -54,9 +54,9 @@ public class AnotacoesBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "UPDATE anotacoes SET conteudo = '" + anotacoesDados.getConteudo() +
-                    "' WHERE cod_usuario = '" + anotacoesDados.getCod_usuario() +
-                    "'AND tipo = '" + anotacoesDados.getTipo() + "';";                    
+            String sql = "UPDATE anotacoes SET conteudo = '" + anotacoesDados.getConteudo()
+                    + "' WHERE cod_usuario = '" + anotacoesDados.getCod_usuario()
+                    + "'AND tipo = '" + anotacoesDados.getTipo() + "';";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -85,8 +85,9 @@ public class AnotacoesBD {
 
         try {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM anotacoes WHERE cod_usuario = '" + anotacoesDados.getCod_usuario() +
-                    "' AND tipo = '" + anotacoesDados.getTipo() + "';");
+            ResultSet res = stmt.executeQuery("SELECT * FROM anotacoes"
+                    + " WHERE cod_usuario = '" + anotacoesDados.getCod_usuario()
+                    + "' AND tipo = '" + anotacoesDados.getTipo() + "';");
 
             res.next();
             dados = res.getString("conteudo");
@@ -117,9 +118,10 @@ public class AnotacoesBD {
 
         try {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT * FROM anotacoes WHERE cod_usuario = '" + anotacoesDados.getCod_usuario() +
-                    "' AND tipo = '" + anotacoesDados.getTipo() + "';");
-            
+            ResultSet res = stmt.executeQuery("SELECT * FROM anotacoes"
+                    + " WHERE cod_usuario = '" + anotacoesDados.getCod_usuario()
+                    + "' AND tipo = '" + anotacoesDados.getTipo() + "';");
+
             res.next();
             dados = res.getString("tipo");
 
@@ -137,5 +139,5 @@ public class AnotacoesBD {
             }
         }
         return dados;
-    }   
+    }
 }

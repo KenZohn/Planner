@@ -9,7 +9,7 @@ public class Login extends javax.swing.JFrame {
 
     private Cadastrar cadastrar;
     private Principal principal;
-    public static int cod_usuario2;
+    public static int cod_usuario;
 
     public Login() {
         initComponents();
@@ -133,37 +133,34 @@ public class Login extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void campoLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoLoginActionPerformed
-      
+
     }//GEN-LAST:event_campoLoginActionPerformed
 
     private void botaoEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoEntrarActionPerformed
         String login;
-	String senha;
-				
-	AcessoBD acesso = new AcessoBD();
-	UsuarioDados usuarioDados= new UsuarioDados();
+        String senha;
+
+        AcessoBD acesso = new AcessoBD();
+        UsuarioDados usuarioDados = new UsuarioDados();
         UsuarioBD usuarioBD = new UsuarioBD();
-				
-	login = campoLogin.getText();
-	senha = campoSenha.getText();
-				
-	usuarioDados.setLogin(login);
-	usuarioDados.setSenha(senha);
-				
-	if(acesso.verificaAcesso(usuarioDados) == true)
-	{
+
+        login = campoLogin.getText();
+        senha = campoSenha.getText();
+
+        usuarioDados.setLogin(login);
+        usuarioDados.setSenha(senha);
+
+        if (acesso.verificaAcesso(usuarioDados) == true) {
             usuarioDados.setCod_usuario(Integer.parseInt(usuarioBD.buscarUsuario(usuarioDados)));
-            cod_usuario2 = Integer.parseInt(usuarioBD.buscarUsuario(usuarioDados));
-            System.out.println(cod_usuario2);
+            cod_usuario = Integer.parseInt(usuarioBD.buscarUsuario(usuarioDados));
+            System.out.println(cod_usuario);
             principal.setVisible(true);
             dispose();
-	}
-	else
-	{
+        } else {
             JOptionPane.showMessageDialog(null, "Erro nos dados informados", "Erro", JOptionPane.ERROR_MESSAGE);
-	}
-        
-        
+        }
+
+
     }//GEN-LAST:event_botaoEntrarActionPerformed
 
     private void botaoFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoFecharMouseClicked
@@ -173,7 +170,7 @@ public class Login extends javax.swing.JFrame {
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         cadastrar.setVisible(true);
         dispose();
-        
+
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void botaoRedefinirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRedefinirActionPerformed

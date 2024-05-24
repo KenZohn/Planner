@@ -1,6 +1,5 @@
 package Telas;
 
-
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JFrame;
@@ -469,7 +468,6 @@ public class Principal extends javax.swing.JFrame {
         panelGastos.setBackground(new Color(141, 231, 219));
     }//GEN-LAST:event_iconeGastosMouseExited
 
-    
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {

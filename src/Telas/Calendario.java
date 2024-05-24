@@ -19,7 +19,7 @@ import javax.swing.plaf.basic.BasicInternalFrameUI;
 public class Calendario extends javax.swing.JInternalFrame {
 
     private String primeiroDiaSemana, conteudo;
-    private int usuario, ano, mes, dia;
+    private int cod_usuario, ano, mes, dia;
     private int ultimoDia;
 
     public Calendario() {
@@ -27,12 +27,12 @@ public class Calendario extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
 
-         UsuarioDados usuarioDados = new UsuarioDados();
-        
+        UsuarioDados usuarioDados = new UsuarioDados();
+
         Login loginTela = new Login();
-        usuario = loginTela.cod_usuario2;
-        usuarioDados.setCod_usuario(usuario);
-        System.out.println(usuario);
+        cod_usuario = loginTela.cod_usuario;
+        usuarioDados.setCod_usuario(cod_usuario);
+        System.out.println(cod_usuario);
 
         Date dataAtual = new Date();
         ano = Integer.parseInt(new SimpleDateFormat("yyyy").format(dataAtual));
@@ -78,13 +78,13 @@ public class Calendario extends javax.swing.JInternalFrame {
             panelDezembro.setBackground(new Color(224, 236, 247));
             labelMes.setText("Dezembro");
         }
-        
+
         try {
             UltimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         selecionarDiaAtual();
     }
 
@@ -202,7 +202,7 @@ public class Calendario extends javax.swing.JInternalFrame {
             buscarConteudo();
         }
     }
-    
+
     public void selecionarDiaAtual() {
         if (dia1.getText().equals("" + dia)) {
             labelDia.setText("Dia " + dia1.getText());
@@ -752,7 +752,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         CalendarioDados calendarioDados = new CalendarioDados();
         CalendarioBD calendarioBD = new CalendarioBD();
 
-        calendarioDados.setUsuario(usuario);
+        calendarioDados.setCod_usuario(cod_usuario);
         calendarioDados.setAno(ano);
         calendarioDados.setMes(mes);
         calendarioDados.setDia(dia);
@@ -2424,7 +2424,7 @@ public class Calendario extends javax.swing.JInternalFrame {
 
         conteudo = textAreaCalendario.getText();
 
-        calendarioDados.setUsuario(usuario);
+        calendarioDados.setCod_usuario(cod_usuario);
         calendarioDados.setAno(ano);
         calendarioDados.setMes(mes);
         calendarioDados.setDia(dia);
@@ -2442,13 +2442,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_textAreaCalendarioKeyReleased
 
     private void panelJaneiroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJaneiroMouseEntered
-        if (mes != 1){
+        if (mes != 1) {
             panelJaneiro.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelJaneiroMouseEntered
 
     private void panelJaneiroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJaneiroMouseExited
-        if (mes != 1){
+        if (mes != 1) {
             panelJaneiro.setBackground(new Color(150, 192, 230));
         } else {
             panelJaneiro.setBackground(new Color(224, 236, 247));
@@ -2456,13 +2456,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelJaneiroMouseExited
 
     private void panelFevereiroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFevereiroMouseEntered
-        if (mes != 2){
+        if (mes != 2) {
             panelFevereiro.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelFevereiroMouseEntered
 
     private void panelFevereiroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFevereiroMouseExited
-        if (mes != 2){
+        if (mes != 2) {
             panelFevereiro.setBackground(new Color(150, 192, 230));
         } else {
             panelFevereiro.setBackground(new Color(224, 236, 247));
@@ -2470,13 +2470,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelFevereiroMouseExited
 
     private void panelMarcoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMarcoMouseEntered
-        if (mes != 3){
+        if (mes != 3) {
             panelMarco.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelMarcoMouseEntered
 
     private void panelMarcoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMarcoMouseExited
-        if (mes != 3){
+        if (mes != 3) {
             panelMarco.setBackground(new Color(150, 192, 230));
         } else {
             panelMarco.setBackground(new Color(224, 236, 247));
@@ -2484,13 +2484,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelMarcoMouseExited
 
     private void panelAbrilMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAbrilMouseEntered
-        if (mes != 4){
+        if (mes != 4) {
             panelAbril.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelAbrilMouseEntered
 
     private void panelAbrilMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAbrilMouseExited
-        if (mes != 4){
+        if (mes != 4) {
             panelAbril.setBackground(new Color(150, 192, 230));
         } else {
             panelAbril.setBackground(new Color(224, 236, 247));
@@ -2498,13 +2498,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelAbrilMouseExited
 
     private void panelMaioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMaioMouseEntered
-        if (mes != 5){
+        if (mes != 5) {
             panelMaio.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelMaioMouseEntered
 
     private void panelMaioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMaioMouseExited
-        if (mes != 5){
+        if (mes != 5) {
             panelMaio.setBackground(new Color(150, 192, 230));
         } else {
             panelMaio.setBackground(new Color(224, 236, 247));
@@ -2512,13 +2512,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelMaioMouseExited
 
     private void panelJunhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJunhoMouseEntered
-        if (mes != 6){
+        if (mes != 6) {
             panelJunho.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelJunhoMouseEntered
 
     private void panelJunhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJunhoMouseExited
-        if (mes != 6){
+        if (mes != 6) {
             panelJunho.setBackground(new Color(150, 192, 230));
         } else {
             panelJunho.setBackground(new Color(224, 236, 247));
@@ -2526,13 +2526,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelJunhoMouseExited
 
     private void panelJulhoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJulhoMouseEntered
-        if (mes != 7){
+        if (mes != 7) {
             panelJulho.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelJulhoMouseEntered
 
     private void panelJulhoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJulhoMouseExited
-        if (mes != 7){
+        if (mes != 7) {
             panelJulho.setBackground(new Color(150, 192, 230));
         } else {
             panelJulho.setBackground(new Color(224, 236, 247));
@@ -2540,13 +2540,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelJulhoMouseExited
 
     private void panelAgostoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgostoMouseEntered
-        if (mes != 8){
+        if (mes != 8) {
             panelAgosto.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelAgostoMouseEntered
 
     private void panelAgostoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgostoMouseExited
-        if (mes != 8){
+        if (mes != 8) {
             panelAgosto.setBackground(new Color(150, 192, 230));
         } else {
             panelAgosto.setBackground(new Color(224, 236, 247));
@@ -2554,13 +2554,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelAgostoMouseExited
 
     private void panelSetembroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSetembroMouseEntered
-        if (mes != 9){
+        if (mes != 9) {
             panelSetembro.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelSetembroMouseEntered
 
     private void panelSetembroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSetembroMouseExited
-        if (mes != 9){
+        if (mes != 9) {
             panelSetembro.setBackground(new Color(150, 192, 230));
         } else {
             panelSetembro.setBackground(new Color(224, 236, 247));
@@ -2568,13 +2568,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelSetembroMouseExited
 
     private void panelOutubroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutubroMouseEntered
-        if (mes != 10){
+        if (mes != 10) {
             panelOutubro.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelOutubroMouseEntered
 
     private void panelOutubroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutubroMouseExited
-        if (mes != 10){
+        if (mes != 10) {
             panelOutubro.setBackground(new Color(150, 192, 230));
         } else {
             panelOutubro.setBackground(new Color(224, 236, 247));
@@ -2582,13 +2582,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelOutubroMouseExited
 
     private void panelNovembroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNovembroMouseEntered
-        if (mes != 11){
+        if (mes != 11) {
             panelNovembro.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelNovembroMouseEntered
 
     private void panelNovembroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNovembroMouseExited
-        if (mes != 11){
+        if (mes != 11) {
             panelNovembro.setBackground(new Color(150, 192, 230));
         } else {
             panelNovembro.setBackground(new Color(224, 236, 247));
@@ -2596,13 +2596,13 @@ public class Calendario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelNovembroMouseExited
 
     private void panelDezembroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDezembroMouseEntered
-        if (mes != 12){
+        if (mes != 12) {
             panelDezembro.setBackground(new Color(203, 228, 250));
         }
     }//GEN-LAST:event_panelDezembroMouseEntered
 
     private void panelDezembroMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDezembroMouseExited
-        if (mes != 12){
+        if (mes != 12) {
             panelDezembro.setBackground(new Color(150, 192, 230));
         } else {
             panelDezembro.setBackground(new Color(224, 236, 247));

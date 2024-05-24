@@ -23,7 +23,9 @@ public class UsuarioBD {
 
             String sql = "INSERT INTO usuario(nome, email, login, senha) "
                     + "VALUES ('" + usuarioDados.getNome() + "', '"
-                    + usuarioDados.getEmail() + "', '" + usuarioDados.getLogin() + "', '" + usuarioDados.getSenha() + "')";
+                    + usuarioDados.getEmail() + "', '"
+                    + usuarioDados.getLogin() + "', '"
+                    + usuarioDados.getSenha() + "')";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -51,7 +53,8 @@ public class UsuarioBD {
 
         try {
             stmt = connection.createStatement();
-            ResultSet res = stmt.executeQuery("SELECT cod_usuario FROM usuario WHERE login = '" + usuarioDados.getLogin() + "';");
+            ResultSet res = stmt.executeQuery("SELECT cod_usuario FROM usuario"
+                    + " WHERE login = '" + usuarioDados.getLogin() + "';");
 
             res.next();
             dados = res.getString("cod_usuario");

@@ -2,14 +2,14 @@ package Dados;
 
 public class CalendarioDados {
 
-    private int usuario;
+    private int cod_usuario;
     private int ano;
     private int mes;
     private int dia;
     private String conteudo;
 
     public CalendarioDados() {
-        this.usuario = 0;
+        this.cod_usuario = 0;
         this.ano = 0;
         this.mes = 0;
         this.dia = 0;
@@ -23,12 +23,12 @@ public class CalendarioDados {
         this.conteudo = conteudo;
     }
 
-    public int getUsuario() {
-        return usuario;
+    public int getCod_usuario() {
+        return cod_usuario;
     }
 
-    public void setUsuario(int usuario) {
-        this.usuario = usuario;
+    public void setCod_usuario(int cod_usuario) {
+        this.cod_usuario = cod_usuario;
     }
 
     public int getAno() {

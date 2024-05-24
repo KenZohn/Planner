@@ -25,7 +25,8 @@ public class AcessoBD {
             ResultSet res = stmt.executeQuery("SELECT * FROM usuario");
 
             while (res.next()) {
-                if (usuarioDados.getLogin().compareTo(res.getString("login")) == 0 && usuarioDados.getSenha().compareTo(res.getString("senha")) == 0) {
+                if (usuarioDados.getLogin().compareTo(res.getString("login")) == 0
+                        && usuarioDados.getSenha().compareTo(res.getString("senha")) == 0) {
                     status = true;
                     break;
                 } else {
