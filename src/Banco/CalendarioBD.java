@@ -90,7 +90,8 @@ public class CalendarioBD {
         try {
             stmt = connection.createStatement();
             ResultSet res = stmt.executeQuery("SELECT * FROM calendario"
-                    + " WHERE ano = '" + calendarioDados.getAno()
+                    + " WHERE cod_usuario = '" + calendarioDados.getCod_usuario()
+                    + "' AND ano = '" + calendarioDados.getAno()
                     + "' AND mes = '" + calendarioDados.getMes()
                     + "' AND dia = '" + calendarioDados.getDia() + "';");
 
@@ -124,7 +125,8 @@ public class CalendarioBD {
         try {
             stmt = connection.createStatement();
             ResultSet res = stmt.executeQuery("SELECT * FROM calendario"
-                    + " WHERE ano = '" + calendarioDados.getAno()
+                    + " WHERE cod_usuario = '" + calendarioDados.getCod_usuario()
+                    + "' AND ano = '" + calendarioDados.getAno()
                     + "' AND mes = '" + calendarioDados.getMes()
                     + "' AND dia = '" + calendarioDados.getDia() + "';");
 
@@ -160,7 +162,8 @@ public class CalendarioBD {
             stmt = connection.createStatement();
 
             String sql = "DELETE FROM calendario"
-                    + " WHERE ano = '" + calendarioDados.getAno()
+                    + " WHERE cod_usuario = '" + calendarioDados.getCod_usuario()
+                    + "' AND ano = '" + calendarioDados.getAno()
                     + "' AND mes = '" + calendarioDados.getMes()
                     + "' AND dia = '" + calendarioDados.getDia() + "';";
 

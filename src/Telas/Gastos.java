@@ -594,7 +594,7 @@ public class Gastos extends javax.swing.JInternalFrame {
                 {null, null}
             },
             new String [] {
-                "Item", "Valor"
+                "Descrição", "Valor"
             }
         ));
         tabela.setRowHeight(30);

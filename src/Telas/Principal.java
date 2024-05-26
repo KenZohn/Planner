@@ -405,7 +405,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelMinimizarMouseExited
 
     private void panelInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseEntered
-        panelInicio.setBackground(new Color(255, 242, 215));
+            panelInicio.setBackground(new Color(255, 242, 215));
     }//GEN-LAST:event_panelInicioMouseEntered
 
     private void panelInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseExited

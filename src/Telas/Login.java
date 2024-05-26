@@ -27,12 +27,12 @@ public class Login extends javax.swing.JFrame {
         labelLogin = new javax.swing.JLabel();
         labelSenha = new javax.swing.JLabel();
         campoLogin = new javax.swing.JTextField();
-        campoSenha = new javax.swing.JTextField();
         botaoEntrar = new javax.swing.JButton();
         botaoCadastrar = new javax.swing.JButton();
         botaoRedefinir = new javax.swing.JButton();
         botaoFechar = new javax.swing.JPanel();
         iconeFechar = new javax.swing.JLabel();
+        campoSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(450, 310));
@@ -56,48 +56,57 @@ public class Login extends javax.swing.JFrame {
         panelPrincipal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 60, 20));
 
         campoLogin.setBackground(new java.awt.Color(0, 204, 255));
+        campoLogin.setMaximumSize(new java.awt.Dimension(150, 26));
+        campoLogin.setMinimumSize(new java.awt.Dimension(150, 26));
+        campoLogin.setPreferredSize(new java.awt.Dimension(150, 26));
         campoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoLoginActionPerformed(evt);
             }
         });
-        panelPrincipal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, 75, -1));
-
-        campoSenha.setBackground(new java.awt.Color(0, 204, 255));
-        panelPrincipal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 75, -1));
+        panelPrincipal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, -1));
 
         botaoEntrar.setBackground(new java.awt.Color(127, 215, 219));
         botaoEntrar.setFont(new java.awt.Font("Felix Titling", 0, 12)); // NOI18N
         botaoEntrar.setForeground(new java.awt.Color(0, 0, 0));
         botaoEntrar.setText("entrar");
+        botaoEntrar.setMaximumSize(new java.awt.Dimension(120, 40));
+        botaoEntrar.setMinimumSize(new java.awt.Dimension(120, 40));
+        botaoEntrar.setPreferredSize(new java.awt.Dimension(120, 40));
         botaoEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEntrarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 90, 40));
+        panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         botaoCadastrar.setBackground(new java.awt.Color(127, 215, 219));
         botaoCadastrar.setFont(new java.awt.Font("Felix Titling", 0, 12)); // NOI18N
         botaoCadastrar.setForeground(new java.awt.Color(0, 0, 0));
         botaoCadastrar.setText("Cadastrar");
+        botaoCadastrar.setMaximumSize(new java.awt.Dimension(120, 40));
+        botaoCadastrar.setMinimumSize(new java.awt.Dimension(120, 40));
+        botaoCadastrar.setPreferredSize(new java.awt.Dimension(120, 40));
         botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastrarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 250, 120, 40));
+        panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
         botaoRedefinir.setBackground(new java.awt.Color(127, 215, 219));
         botaoRedefinir.setFont(new java.awt.Font("Felix Titling", 0, 12)); // NOI18N
         botaoRedefinir.setForeground(new java.awt.Color(0, 0, 0));
         botaoRedefinir.setText("redefinir");
+        botaoRedefinir.setMaximumSize(new java.awt.Dimension(120, 40));
+        botaoRedefinir.setMinimumSize(new java.awt.Dimension(120, 40));
+        botaoRedefinir.setPreferredSize(new java.awt.Dimension(120, 40));
         botaoRedefinir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoRedefinirActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoRedefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 310, 110, 40));
+        panelPrincipal.add(botaoRedefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
         botaoFechar.setBackground(new java.awt.Color(255, 255, 204));
         botaoFechar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -126,6 +135,12 @@ public class Login extends javax.swing.JFrame {
         );
 
         panelPrincipal.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, 30));
+
+        campoSenha.setBackground(new java.awt.Color(0, 204, 255));
+        campoSenha.setMaximumSize(new java.awt.Dimension(150, 26));
+        campoSenha.setMinimumSize(new java.awt.Dimension(150, 26));
+        campoSenha.setPreferredSize(new java.awt.Dimension(150, 26));
+        panelPrincipal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 540));
 
@@ -184,7 +199,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JPanel botaoFechar;
     private javax.swing.JButton botaoRedefinir;
     private javax.swing.JTextField campoLogin;
-    private javax.swing.JTextField campoSenha;
+    private javax.swing.JPasswordField campoSenha;
     private javax.swing.JLabel iconeFechar;
     private javax.swing.JLabel imagemLogo;
     private javax.swing.JLabel labelLogin;
