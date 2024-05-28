@@ -9,7 +9,7 @@ public class Gastos extends javax.swing.JInternalFrame {
 
     private int mes;
     private double total;
-    private String tipo;
+    private String tipo, testevar;
 
     public Gastos() {
         initComponents();
