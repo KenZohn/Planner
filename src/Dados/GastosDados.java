@@ -9,7 +9,7 @@ public class GastosDados {
     private int linha_item;
     private String descricao;
     private float valor;
-
+    
     public GastosDados() {
         this.cod_usuario = 0;
         this.tipo_gastos = null;

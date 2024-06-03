@@ -21,7 +21,7 @@ public class GastosBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO calendario(cod_usuario,tipo_gasstos, ano, mes,linha_item, descricao, valor) " + "VALUES ('"
+            String sql = "INSERT INTO gastos(cod_usuario,tipo_gastos, ano, mes,linha_item, descricao, valor) " + "VALUES ('"
                     + gastosDados.getCod_usuario() + "', '"
                     + gastosDados.getTipo_gastos() + "', '"
                     + gastosDados.getAno() + "', '"
@@ -57,7 +57,8 @@ public class GastosBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "UPDATE calendario SET conteudo = '" + gastosDados.getValor()
+            String sql = "UPDATE gastos SET valor = '" + gastosDados.getValor()
+                    + "', descricao = '" + gastosDados.getDescricao()
                     + "' WHERE cod_usuario = '" + gastosDados.getCod_usuario()
                     + "' AND ano = '" + gastosDados.getAno()
                     + "' AND mes = '" + gastosDados.getMes()
@@ -127,13 +128,13 @@ public class GastosBD {
         try {
             stmt = connection.createStatement();
             ResultSet res = stmt.executeQuery("SELECT * FROM gastos"
-                    + " WHERE cod_usuario = '" + gastosDados.getAno()
+                    + " WHERE cod_usuario = '" + gastosDados.getCod_usuario()
                     + "' AND mes = '" + gastosDados.getMes()
                     + "' AND linha_item= '" + gastosDados.getLinha_item()
                     + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "';");
 
             res.next();
-            dados = res.getString("");
+            dados = res.getString("valor");
 
             System.out.println("SQL: " + res);
 
@@ -188,5 +189,109 @@ public class GastosBD {
             }
         }
         return status;
+    }
+
+    public String buscarLinha_item(GastosDados gastosDados) {
+        String dados = "";
+        System.out.println("Buscar gastos");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado para buscar linha");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT MAX(linha_item) FROM gastos"
+                    + " WHERE cod_usuario = '" + gastosDados.getCod_usuario()
+                    + "' AND mes = '" + gastosDados.getMes()
+                    + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "';");
+
+            res.next();
+            dados = res.getString(1);
+
+            System.out.println("SQL: " + res);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return dados;
+    }
+
+    public String buscarGastosDescricao(GastosDados gastosDados) {
+        String dados = "";
+        System.out.println("Buscar gastos");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado para buscar");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT descricao FROM gastos"
+                    + " WHERE cod_usuario = '" + gastosDados.getCod_usuario()
+                    + "' AND mes = '" + gastosDados.getMes()
+                    + "' AND linha_item = '" + gastosDados.getLinha_item()
+                    + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "';");
+
+            res.next();
+            dados = res.getString(1);
+
+            System.out.println("SQL: " + res);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return dados;
+    }
+
+    public String buscarGastosValor(GastosDados gastosDados) {
+        String dados = "";
+        System.out.println("Buscar gastos");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado para buscar");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT valor FROM gastos"
+                    + " WHERE cod_usuario = '" + gastosDados.getCod_usuario()
+                    + "' AND mes = '" + gastosDados.getMes()
+                    + "' AND linha_item = '" + gastosDados.getLinha_item()
+                    + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "';");
+
+            res.next();
+            dados = res.getString(1);
+
+            System.out.println("SQL: " + res);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return dados;
     }
 }

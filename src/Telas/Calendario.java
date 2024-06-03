@@ -80,7 +80,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -392,15 +392,15 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
     }
 
-    public void UltimoDiaMes(int ano, int mes) throws ParseException {
+    public void ultimoDiaMes(int ano, int mes) throws ParseException {
         Month monthObj = Month.of(mes);
         LocalDate date = LocalDate.of(ano, mes, monthObj.maxLength());
         ultimoDia = Integer.parseInt(date.format(DateTimeFormatter.ofPattern("dd", Locale.US)));
-        primeiroDiaSemana = DiaSemana(date.format(DateTimeFormatter.ofPattern("01/MM/yyyy", Locale.US)));
-        AtualizarData();
+        primeiroDiaSemana = diaSemana(date.format(DateTimeFormatter.ofPattern("01/MM/yyyy", Locale.US)));
+        atualizarData();
     }
 
-    public String DiaSemana(String DiaMesAno) throws ParseException {
+    public String diaSemana(String DiaMesAno) throws ParseException {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy", java.util.Locale.ENGLISH);
         Date myDate = sdf.parse(DiaMesAno);
         sdf.applyPattern("EEE");
@@ -408,7 +408,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         return sMyDate;
     }
 
-    public void AtualizarData() {
+    public void atualizarData() {
         if (primeiroDiaSemana.equals("Sun")) {
             dia1.setText("1");
             dia2.setText("2");
@@ -759,6 +759,12 @@ public class Calendario extends javax.swing.JInternalFrame {
         calendarioDados.setConteudo(conteudo);
 
         textAreaCalendario.setText(calendarioBD.buscarCalendario(calendarioDados));
+    }
+    
+    public void destacarDias() {
+        if (!"".equals(dia1.getText())) {
+            
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -1801,7 +1807,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Janeiro");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1816,7 +1822,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Fevereiro");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1831,7 +1837,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Março");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1846,7 +1852,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Abril");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1861,7 +1867,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Maio");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1876,7 +1882,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Junho");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1891,7 +1897,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Julho");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1906,7 +1912,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Agosto");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1921,7 +1927,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Setembro");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1936,7 +1942,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Outubro");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1951,7 +1957,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Novembro");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1966,7 +1972,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         labelMes.setText("Dezembro");
 
         try {
-            UltimoDiaMes(ano, mes);
+            ultimoDiaMes(ano, mes);
         } catch (ParseException ex) {
             Logger.getLogger(Calendario.class.getName()).log(Level.SEVERE, null, ex);
         }

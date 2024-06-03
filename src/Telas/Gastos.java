@@ -1,5 +1,7 @@
 package Telas;
 
+import Banco.GastosBD;
+import Dados.GastosDados;
 import java.awt.Color;
 import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
@@ -7,9 +9,12 @@ import javax.swing.table.DefaultTableModel;
 
 public class Gastos extends javax.swing.JInternalFrame {
 
-    private int mes;
+    private int mes, ano, cod_usuario;
+    private float valor;
     private double total;
-    private String tipo, testevar;
+    private String tipo_gastos;
+    private String descricao;
+    private int qtd_linha;
 
     public Gastos() {
         initComponents();
@@ -19,11 +24,13 @@ public class Gastos extends javax.swing.JInternalFrame {
 
         desselecionar();
         panelFixo.setBackground(new Color(175, 234, 226));
-        tipo = "fixo";
+        tipo_gastos = "fixo";
 
         desselecionarMes();
         panelJaneiro.setBackground(new Color(175, 234, 226));
         mes = 1;
+
+        buscarDados();
     }
 
     public void desselecionar() {
@@ -47,6 +54,46 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelOutubro.setBackground(new Color(56, 208, 187));
         panelNovembro.setBackground(new Color(56, 208, 187));
         panelDezembro.setBackground(new Color(56, 208, 187));
+    }
+
+    public void buscarDados() {
+        GastosDados gastosDados = new GastosDados();
+        GastosBD gastosBD = new GastosBD();
+
+        gastosDados.setCod_usuario(cod_usuario);
+        gastosDados.setTipo_gastos(tipo_gastos);
+        gastosDados.setAno(ano);
+        gastosDados.setMes(mes);
+        if (gastosBD.buscarLinha_item(gastosDados) != null) {
+            qtd_linha = Integer.parseInt(gastosBD.buscarLinha_item(gastosDados));
+            /*for (int i = 0; i < tabela.getRowCount(); i++) {
+                ((DefaultTableModel) tabela.getModel()).removeRow(i);
+            }*/
+            DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+            model.setRowCount(0);
+            model.addRow(new Object[]{"", ""});
+            model.addRow(new Object[]{"", ""});
+            model.addRow(new Object[]{"", ""});
+            model.addRow(new Object[]{"", ""});
+            for (int i = 0; i <= qtd_linha; i++) {
+                gastosDados.setLinha_item(i);
+                gastosDados.setDescricao(descricao);
+                gastosDados.setValor(valor);
+
+                descricao = gastosBD.buscarGastosDescricao(gastosDados);
+                valor = Float.parseFloat(gastosBD.buscarGastosValor(gastosDados));
+
+                tabela.getModel().setValueAt(descricao, i, 0);
+                tabela.getModel().setValueAt(valor, i, 1);
+            }
+        } else {
+            DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+            model.setRowCount(0);
+            model.addRow(new Object[]{"", ""});
+            model.addRow(new Object[]{"", ""});
+            model.addRow(new Object[]{"", ""});
+            model.addRow(new Object[]{"", ""});
+        }
     }
 
     @SuppressWarnings("unchecked")
@@ -101,6 +148,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         TotalFixo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
+        botaoSalvar = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(141, 231, 219));
         setBorder(null);
@@ -556,35 +604,33 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelPrincipal.setPreferredSize(new java.awt.Dimension(1152, 468));
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        botaoSomar.setBackground(new java.awt.Color(204, 0, 153));
         botaoSomar.setText("somar");
         botaoSomar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSomarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoSomar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 230, -1, -1));
+        panelPrincipal.add(botaoSomar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, -1, -1));
 
-        botaoAdicionarLinha.setText("+linha");
+        botaoAdicionarLinha.setBackground(new java.awt.Color(204, 0, 153));
+        botaoAdicionarLinha.setText("+ linha");
         botaoAdicionarLinha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoAdicionarLinhaActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoAdicionarLinha, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 290, -1, -1));
+        panelPrincipal.add(botaoAdicionarLinha, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, -1, -1));
 
         campoTotal.setEditable(false);
-        campoTotal.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoTotalActionPerformed(evt);
-            }
-        });
-        panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 350, 100, 40));
+        campoTotal.setBackground(new java.awt.Color(0, 153, 153));
+        panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 210, 100, 40));
 
         TotalFixo.setForeground(new java.awt.Color(0, 0, 0));
         TotalFixo.setText("Total :");
-        panelPrincipal.add(TotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 330, 40, -1));
+        panelPrincipal.add(TotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 40, -1));
 
-        tabela.setBackground(new java.awt.Color(51, 255, 204));
+        tabela.setBackground(new java.awt.Color(56, 208, 187));
         tabela.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -611,7 +657,16 @@ public class Gastos extends javax.swing.JInternalFrame {
             tabela.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        panelPrincipal.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 320, 350));
+        panelPrincipal.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 560, 350));
+
+        botaoSalvar.setBackground(new java.awt.Color(204, 0, 153));
+        botaoSalvar.setText("salvar");
+        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarActionPerformed(evt);
+            }
+        });
+        panelPrincipal.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, -1, -1));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
@@ -621,103 +676,119 @@ public class Gastos extends javax.swing.JInternalFrame {
     private void panelFixoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFixoMouseClicked
         desselecionar();
         panelFixo.setBackground(new Color(175, 234, 226));
-        tipo = "fixo";
+        tipo_gastos = "fixo";
+        buscarDados();
     }//GEN-LAST:event_panelFixoMouseClicked
 
     private void panelMercadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMercadoMouseClicked
         desselecionar();
         panelMercado.setBackground(new Color(175, 234, 226));
-        tipo = "mercado";
+        tipo_gastos = "mercado";
+        buscarDados();
     }//GEN-LAST:event_panelMercadoMouseClicked
 
     private void panelTotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTotalMouseClicked
         desselecionar();
         panelTotal.setBackground(new Color(175, 234, 226));
-        tipo = "total";
+        tipo_gastos = "total";
     }//GEN-LAST:event_panelTotalMouseClicked
 
     private void panelLazerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLazerMouseClicked
         desselecionar();
         panelLazer.setBackground(new Color(175, 234, 226));
-        tipo = "lazer";
+        tipo_gastos = "lazer";
+        buscarDados();
     }//GEN-LAST:event_panelLazerMouseClicked
 
     private void panelOutrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutrosMouseClicked
         desselecionar();
         panelOutros.setBackground(new Color(175, 234, 226));
-        tipo = "outros";
+        tipo_gastos = "outros";
+        buscarDados();
     }//GEN-LAST:event_panelOutrosMouseClicked
 
     private void panelJaneiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJaneiroMouseClicked
         desselecionarMes();
         panelJaneiro.setBackground(new Color(175, 234, 226));
         mes = 1;
+        buscarDados();
     }//GEN-LAST:event_panelJaneiroMouseClicked
 
     private void panelFevereiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFevereiroMouseClicked
         desselecionarMes();
         panelFevereiro.setBackground(new Color(175, 234, 226));
         mes = 2;
+        buscarDados();
     }//GEN-LAST:event_panelFevereiroMouseClicked
 
     private void panelMarcoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMarcoMouseClicked
         desselecionarMes();
         panelMarco.setBackground(new Color(175, 234, 226));
         mes = 3;
+        buscarDados();
     }//GEN-LAST:event_panelMarcoMouseClicked
 
     private void panelAbrilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAbrilMouseClicked
         desselecionarMes();
         panelAbril.setBackground(new Color(175, 234, 226));
         mes = 4;
+        buscarDados();
     }//GEN-LAST:event_panelAbrilMouseClicked
 
     private void panelMaioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMaioMouseClicked
         desselecionarMes();
         panelMaio.setBackground(new Color(175, 234, 226));
         mes = 5;
+        buscarDados();
     }//GEN-LAST:event_panelMaioMouseClicked
 
     private void panelJunhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJunhoMouseClicked
         desselecionarMes();
         panelJunho.setBackground(new Color(175, 234, 226));
         mes = 6;
+        buscarDados();
     }//GEN-LAST:event_panelJunhoMouseClicked
 
     private void panelJulhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJulhoMouseClicked
         desselecionarMes();
         panelJulho.setBackground(new Color(175, 234, 226));
         mes = 7;
+        buscarDados();
     }//GEN-LAST:event_panelJulhoMouseClicked
 
     private void panelAgostoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgostoMouseClicked
         desselecionarMes();
         panelAgosto.setBackground(new Color(175, 234, 226));
         mes = 8;
+        buscarDados();
     }//GEN-LAST:event_panelAgostoMouseClicked
 
     private void panelSetembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSetembroMouseClicked
         desselecionarMes();
         panelSetembro.setBackground(new Color(175, 234, 226));
         mes = 9;
+        buscarDados();
     }//GEN-LAST:event_panelSetembroMouseClicked
 
     private void panelOutubroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutubroMouseClicked
         desselecionarMes();
         panelOutubro.setBackground(new Color(175, 234, 226));
         mes = 10;
+        buscarDados();
     }//GEN-LAST:event_panelOutubroMouseClicked
 
     private void panelNovembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNovembroMouseClicked
         desselecionarMes();
         panelNovembro.setBackground(new Color(175, 234, 226));
         mes = 11;
+        buscarDados();
     }//GEN-LAST:event_panelNovembroMouseClicked
 
     private void panelDezembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDezembroMouseClicked
         desselecionarMes();
         panelDezembro.setBackground(new Color(175, 234, 226));
         mes = 12;
+        buscarDados();
     }//GEN-LAST:event_panelDezembroMouseClicked
 
     private void tabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaKeyReleased
@@ -741,18 +812,14 @@ public class Gastos extends javax.swing.JInternalFrame {
         campoTotal.setText(total + "");
     }//GEN-LAST:event_botaoSomarActionPerformed
 
-    private void campoTotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoTotalActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoTotalActionPerformed
-
     private void panelFixoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFixoMouseEntered
-        if (tipo != "fixo") {
+        if (tipo_gastos != "fixo") {
             panelFixo.setBackground(new Color(111, 233, 216));
         }
     }//GEN-LAST:event_panelFixoMouseEntered
 
     private void panelFixoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFixoMouseExited
-        if (tipo != "fixo") {
+        if (tipo_gastos != "fixo") {
             panelFixo.setBackground(new Color(90, 215, 198));
         } else {
             panelFixo.setBackground(new Color(175, 234, 226));
@@ -760,13 +827,13 @@ public class Gastos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelFixoMouseExited
 
     private void panelMercadoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMercadoMouseEntered
-        if (tipo != "mercado") {
+        if (tipo_gastos != "mercado") {
             panelMercado.setBackground(new Color(111, 233, 216));
         }
     }//GEN-LAST:event_panelMercadoMouseEntered
 
     private void panelMercadoMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMercadoMouseExited
-        if (tipo != "mercado") {
+        if (tipo_gastos != "mercado") {
             panelMercado.setBackground(new Color(90, 215, 198));
         } else {
             panelMercado.setBackground(new Color(175, 234, 226));
@@ -774,13 +841,13 @@ public class Gastos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelMercadoMouseExited
 
     private void panelLazerMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLazerMouseEntered
-        if (tipo != "lazer") {
+        if (tipo_gastos != "lazer") {
             panelLazer.setBackground(new Color(111, 233, 216));
         }
     }//GEN-LAST:event_panelLazerMouseEntered
 
     private void panelLazerMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLazerMouseExited
-        if (tipo != "lazer") {
+        if (tipo_gastos != "lazer") {
             panelLazer.setBackground(new Color(90, 215, 198));
         } else {
             panelLazer.setBackground(new Color(175, 234, 226));
@@ -788,13 +855,13 @@ public class Gastos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelLazerMouseExited
 
     private void panelOutrosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutrosMouseEntered
-        if (tipo != "outros") {
+        if (tipo_gastos != "outros") {
             panelOutros.setBackground(new Color(111, 233, 216));
         }
     }//GEN-LAST:event_panelOutrosMouseEntered
 
     private void panelOutrosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutrosMouseExited
-        if (tipo != "outros") {
+        if (tipo_gastos != "outros") {
             panelOutros.setBackground(new Color(90, 215, 198));
         } else {
             panelOutros.setBackground(new Color(175, 234, 226));
@@ -802,13 +869,13 @@ public class Gastos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelOutrosMouseExited
 
     private void panelTotalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTotalMouseEntered
-        if (tipo != "total") {
+        if (tipo_gastos != "total") {
             panelTotal.setBackground(new Color(111, 233, 216));
         }
     }//GEN-LAST:event_panelTotalMouseEntered
 
     private void panelTotalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTotalMouseExited
-        if (tipo != "total") {
+        if (tipo_gastos != "total") {
             panelTotal.setBackground(new Color(90, 215, 198));
         } else {
             panelTotal.setBackground(new Color(175, 234, 226));
@@ -983,10 +1050,48 @@ public class Gastos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_panelDezembroMouseExited
 
+    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
+        GastosDados gastosDados = new GastosDados();
+        GastosBD gastosBD = new GastosBD();
+        for (int i = 0; i < tabela.getRowCount(); i++) {
+            if (tabela.getModel().getValueAt(i, 0) == null || tabela.getModel().getValueAt(i, 0) == "") {
+                descricao = "";
+            } else {
+                descricao = tabela.getModel().getValueAt(i, 0).toString();
+            }
+            if (tabela.getModel().getValueAt(i, 1) == null || tabela.getModel().getValueAt(i, 1) == "") {
+                valor = 0;
+            } else {
+                valor = Float.parseFloat(tabela.getModel().getValueAt(i, 1).toString());
+            }
+
+            gastosDados.setCod_usuario(cod_usuario);
+            gastosDados.setTipo_gastos(tipo_gastos);
+            gastosDados.setAno(ano);
+            gastosDados.setMes(mes);
+            gastosDados.setLinha_item(i);
+            gastosDados.setDescricao(descricao);
+            gastosDados.setValor(valor);
+
+            if (descricao != "" && valor != 0) {
+                if (gastosBD.verificarGastos(gastosDados) == null) {
+                    gastosBD.inserirGastos(gastosDados);
+                } else {
+                    gastosBD.atualizarGastos(gastosDados);
+                }
+            }
+
+            /*if (descricao.equals("")) {
+                gastosBD.excluirGastos(gastosDados);
+            }*/
+        }
+    }//GEN-LAST:event_botaoSalvarActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TotalFixo;
     private javax.swing.JButton botaoAdicionarLinha;
+    private javax.swing.JButton botaoSalvar;
     private javax.swing.JButton botaoSomar;
     private javax.swing.JTextField campoTotal;
     private javax.swing.JLabel iconeFixo;
