@@ -35,10 +35,14 @@ public class Principal extends javax.swing.JFrame {
         panelGastos = new javax.swing.JPanel();
         labelGastos = new javax.swing.JLabel();
         iconeGastos = new javax.swing.JLabel();
+        panelDados = new javax.swing.JPanel();
+        labelDados = new javax.swing.JLabel();
+        iconeDados = new javax.swing.JLabel();
         panelFechar = new javax.swing.JPanel();
         iconeFechar = new javax.swing.JLabel();
         panelMinimizar = new javax.swing.JPanel();
         iconeFechar1 = new javax.swing.JLabel();
+        panelDeslogar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1152, 648));
@@ -68,11 +72,11 @@ public class Principal extends javax.swing.JFrame {
 
         panelPrincipal.add(jDesktopPane, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 1152, 588));
 
-        panelMenu.setBackground(new java.awt.Color(230, 230, 230));
+        panelMenu.setBackground(new java.awt.Color(255, 255, 255));
         panelMenu.setPreferredSize(new java.awt.Dimension(1152, 60));
         panelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelAno.setBackground(new java.awt.Color(64, 64, 64));
+        panelAno.setBackground(new java.awt.Color(153, 153, 255));
         panelAno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAno.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -236,7 +240,44 @@ public class Principal extends javax.swing.JFrame {
 
         panelMenu.add(panelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 130, 60));
 
-        panelFechar.setBackground(new java.awt.Color(230, 230, 230));
+        panelDados.setBackground(new java.awt.Color(224, 198, 250));
+        panelDados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelDadosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelDadosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelDadosMouseExited(evt);
+            }
+        });
+        panelDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelDados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labelDados.setForeground(new java.awt.Color(0, 0, 0));
+        labelDados.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelDados.setText("Dados");
+        labelDados.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        panelDados.add(labelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+
+        iconeDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Outros (40px).png"))); // NOI18N
+        iconeDados.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iconeDadosMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                iconeDadosMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                iconeDadosMouseExited(evt);
+            }
+        });
+        panelDados.add(iconeDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
+
+        panelMenu.add(panelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 130, 60));
+
+        panelFechar.setBackground(new java.awt.Color(255, 255, 255));
         panelFechar.setMaximumSize(new java.awt.Dimension(45, 30));
         panelFechar.setMinimumSize(new java.awt.Dimension(45, 30));
         panelFechar.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -251,32 +292,18 @@ public class Principal extends javax.swing.JFrame {
                 panelFecharMouseExited(evt);
             }
         });
+        panelFechar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         iconeFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/letra-x.png"))); // NOI18N
         iconeFechar.setText("jLabel2");
         iconeFechar.setMaximumSize(new java.awt.Dimension(30, 30));
         iconeFechar.setMinimumSize(new java.awt.Dimension(30, 30));
         iconeFechar.setPreferredSize(new java.awt.Dimension(30, 30));
-
-        javax.swing.GroupLayout panelFecharLayout = new javax.swing.GroupLayout(panelFechar);
-        panelFechar.setLayout(panelFecharLayout);
-        panelFecharLayout.setHorizontalGroup(
-            panelFecharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelFecharLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(iconeFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(9, Short.MAX_VALUE))
-        );
-        panelFecharLayout.setVerticalGroup(
-            panelFecharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelFecharLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(iconeFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        panelFechar.add(iconeFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
         panelMenu.add(panelFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1108, 0, -1, -1));
 
-        panelMinimizar.setBackground(new java.awt.Color(230, 230, 230));
+        panelMinimizar.setBackground(new java.awt.Color(255, 255, 255));
         panelMinimizar.setMaximumSize(new java.awt.Dimension(45, 30));
         panelMinimizar.setMinimumSize(new java.awt.Dimension(45, 30));
         panelMinimizar.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -291,30 +318,27 @@ public class Principal extends javax.swing.JFrame {
                 panelMinimizarMouseExited(evt);
             }
         });
+        panelMinimizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         iconeFechar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Minimizar (30px).png"))); // NOI18N
         iconeFechar1.setText("jLabel2");
         iconeFechar1.setMaximumSize(new java.awt.Dimension(30, 30));
         iconeFechar1.setMinimumSize(new java.awt.Dimension(30, 30));
         iconeFechar1.setPreferredSize(new java.awt.Dimension(30, 30));
-
-        javax.swing.GroupLayout panelMinimizarLayout = new javax.swing.GroupLayout(panelMinimizar);
-        panelMinimizar.setLayout(panelMinimizarLayout);
-        panelMinimizarLayout.setHorizontalGroup(
-            panelMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelMinimizarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(iconeFechar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        panelMinimizarLayout.setVerticalGroup(
-            panelMinimizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelMinimizarLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(iconeFechar1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
+        panelMinimizar.add(iconeFechar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
         panelMenu.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 0, -1, -1));
+
+        panelDeslogar.setBackground(new java.awt.Color(255, 255, 255));
+        panelDeslogar.setForeground(new java.awt.Color(0, 0, 0));
+        panelDeslogar.setText("sair da conta");
+        panelDeslogar.setBorder(null);
+        panelDeslogar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                panelDeslogarActionPerformed(evt);
+            }
+        });
+        panelMenu.add(panelDeslogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 140, 30));
 
         panelPrincipal.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -389,7 +413,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelFecharMouseEntered
 
     private void panelFecharMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFecharMouseExited
-        panelFechar.setBackground(new Color(230, 230, 230));
+        panelFechar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelFecharMouseExited
 
     private void panelMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseClicked
@@ -397,15 +421,15 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelMinimizarMouseClicked
 
     private void panelMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseEntered
-        panelMinimizar.setBackground(new Color(248, 248, 248));
+        panelMinimizar.setBackground(new Color(200, 200, 200));
     }//GEN-LAST:event_panelMinimizarMouseEntered
 
     private void panelMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseExited
-        panelMinimizar.setBackground(new Color(230, 230, 230));
+        panelMinimizar.setBackground(new Color(255, 255, 255));
     }//GEN-LAST:event_panelMinimizarMouseExited
 
     private void panelInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseEntered
-            panelInicio.setBackground(new Color(255, 242, 215));
+        panelInicio.setBackground(new Color(255, 242, 215));
     }//GEN-LAST:event_panelInicioMouseEntered
 
     private void panelInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseExited
@@ -468,6 +492,40 @@ public class Principal extends javax.swing.JFrame {
         panelGastos.setBackground(new Color(141, 231, 219));
     }//GEN-LAST:event_iconeGastosMouseExited
 
+    private void panelDeslogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panelDeslogarActionPerformed
+        Login telaLogin = new Login();
+        telaLogin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_panelDeslogarActionPerformed
+
+    private void iconeDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeDadosMouseClicked
+        Dados dados = new Dados();
+        jDesktopPane.removeAll();
+        jDesktopPane.add(dados).setVisible(true);
+    }//GEN-LAST:event_iconeDadosMouseClicked
+
+    private void iconeDadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeDadosMouseEntered
+        panelDados.setBackground(new Color(235, 219, 252));
+    }//GEN-LAST:event_iconeDadosMouseEntered
+
+    private void iconeDadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeDadosMouseExited
+        panelDados.setBackground(new Color(224, 198, 250));
+    }//GEN-LAST:event_iconeDadosMouseExited
+
+    private void panelDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDadosMouseClicked
+        Dados dados = new Dados();
+        jDesktopPane.removeAll();
+        jDesktopPane.add(dados).setVisible(true);
+    }//GEN-LAST:event_panelDadosMouseClicked
+
+    private void panelDadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDadosMouseEntered
+        panelDados.setBackground(new Color(235, 219, 252));
+    }//GEN-LAST:event_panelDadosMouseEntered
+
+    private void panelDadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDadosMouseExited
+        panelDados.setBackground(new Color(224, 198, 250));
+    }//GEN-LAST:event_panelDadosMouseExited
+
     public static void main(String args[]) {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -480,6 +538,7 @@ public class Principal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel iconeAnotacoes;
     private javax.swing.JLabel iconeCalendario;
+    private javax.swing.JLabel iconeDados;
     private javax.swing.JLabel iconeFechar;
     private javax.swing.JLabel iconeFechar1;
     private javax.swing.JLabel iconeGastos;
@@ -488,11 +547,14 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel labelAno;
     private javax.swing.JLabel labelAnotacoes;
     private javax.swing.JLabel labelCalendario;
+    private javax.swing.JLabel labelDados;
     private javax.swing.JLabel labelGastos;
     private javax.swing.JLabel labelInicio;
     private javax.swing.JPanel panelAno;
     private javax.swing.JPanel panelAnotacoes;
     private javax.swing.JPanel panelCalendario;
+    private javax.swing.JPanel panelDados;
+    private javax.swing.JButton panelDeslogar;
     private javax.swing.JPanel panelFechar;
     private javax.swing.JPanel panelGastos;
     private javax.swing.JPanel panelInicio;

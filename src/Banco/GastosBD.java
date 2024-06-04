@@ -151,6 +151,41 @@ public class GastosBD {
         }
         return dados;
     }
+    
+    public String verificarGastosDescricao(GastosDados gastosDados) {
+        String dados = "";
+        System.out.println("Verificar gastos");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado para verificar descricao");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT * FROM gastos"
+                    + " WHERE cod_usuario = '" + gastosDados.getCod_usuario()
+                    + "' AND mes = '" + gastosDados.getMes()
+                    + "' AND linha_item= '" + gastosDados.getLinha_item()
+                    + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "';");
+
+            res.next();
+            dados = res.getString("descricao");
+
+            System.out.println("SQL: " + res);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return dados;
+    }
 
     public boolean excluirGastos(GastosDados gastosDados) {
         boolean status = true;
@@ -165,7 +200,7 @@ public class GastosBD {
             stmt = connection.createStatement();
 
             String sql = "DELETE FROM gastos"
-                    + " WHERE ano = '" + gastosDados.getAno()
+                    + " WHERE cod_usuario = '" + gastosDados.getCod_usuario()
                     + "' AND mes = '" + gastosDados.getMes()
                     + "' AND linha_item = '" + gastosDados.getLinha_item()
                     + "' AND tipo_gastos = '" + gastosDados.getTipo_gastos() + "'";

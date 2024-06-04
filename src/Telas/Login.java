@@ -40,6 +40,9 @@ public class Login extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelPrincipal.setBackground(new java.awt.Color(255, 234, 189));
+        panelPrincipal.setMaximumSize(new java.awt.Dimension(709, 415));
+        panelPrincipal.setMinimumSize(new java.awt.Dimension(709, 415));
+        panelPrincipal.setPreferredSize(new java.awt.Dimension(709, 415));
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         imagemLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo (300px).jpg"))); // NOI18N
@@ -106,7 +109,7 @@ public class Login extends javax.swing.JFrame {
                 botaoRedefinirActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoRedefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
+        panelPrincipal.add(botaoRedefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 320, -1, -1));
 
         botaoFechar.setBackground(new java.awt.Color(255, 255, 204));
         botaoFechar.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -114,27 +117,14 @@ public class Login extends javax.swing.JFrame {
                 botaoFecharMouseClicked(evt);
             }
         });
+        botaoFechar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         iconeFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/letra-x.png"))); // NOI18N
         iconeFechar.setText("jLabel2");
         iconeFechar.setPreferredSize(new java.awt.Dimension(30, 30));
+        botaoFechar.add(iconeFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
-        javax.swing.GroupLayout botaoFecharLayout = new javax.swing.GroupLayout(botaoFechar);
-        botaoFechar.setLayout(botaoFecharLayout);
-        botaoFecharLayout.setHorizontalGroup(
-            botaoFecharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botaoFecharLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(iconeFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-        botaoFecharLayout.setVerticalGroup(
-            botaoFecharLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, botaoFecharLayout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(iconeFechar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-
-        panelPrincipal.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 30, 30));
+        panelPrincipal.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 0, 30, 30));
 
         campoSenha.setBackground(new java.awt.Color(0, 204, 255));
         campoSenha.setMaximumSize(new java.awt.Dimension(150, 26));
@@ -142,7 +132,7 @@ public class Login extends javax.swing.JFrame {
         campoSenha.setPreferredSize(new java.awt.Dimension(150, 26));
         panelPrincipal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, -1, -1));
 
-        getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 540));
+        getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -185,7 +175,6 @@ public class Login extends javax.swing.JFrame {
     private void botaoCadastrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastrarActionPerformed
         cadastrar.setVisible(true);
         dispose();
-
     }//GEN-LAST:event_botaoCadastrarActionPerformed
 
     private void botaoRedefinirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRedefinirActionPerformed

@@ -3,6 +3,7 @@ package Telas;
 import Banco.GastosBD;
 import Dados.GastosDados;
 import java.awt.Color;
+import java.awt.Font;
 import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
@@ -21,6 +22,8 @@ public class Gastos extends javax.swing.JInternalFrame {
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         //tira a barra que ja vem Jinternalframe
+        
+        tabela.getTableHeader().setFont(new Font( "Arial" , Font.BOLD, 20 ));
 
         desselecionar();
         panelFixo.setBackground(new Color(175, 234, 226));
@@ -31,6 +34,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 1;
 
         buscarDados();
+        somarTabela();
     }
 
     public void desselecionar() {
@@ -64,18 +68,15 @@ public class Gastos extends javax.swing.JInternalFrame {
         gastosDados.setTipo_gastos(tipo_gastos);
         gastosDados.setAno(ano);
         gastosDados.setMes(mes);
+
+        DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+        model.setRowCount(0);
+        model.addRow(new Object[]{"", ""});
+
         if (gastosBD.buscarLinha_item(gastosDados) != null) {
             qtd_linha = Integer.parseInt(gastosBD.buscarLinha_item(gastosDados));
-            /*for (int i = 0; i < tabela.getRowCount(); i++) {
-                ((DefaultTableModel) tabela.getModel()).removeRow(i);
-            }*/
-            DefaultTableModel model = (DefaultTableModel) tabela.getModel();
-            model.setRowCount(0);
-            model.addRow(new Object[]{"", ""});
-            model.addRow(new Object[]{"", ""});
-            model.addRow(new Object[]{"", ""});
-            model.addRow(new Object[]{"", ""});
             for (int i = 0; i <= qtd_linha; i++) {
+                model.addRow(new Object[]{"", ""});
                 gastosDados.setLinha_item(i);
                 gastosDados.setDescricao(descricao);
                 gastosDados.setValor(valor);
@@ -86,16 +87,18 @@ public class Gastos extends javax.swing.JInternalFrame {
                 tabela.getModel().setValueAt(descricao, i, 0);
                 tabela.getModel().setValueAt(valor, i, 1);
             }
-        } else {
-            DefaultTableModel model = (DefaultTableModel) tabela.getModel();
-            model.setRowCount(0);
-            model.addRow(new Object[]{"", ""});
-            model.addRow(new Object[]{"", ""});
-            model.addRow(new Object[]{"", ""});
-            model.addRow(new Object[]{"", ""});
         }
     }
 
+    public void somarTabela() {
+        total = 0;
+        for (int i = 0; i < tabela.getRowCount(); i++) {
+            if (tabela.getModel().getValueAt(i, 1) != null && !"".equals(tabela.getModel().getValueAt(i, 1).toString())) {
+                total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
+            }
+        }
+        campoTotal.setText(total + "");
+    }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -142,8 +145,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         labelTotal = new javax.swing.JLabel();
         iconeTotal = new javax.swing.JLabel();
         panelPrincipal = new javax.swing.JPanel();
-        botaoSomar = new javax.swing.JButton();
-        botaoAdicionarLinha = new javax.swing.JButton();
         campoTotal = new javax.swing.JTextField();
         TotalFixo = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -604,33 +605,18 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelPrincipal.setPreferredSize(new java.awt.Dimension(1152, 468));
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        botaoSomar.setBackground(new java.awt.Color(204, 0, 153));
-        botaoSomar.setText("somar");
-        botaoSomar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSomarActionPerformed(evt);
-            }
-        });
-        panelPrincipal.add(botaoSomar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 250, -1, -1));
-
-        botaoAdicionarLinha.setBackground(new java.awt.Color(204, 0, 153));
-        botaoAdicionarLinha.setText("+ linha");
-        botaoAdicionarLinha.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoAdicionarLinhaActionPerformed(evt);
-            }
-        });
-        panelPrincipal.add(botaoAdicionarLinha, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 280, -1, -1));
-
         campoTotal.setEditable(false);
-        campoTotal.setBackground(new java.awt.Color(0, 153, 153));
-        panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 210, 100, 40));
+        campoTotal.setBackground(new java.awt.Color(141, 225, 214));
+        campoTotal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campoTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 100, 40));
 
+        TotalFixo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         TotalFixo.setForeground(new java.awt.Color(0, 0, 0));
-        TotalFixo.setText("Total :");
-        panelPrincipal.add(TotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 190, 40, -1));
+        TotalFixo.setText("Total");
+        panelPrincipal.add(TotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 70, -1));
 
-        tabela.setBackground(new java.awt.Color(56, 208, 187));
+        tabela.setBackground(new java.awt.Color(141, 225, 214));
         tabela.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -643,8 +629,11 @@ public class Gastos extends javax.swing.JInternalFrame {
                 "Descrição", "Valor"
             }
         ));
+        tabela.setMaximumSize(new java.awt.Dimension(205, 120));
+        tabela.setMinimumSize(new java.awt.Dimension(205, 120));
         tabela.setRowHeight(30);
         tabela.setRowSelectionAllowed(false);
+        tabela.setShowGrid(true);
         tabela.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tabelaKeyReleased(evt);
@@ -653,20 +642,22 @@ public class Gastos extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(tabela);
         if (tabela.getColumnModel().getColumnCount() > 0) {
             tabela.getColumnModel().getColumn(0).setResizable(false);
-            tabela.getColumnModel().getColumn(0).setPreferredWidth(130);
+            tabela.getColumnModel().getColumn(0).setPreferredWidth(250);
             tabela.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        panelPrincipal.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 50, 560, 350));
+        panelPrincipal.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 500, 350));
 
-        botaoSalvar.setBackground(new java.awt.Color(204, 0, 153));
-        botaoSalvar.setText("salvar");
+        botaoSalvar.setBackground(new java.awt.Color(244, 173, 227));
+        botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        botaoSalvar.setForeground(new java.awt.Color(0, 0, 0));
+        botaoSalvar.setText("Salvar");
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(780, 310, -1, -1));
+        panelPrincipal.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 100, -1));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
@@ -678,6 +669,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelFixo.setBackground(new Color(175, 234, 226));
         tipo_gastos = "fixo";
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelFixoMouseClicked
 
     private void panelMercadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMercadoMouseClicked
@@ -685,6 +677,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMercado.setBackground(new Color(175, 234, 226));
         tipo_gastos = "mercado";
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelMercadoMouseClicked
 
     private void panelTotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTotalMouseClicked
@@ -698,6 +691,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelLazer.setBackground(new Color(175, 234, 226));
         tipo_gastos = "lazer";
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelLazerMouseClicked
 
     private void panelOutrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutrosMouseClicked
@@ -705,6 +699,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelOutros.setBackground(new Color(175, 234, 226));
         tipo_gastos = "outros";
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelOutrosMouseClicked
 
     private void panelJaneiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJaneiroMouseClicked
@@ -712,6 +707,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelJaneiro.setBackground(new Color(175, 234, 226));
         mes = 1;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelJaneiroMouseClicked
 
     private void panelFevereiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFevereiroMouseClicked
@@ -719,6 +715,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelFevereiro.setBackground(new Color(175, 234, 226));
         mes = 2;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelFevereiroMouseClicked
 
     private void panelMarcoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMarcoMouseClicked
@@ -726,6 +723,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMarco.setBackground(new Color(175, 234, 226));
         mes = 3;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelMarcoMouseClicked
 
     private void panelAbrilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAbrilMouseClicked
@@ -733,6 +731,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelAbril.setBackground(new Color(175, 234, 226));
         mes = 4;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelAbrilMouseClicked
 
     private void panelMaioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMaioMouseClicked
@@ -740,6 +739,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMaio.setBackground(new Color(175, 234, 226));
         mes = 5;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelMaioMouseClicked
 
     private void panelJunhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJunhoMouseClicked
@@ -747,6 +747,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelJunho.setBackground(new Color(175, 234, 226));
         mes = 6;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelJunhoMouseClicked
 
     private void panelJulhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJulhoMouseClicked
@@ -754,6 +755,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelJulho.setBackground(new Color(175, 234, 226));
         mes = 7;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelJulhoMouseClicked
 
     private void panelAgostoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgostoMouseClicked
@@ -761,6 +763,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelAgosto.setBackground(new Color(175, 234, 226));
         mes = 8;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelAgostoMouseClicked
 
     private void panelSetembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSetembroMouseClicked
@@ -768,6 +771,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelSetembro.setBackground(new Color(175, 234, 226));
         mes = 9;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelSetembroMouseClicked
 
     private void panelOutubroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutubroMouseClicked
@@ -775,6 +779,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelOutubro.setBackground(new Color(175, 234, 226));
         mes = 10;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelOutubroMouseClicked
 
     private void panelNovembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNovembroMouseClicked
@@ -782,6 +787,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelNovembro.setBackground(new Color(175, 234, 226));
         mes = 11;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelNovembroMouseClicked
 
     private void panelDezembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDezembroMouseClicked
@@ -789,28 +795,17 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelDezembro.setBackground(new Color(175, 234, 226));
         mes = 12;
         buscarDados();
+        somarTabela();
     }//GEN-LAST:event_panelDezembroMouseClicked
 
     private void tabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaKeyReleased
-        //valor1 = Float.parseFloat(tabela.getModel().getValueAt(0, 1).toString());
-        // valor2 = Float.parseFloat(tabela.getModel().getValueAt(1, 1).toString());
-        // campoTotal.setText(valor1 + valor2 + "");
-    }//GEN-LAST:event_tabelaKeyReleased
-
-    private void botaoAdicionarLinhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoAdicionarLinhaActionPerformed
-        DefaultTableModel model = (DefaultTableModel) tabela.getModel();
-        model.addRow(new Object[]{"", ""});
-    }//GEN-LAST:event_botaoAdicionarLinhaActionPerformed
-
-    private void botaoSomarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSomarActionPerformed
-        total = 0;
-        for (int i = 0; i < tabela.getRowCount(); i++) {
-            if (tabela.getModel().getValueAt(i, 1) != null && !"".equals(tabela.getModel().getValueAt(i, 1).toString())) {
-                total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
-            }
+        if (tabela.getModel().getRowCount() - 1 == tabela.getEditingRow()) {
+            DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+            model.addRow(new Object[]{"", ""});
         }
-        campoTotal.setText(total + "");
-    }//GEN-LAST:event_botaoSomarActionPerformed
+        
+        somarTabela();
+    }//GEN-LAST:event_tabelaKeyReleased
 
     private void panelFixoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFixoMouseEntered
         if (tipo_gastos != "fixo") {
@@ -1054,12 +1049,12 @@ public class Gastos extends javax.swing.JInternalFrame {
         GastosDados gastosDados = new GastosDados();
         GastosBD gastosBD = new GastosBD();
         for (int i = 0; i < tabela.getRowCount(); i++) {
-            if (tabela.getModel().getValueAt(i, 0) == null || tabela.getModel().getValueAt(i, 0) == "") {
+            if (tabela.getModel().getValueAt(i, 0).toString() == null || "".equals(tabela.getModel().getValueAt(i, 0).toString())) {
                 descricao = "";
             } else {
                 descricao = tabela.getModel().getValueAt(i, 0).toString();
             }
-            if (tabela.getModel().getValueAt(i, 1) == null || tabela.getModel().getValueAt(i, 1) == "") {
+            if (tabela.getModel().getValueAt(i, 1).toString() == null || "".equals(tabela.getModel().getValueAt(i, 1).toString())) {
                 valor = 0;
             } else {
                 valor = Float.parseFloat(tabela.getModel().getValueAt(i, 1).toString());
@@ -1074,14 +1069,16 @@ public class Gastos extends javax.swing.JInternalFrame {
             gastosDados.setValor(valor);
 
             if (descricao != "" && valor != 0) {
-                if (gastosBD.verificarGastos(gastosDados) == null) {
+                if (gastosBD.verificarGastos(gastosDados) == null && gastosBD.verificarGastosDescricao(gastosDados) == null) {
                     gastosBD.inserirGastos(gastosDados);
                 } else {
                     gastosBD.atualizarGastos(gastosDados);
                 }
+            } else {
+                gastosBD.atualizarGastos(gastosDados);
             }
 
-            /*if (descricao.equals("")) {
+            /*if (descricao.equals("") && valor == 0) {
                 gastosBD.excluirGastos(gastosDados);
             }*/
         }
@@ -1090,9 +1087,7 @@ public class Gastos extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel TotalFixo;
-    private javax.swing.JButton botaoAdicionarLinha;
     private javax.swing.JButton botaoSalvar;
-    private javax.swing.JButton botaoSomar;
     private javax.swing.JTextField campoTotal;
     private javax.swing.JLabel iconeFixo;
     private javax.swing.JLabel iconeLazer;
