@@ -37,7 +37,6 @@ public class Cadastrar extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(400, 350));
         setMinimumSize(new java.awt.Dimension(400, 350));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(400, 350));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         principal.setBackground(new java.awt.Color(255, 234, 189));
@@ -101,8 +100,9 @@ public class Cadastrar extends javax.swing.JFrame {
         TextSenha.setPreferredSize(new java.awt.Dimension(250, 30));
         principal.add(TextSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 230, -1, -1));
 
-        botaoFinalizarCadastro.setBackground(new java.awt.Color(110, 184, 73));
+        botaoFinalizarCadastro.setBackground(new java.awt.Color(153, 255, 204));
         botaoFinalizarCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoFinalizarCadastro.setForeground(new java.awt.Color(0, 0, 0));
         botaoFinalizarCadastro.setText("Concluir");
         botaoFinalizarCadastro.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botaoFinalizarCadastro.setMaximumSize(new java.awt.Dimension(128, 30));
@@ -130,8 +130,9 @@ public class Cadastrar extends javax.swing.JFrame {
 
         principal.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, 30));
 
-        botaoCancelar.setBackground(new java.awt.Color(255, 102, 102));
+        botaoCancelar.setBackground(new java.awt.Color(238, 8, 8));
         botaoCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoCancelar.setForeground(new java.awt.Color(0, 0, 0));
         botaoCancelar.setText("Cancelar");
         botaoCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         botaoCancelar.setMaximumSize(new java.awt.Dimension(128, 30));
@@ -142,7 +143,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 botaoCancelarActionPerformed(evt);
             }
         });
-        principal.add(botaoCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 290, -1, -1));
+        principal.add(botaoCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 290, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));

@@ -74,4 +74,157 @@ public class UsuarioBD {
 
         return dados;
     }
+
+    public String buscarNome(UsuarioDados usuarioDados) {
+        String dados = "";
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT nome FROM usuario"
+                    + " WHERE cod_usuario = '" + usuarioDados.getCod_usuario() + "';");
+
+            res.next();
+            dados = res.getString("nome");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return dados;
+    }
+
+    public String buscarEmail(UsuarioDados usuarioDados) {
+        String dados = "";
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT email FROM usuario"
+                    + " WHERE cod_usuario = '" + usuarioDados.getCod_usuario() + "';");
+
+            res.next();
+            dados = res.getString("email");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return dados;
+    }
+
+    public String buscarLogin(UsuarioDados usuarioDados) {
+        String dados = "";
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e preparando a listagem");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT login FROM usuario"
+                    + " WHERE cod_usuario = '" + usuarioDados.getCod_usuario() + "';");
+
+            res.next();
+            dados = res.getString("login");
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return dados;
+
+    }
+
+    public boolean atualizarDados(UsuarioDados usuarioDados) {
+        System.out.println("Atualizar usuario");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e pronto para atualizar");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+
+            String sql = "UPDATE usuario SET nome = '" + usuarioDados.getNome()
+                    + "' , email = '" + usuarioDados.getEmail()
+                    + "', login = '" + usuarioDados.getLogin()
+                    + "' WHERE cod_usuario = '" + usuarioDados.getCod_usuario() + "';";
+
+            System.out.println("SQL: " + sql);
+            stmt.executeUpdate(sql);
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+    }
+    public boolean atualizarSenha(UsuarioDados usuarioDados) {
+        System.out.println("Atualizar usuario");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e pronto para atualizar");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+
+            String sql = "UPDATE usuario SET senha= '" + usuarioDados.getSenha()
+                    + "' WHERE cod_usuario = '" + usuarioDados.getCod_usuario() + "';";
+
+            System.out.println("SQL: " + sql);
+            stmt.executeUpdate(sql);
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+    }
+    
 }

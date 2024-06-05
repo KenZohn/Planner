@@ -98,6 +98,10 @@ public class Gastos extends javax.swing.JInternalFrame {
             }
         }
         campoTotal.setText(total + "");
+        botaoSalvar.setVisible(true);
+        totalGastos.setVisible(true);
+        campoTotal.setVisible(true);
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -146,7 +150,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         iconeTotal = new javax.swing.JLabel();
         panelPrincipal = new javax.swing.JPanel();
         campoTotal = new javax.swing.JTextField();
-        TotalFixo = new javax.swing.JLabel();
+        totalGastos = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         botaoSalvar = new javax.swing.JButton();
@@ -589,10 +593,10 @@ public class Gastos extends javax.swing.JInternalFrame {
 
         labelTotal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelTotal.setForeground(new java.awt.Color(0, 0, 0));
-        labelTotal.setText("Total");
+        labelTotal.setText("Relatório");
         panelTotal.add(labelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        iconeTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Transporte (40px).png"))); // NOI18N
+        iconeTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Relatorio (40px).png"))); // NOI18N
         panelTotal.add(iconeTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
         panelMenuAnotacoes.add(panelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(921, 0, 231, -1));
@@ -611,10 +615,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         campoTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 100, 40));
 
-        TotalFixo.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        TotalFixo.setForeground(new java.awt.Color(0, 0, 0));
-        TotalFixo.setText("Total");
-        panelPrincipal.add(TotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 70, -1));
+        totalGastos.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        totalGastos.setForeground(new java.awt.Color(0, 0, 0));
+        totalGastos.setText("Total");
+        panelPrincipal.add(totalGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 70, -1));
 
         tabela.setBackground(new java.awt.Color(141, 225, 214));
         tabela.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -684,6 +688,38 @@ public class Gastos extends javax.swing.JInternalFrame {
         desselecionar();
         panelTotal.setBackground(new Color(175, 234, 226));
         tipo_gastos = "total";
+        botaoSalvar.setVisible(false);
+        totalGastos.setVisible(false);
+        campoTotal.setVisible(false);
+        
+        GastosDados gastosDados = new GastosDados();
+        GastosBD gastosBD = new GastosBD();
+        
+        gastosDados.setCod_usuario(cod_usuario);
+        gastosDados.setAno(ano);
+        gastosDados.setMes(mes);
+        
+        DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+        model.setRowCount(0);
+        gastosDados.setTipo_gastos("fixo");
+        model.addRow(new Object[]{"Fixo", gastosBD.buscarTotalGastos(gastosDados)});
+        
+        gastosDados.setTipo_gastos("mercado");
+        model.addRow(new Object[]{"Mercado", gastosBD.buscarTotalGastos(gastosDados)});
+        
+        gastosDados.setTipo_gastos("lazer");
+        model.addRow(new Object[]{"Lazer", gastosBD.buscarTotalGastos(gastosDados)});
+        
+        gastosDados.setTipo_gastos("outros");
+        model.addRow(new Object[]{"Outros", gastosBD.buscarTotalGastos(gastosDados)});
+        
+        total = 0;
+        for (int i = 0; i < tabela.getRowCount(); i++) {
+            if (tabela.getModel().getValueAt(i, 1) != null && !"".equals(tabela.getModel().getValueAt(i, 1).toString())) {
+                total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
+            }
+        }
+        model.addRow(new Object[]{"Total", total});
     }//GEN-LAST:event_panelTotalMouseClicked
 
     private void panelLazerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLazerMouseClicked
@@ -1086,7 +1122,6 @@ public class Gastos extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel TotalFixo;
     private javax.swing.JButton botaoSalvar;
     private javax.swing.JTextField campoTotal;
     private javax.swing.JLabel iconeFixo;
@@ -1133,5 +1168,6 @@ public class Gastos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelSetembro;
     private javax.swing.JPanel panelTotal;
     private javax.swing.JTable tabela;
+    private javax.swing.JLabel totalGastos;
     // End of variables declaration//GEN-END:variables
 }
