@@ -2,6 +2,7 @@ package Telas;
 
 import Banco.GastosBD;
 import Dados.GastosDados;
+import Dados.UsuarioDados;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTable;
@@ -24,6 +25,11 @@ public class Gastos extends javax.swing.JInternalFrame {
         //tira a barra que ja vem Jinternalframe
         
         tabela.getTableHeader().setFont(new Font( "Arial" , Font.BOLD, 20 ));
+        
+        UsuarioDados usuarioDados = new UsuarioDados();
+        Login loginTela = new Login();
+        cod_usuario = loginTela.cod_usuario;
+        usuarioDados.setCod_usuario(cod_usuario);
 
         desselecionar();
         panelFixo.setBackground(new Color(175, 234, 226));
