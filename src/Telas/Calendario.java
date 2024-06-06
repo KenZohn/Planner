@@ -32,7 +32,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         Login loginTela = new Login();
         cod_usuario = loginTela.cod_usuario;
         usuarioDados.setCod_usuario(cod_usuario);
-        System.out.println(cod_usuario);
 
         Date dataAtual = new Date();
         ano = Integer.parseInt(new SimpleDateFormat("yyyy").format(dataAtual));
@@ -870,7 +869,7 @@ public class Calendario extends javax.swing.JInternalFrame {
             if (calendarioBD.buscarCalendario(calendarioDados) != null) {
                 dia13.setForeground(Color.red);
             } else {
-                dia14.setForeground(new Color(30, 30, 30));
+                dia13.setForeground(new Color(30, 30, 30));
             }
         }
         calendarioDados.setDia(Integer.parseInt(dia14.getText()));
