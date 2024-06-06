@@ -86,6 +86,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDiaAtual();
+        destacarDias();
     }
 
     public void desselecionar() {
@@ -760,10 +761,275 @@ public class Calendario extends javax.swing.JInternalFrame {
 
         textAreaCalendario.setText(calendarioBD.buscarCalendario(calendarioDados));
     }
-    
+
     public void destacarDias() {
-        if (!"".equals(dia1.getText())) {
-            
+        CalendarioBD calendarioBD = new CalendarioBD();
+        CalendarioDados calendarioDados = new CalendarioDados();
+        calendarioDados.setCod_usuario(cod_usuario);
+        calendarioDados.setMes(mes);
+        calendarioDados.setAno(ano);
+
+        if (dia1.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia1.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia1.setForeground(Color.red);
+            } else {
+                dia1.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia2.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia2.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia2.setForeground(Color.red);
+            } else {
+                dia2.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia3.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia3.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia3.setForeground(Color.red);
+            } else {
+                dia3.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia4.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia4.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia4.setForeground(Color.red);
+            } else {
+                dia4.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia5.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia5.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia5.setForeground(Color.red);
+            } else {
+                dia5.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia6.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia6.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia6.setForeground(Color.red);
+            } else {
+                dia6.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia7.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia7.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia7.setForeground(Color.red);
+            } else {
+                dia7.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia8.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia8.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia8.setForeground(Color.red);
+            } else {
+                dia8.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia9.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia9.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia9.setForeground(Color.red);
+            } else {
+                dia9.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia10.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia10.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia10.setForeground(Color.red);
+            } else {
+                dia10.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia11.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia11.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia11.setForeground(Color.red);
+            } else {
+                dia11.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia12.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia12.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia12.setForeground(Color.red);
+            } else {
+                dia12.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia13.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia13.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia13.setForeground(Color.red);
+            } else {
+                dia14.setForeground(new Color(30, 30, 30));
+            }
+        }
+        calendarioDados.setDia(Integer.parseInt(dia14.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia14.setForeground(Color.red);
+        } else {
+            dia14.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia15.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia15.setForeground(Color.red);
+        } else {
+            dia15.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia16.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia16.setForeground(Color.red);
+        } else {
+            dia16.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia17.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia17.setForeground(Color.red);
+        } else {
+            dia17.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia18.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia18.setForeground(Color.red);
+        } else {
+            dia18.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia19.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia19.setForeground(Color.red);
+        } else {
+            dia19.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia20.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia20.setForeground(Color.red);
+        } else {
+            dia20.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia21.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia21.setForeground(Color.red);
+        } else {
+            dia21.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia22.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia22.setForeground(Color.red);
+        } else {
+            dia22.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia23.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia23.setForeground(Color.red);
+        } else {
+            dia23.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia24.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia24.setForeground(Color.red);
+        } else {
+            dia24.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia25.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia25.setForeground(Color.red);
+        } else {
+            dia25.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia26.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia26.setForeground(Color.red);
+        } else {
+            dia26.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia27.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia27.setForeground(Color.red);
+        } else {
+            dia27.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia28.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia28.setForeground(Color.red);
+        } else {
+            dia28.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia29.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia29.setForeground(Color.red);
+        } else {
+            dia29.setForeground(new Color(30, 30, 30));
+        }
+        calendarioDados.setDia(Integer.parseInt(dia30.getText()));
+        if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+            dia30.setForeground(Color.red);
+        } else {
+            dia30.setForeground(new Color(30, 30, 30));
+        }
+        if (dia31.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia31.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia31.setForeground(Color.red);
+            } else {
+                dia31.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia32.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia32.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia32.setForeground(Color.red);
+            } else {
+                dia32.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia33.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia33.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia33.setForeground(Color.red);
+            } else {
+                dia33.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia34.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia34.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia34.setForeground(Color.red);
+            } else {
+                dia34.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia35.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia35.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia35.setForeground(Color.red);
+            } else {
+                dia35.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia36.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia36.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia36.setForeground(Color.red);
+            } else {
+                dia36.setForeground(new Color(30, 30, 30));
+            }
+        }
+        if (dia37.getText() != "") {
+            calendarioDados.setDia(Integer.parseInt(dia37.getText()));
+            if (calendarioBD.buscarCalendario(calendarioDados) != null) {
+                dia37.setForeground(Color.red);
+            } else {
+                dia37.setForeground(new Color(30, 30, 30));
+            }
         }
     }
 
@@ -1813,6 +2079,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelJaneiroMouseClicked
 
     private void panelFevereiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFevereiroMouseClicked
@@ -1828,6 +2095,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelFevereiroMouseClicked
 
     private void panelMarcoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMarcoMouseClicked
@@ -1843,6 +2111,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelMarcoMouseClicked
 
     private void panelAbrilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAbrilMouseClicked
@@ -1858,6 +2127,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelAbrilMouseClicked
 
     private void panelMaioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMaioMouseClicked
@@ -1873,6 +2143,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelMaioMouseClicked
 
     private void panelJunhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJunhoMouseClicked
@@ -1888,6 +2159,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelJunhoMouseClicked
 
     private void panelJulhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJulhoMouseClicked
@@ -1903,6 +2175,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelJulhoMouseClicked
 
     private void panelAgostoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgostoMouseClicked
@@ -1918,6 +2191,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelAgostoMouseClicked
 
     private void panelSetembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSetembroMouseClicked
@@ -1933,6 +2207,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelSetembroMouseClicked
 
     private void panelOutubroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutubroMouseClicked
@@ -1948,6 +2223,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelOutubroMouseClicked
 
     private void panelNovembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNovembroMouseClicked
@@ -1963,6 +2239,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelNovembroMouseClicked
 
     private void panelDezembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDezembroMouseClicked
@@ -1978,6 +2255,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         }
 
         selecionarDia1();
+        destacarDias();
     }//GEN-LAST:event_panelDezembroMouseClicked
 
     private void dia1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_dia1MouseClicked
@@ -2445,6 +2723,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         if (conteudo.equals("")) {
             calendarioBD.excluirCalendario(calendarioDados);
         }
+        destacarDias();
     }//GEN-LAST:event_textAreaCalendarioKeyReleased
 
     private void panelJaneiroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJaneiroMouseEntered
