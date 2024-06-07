@@ -10,28 +10,23 @@ public class Inicio extends javax.swing.JInternalFrame {
 
     private int ano, mes, dia, cod_usuario;
 
-    public Inicio() {
+    public Inicio(int cod) {
         initComponents();
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
 
         CalendarioBD calendarioBD = new CalendarioBD();
         CalendarioDados calendarioDados = new CalendarioDados();
-        
-        //Login loginTela = new Login();
-        //cod_usuario = loginTela.cod_usuario;
-        //calendarioDados.setCod_usuario(cod_usuario);
 
+        cod_usuario = cod;
         Date dataAtual = new Date();
         ano = Integer.parseInt(new SimpleDateFormat("yyyy").format(dataAtual));
         mes = Integer.parseInt(new SimpleDateFormat("MM").format(dataAtual));
         dia = Integer.parseInt(new SimpleDateFormat("dd").format(dataAtual));
 
-        calendarioDados.setCod_usuario(0);
+        calendarioDados.setCod_usuario(cod_usuario);
         calendarioDados.setAno(ano);
-        
-        
-        
+
         for (int i = mes; i <= 12; i++) {
             calendarioDados.setMes(i);
             for (int j = dia; j <= 31; j++) {

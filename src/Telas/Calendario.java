@@ -32,6 +32,8 @@ public class Calendario extends javax.swing.JInternalFrame {
         Login loginTela = new Login();
         cod_usuario = loginTela.cod_usuario;
         usuarioDados.setCod_usuario(cod_usuario);
+        
+        
 
         Date dataAtual = new Date();
         ano = Integer.parseInt(new SimpleDateFormat("yyyy").format(dataAtual));

@@ -103,7 +103,9 @@ public class Gastos extends javax.swing.JInternalFrame {
                 total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
             }
         }
-        campoTotal.setText(total + "");
+        
+        String totalFormatado = String.format("%.02f", total);
+        campoTotal.setText(totalFormatado + "");
         botaoSalvar.setVisible(true);
         totalGastos.setVisible(true);
         campoTotal.setVisible(true);

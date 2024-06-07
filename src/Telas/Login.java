@@ -14,7 +14,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         cadastrar = new Cadastrar();
-        principal = new Principal();
+      
         setLocationRelativeTo(null);
     }
 
@@ -154,6 +154,7 @@ public class Login extends javax.swing.JFrame {
             usuarioDados.setCod_usuario(Integer.parseInt(usuarioBD.buscarUsuario(usuarioDados)));
             cod_usuario = Integer.parseInt(usuarioBD.buscarUsuario(usuarioDados));
             System.out.println(cod_usuario);
+            principal = new Principal(usuarioDados);
             principal.setVisible(true);
             dispose();
         } else {

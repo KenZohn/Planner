@@ -1,19 +1,29 @@
 package Telas;
 
+import Banco.UsuarioBD;
+import Dados.UsuarioDados;
 import java.awt.Color;
 import java.awt.Component;
 import javax.swing.JFrame;
 
 public class Principal extends javax.swing.JFrame {
 
-    public Principal() {
+    private int cod_usuario;
+    private String nome;
+    
+    public Principal(UsuarioDados usuarioDados) {
         initComponents();
-        Inicio inicio = new Inicio();
+        cod_usuario = usuarioDados.getCod_usuario();
+        UsuarioBD usuarioBD = new UsuarioBD();
+        Inicio inicio = new Inicio(cod_usuario);
+        
         jDesktopPane.removeAll();
         jDesktopPane.add(inicio).setVisible(true);
         setLocationRelativeTo(null);
+        nome = usuarioBD.buscarNome(usuarioDados);
+        labelNome.setText("Bem vindo, " + nome);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -43,6 +53,7 @@ public class Principal extends javax.swing.JFrame {
         panelMinimizar = new javax.swing.JPanel();
         iconeFechar1 = new javax.swing.JLabel();
         panelDeslogar = new javax.swing.JButton();
+        labelNome = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1152, 648));
@@ -340,6 +351,11 @@ public class Principal extends javax.swing.JFrame {
         });
         panelMenu.add(panelDeslogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 140, 30));
 
+        labelNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelNome.setForeground(new java.awt.Color(51, 51, 51));
+        labelNome.setText("Bem vindo, Usuário");
+        panelMenu.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, -1, -1));
+
         panelPrincipal.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -363,7 +379,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelCalendarioMouseClicked
 
     private void panelInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseClicked
-        Inicio inicio = new Inicio();
+        Inicio inicio = new Inicio(cod_usuario);
         jDesktopPane.removeAll();
         jDesktopPane.add(inicio).setVisible(true);
     }//GEN-LAST:event_panelInicioMouseClicked
@@ -385,7 +401,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelFecharMouseClicked
 
     private void iconeInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeInicioMouseClicked
-        Inicio inicio = new Inicio();
+        Inicio inicio = new Inicio(cod_usuario);
         jDesktopPane.removeAll();
         jDesktopPane.add(inicio).setVisible(true);
     }//GEN-LAST:event_iconeInicioMouseClicked
@@ -526,15 +542,6 @@ public class Principal extends javax.swing.JFrame {
         panelDados.setBackground(new Color(224, 198, 250));
     }//GEN-LAST:event_panelDadosMouseExited
 
-    public static void main(String args[]) {
-
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Principal().setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel iconeAnotacoes;
     private javax.swing.JLabel iconeCalendario;
@@ -550,6 +557,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel labelDados;
     private javax.swing.JLabel labelGastos;
     private javax.swing.JLabel labelInicio;
+    private javax.swing.JLabel labelNome;
     private javax.swing.JPanel panelAno;
     private javax.swing.JPanel panelAnotacoes;
     private javax.swing.JPanel panelCalendario;
