@@ -24,9 +24,9 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         System.out.println(cod_usuario);
 
         desselecionar();
-        panelNotas.setBackground(new Color(253, 238, 251));
-        labelTitulo.setText("Notas");
-        tipo = "notas";
+        panelAfazeres.setBackground(new Color(253, 238, 251));
+        labelTitulo.setText("Afazeres");
+        tipo = "afazeres";
         buscarConteudo();
     }
 
@@ -46,12 +46,9 @@ public class Anotacoes extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         panelMenuAnotacoes = new javax.swing.JPanel();
-        panelNotas = new javax.swing.JPanel();
-        labelNotas = new javax.swing.JLabel();
-        iconeNotas = new javax.swing.JLabel();
-        panelTarefas = new javax.swing.JPanel();
-        labelTarefas = new javax.swing.JLabel();
-        iconeTarefas = new javax.swing.JLabel();
+        panelAfazeres = new javax.swing.JPanel();
+        labelAfazeres = new javax.swing.JLabel();
+        iconeAfazeres = new javax.swing.JLabel();
         panelCompras = new javax.swing.JPanel();
         labelCompras = new javax.swing.JLabel();
         iconeCompras = new javax.swing.JLabel();
@@ -82,64 +79,37 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelMenuAnotacoes.setRequestFocusEnabled(false);
         panelMenuAnotacoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelNotas.setBackground(new java.awt.Color(250, 185, 242));
-        panelNotas.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelNotas.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelNotas.setPreferredSize(new java.awt.Dimension(192, 55));
-        panelNotas.addMouseListener(new java.awt.event.MouseAdapter() {
+        panelAfazeres.setBackground(new java.awt.Color(250, 185, 242));
+        panelAfazeres.setMaximumSize(new java.awt.Dimension(288, 55));
+        panelAfazeres.setMinimumSize(new java.awt.Dimension(288, 55));
+        panelAfazeres.setPreferredSize(new java.awt.Dimension(288, 55));
+        panelAfazeres.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelNotasMouseClicked(evt);
+                panelAfazeresMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelNotasMouseEntered(evt);
+                panelAfazeresMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelNotasMouseExited(evt);
+                panelAfazeresMouseExited(evt);
             }
         });
-        panelNotas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelAfazeres.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelNotas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelNotas.setForeground(new java.awt.Color(0, 0, 0));
-        labelNotas.setText("Notas");
-        panelNotas.add(labelNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        labelAfazeres.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelAfazeres.setForeground(new java.awt.Color(0, 0, 0));
+        labelAfazeres.setText("Afazeres");
+        panelAfazeres.add(labelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
-        iconeNotas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Notas (40px).png"))); // NOI18N
-        panelNotas.add(iconeNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
+        iconeAfazeres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Tarefas (40px).png"))); // NOI18N
+        panelAfazeres.add(iconeAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 55));
-
-        panelTarefas.setBackground(new java.awt.Color(250, 185, 242));
-        panelTarefas.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelTarefas.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelTarefas.setPreferredSize(new java.awt.Dimension(192, 55));
-        panelTarefas.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelTarefasMouseClicked(evt);
-            }
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelTarefasMouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelTarefasMouseExited(evt);
-            }
-        });
-        panelTarefas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        labelTarefas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelTarefas.setForeground(new java.awt.Color(0, 0, 0));
-        labelTarefas.setText("Tarefas");
-        panelTarefas.add(labelTarefas, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
-
-        iconeTarefas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Tarefas (40px).png"))); // NOI18N
-        panelTarefas.add(iconeTarefas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
-
-        panelMenuAnotacoes.add(panelTarefas, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 230, 55));
+        panelMenuAnotacoes.add(panelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelCompras.setBackground(new java.awt.Color(250, 185, 242));
-        panelCompras.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelCompras.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelCompras.setPreferredSize(new java.awt.Dimension(192, 55));
+        panelCompras.setMaximumSize(new java.awt.Dimension(288, 55));
+        panelCompras.setMinimumSize(new java.awt.Dimension(288, 55));
+        panelCompras.setPreferredSize(new java.awt.Dimension(288, 55));
         panelCompras.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelComprasMouseClicked(evt);
@@ -161,12 +131,12 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         iconeCompras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Compras (40px).png"))); // NOI18N
         panelCompras.add(iconeCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 230, 55));
+        panelMenuAnotacoes.add(panelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 0, -1, -1));
 
         panelEstudos.setBackground(new java.awt.Color(250, 185, 242));
-        panelEstudos.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelEstudos.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelEstudos.setPreferredSize(new java.awt.Dimension(192, 55));
+        panelEstudos.setMaximumSize(new java.awt.Dimension(288, 55));
+        panelEstudos.setMinimumSize(new java.awt.Dimension(288, 55));
+        panelEstudos.setPreferredSize(new java.awt.Dimension(288, 55));
         panelEstudos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelEstudosMouseClicked(evt);
@@ -188,12 +158,12 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         iconeEstudos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Estudos (40px).png"))); // NOI18N
         panelEstudos.add(iconeEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 231, 55));
+        panelMenuAnotacoes.add(panelEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 0, -1, -1));
 
         panelOutros.setBackground(new java.awt.Color(250, 185, 242));
-        panelOutros.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelOutros.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelOutros.setPreferredSize(new java.awt.Dimension(192, 55));
+        panelOutros.setMaximumSize(new java.awt.Dimension(288, 55));
+        panelOutros.setMinimumSize(new java.awt.Dimension(288, 55));
+        panelOutros.setPreferredSize(new java.awt.Dimension(288, 55));
         panelOutros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelOutrosMouseClicked(evt);
@@ -215,7 +185,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         iconeOutros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Outros (40px).png"))); // NOI18N
         panelOutros.add(iconeOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(921, 0, 231, 55));
+        panelMenuAnotacoes.add(panelOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 0, -1, -1));
 
         getContentPane().add(panelMenuAnotacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1152, 55));
 
@@ -264,28 +234,19 @@ public class Anotacoes extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     public void desselecionar() {
-        panelNotas.setBackground(new Color(250, 185, 242));
-        panelTarefas.setBackground(new Color(250, 185, 242));
+        panelAfazeres.setBackground(new Color(250, 185, 242));
         panelCompras.setBackground(new Color(250, 185, 242));
         panelEstudos.setBackground(new Color(250, 185, 242));
         panelOutros.setBackground(new Color(250, 185, 242));
     }
 
-    private void panelTarefasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTarefasMouseClicked
+    private void panelAfazeresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAfazeresMouseClicked
         desselecionar();
-        panelTarefas.setBackground(new Color(253, 238, 251));
-        labelTitulo.setText("Tarefas");
-        tipo = "tarefas";
+        panelAfazeres.setBackground(new Color(253, 238, 251));
+        labelTitulo.setText("Afazeres");
+        tipo = "afazeres";
         buscarConteudo();
-    }//GEN-LAST:event_panelTarefasMouseClicked
-
-    private void panelNotasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNotasMouseClicked
-        desselecionar();
-        panelNotas.setBackground(new Color(253, 238, 251));
-        labelTitulo.setText("Notas");
-        tipo = "notas";
-        buscarConteudo();
-    }//GEN-LAST:event_panelNotasMouseClicked
+    }//GEN-LAST:event_panelAfazeresMouseClicked
 
     private void panelComprasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelComprasMouseClicked
         desselecionar();
@@ -328,33 +289,19 @@ public class Anotacoes extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_textAreaNotasKeyReleased
 
-    private void panelNotasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNotasMouseEntered
-        if (tipo != "notas") {
-            panelNotas.setBackground(new Color(255, 209, 249));
+    private void panelAfazeresMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAfazeresMouseEntered
+        if (tipo != "afazeres") {
+            panelAfazeres.setBackground(new Color(255, 209, 249));
         }
-    }//GEN-LAST:event_panelNotasMouseEntered
+    }//GEN-LAST:event_panelAfazeresMouseEntered
 
-    private void panelNotasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNotasMouseExited
-        if (tipo != "notas") {
-            panelNotas.setBackground(new Color(250, 185, 242));
+    private void panelAfazeresMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAfazeresMouseExited
+        if (tipo != "afazeres") {
+            panelAfazeres.setBackground(new Color(250, 185, 242));
         } else {
-            panelNotas.setBackground(new Color(253, 238, 251));
+            panelAfazeres.setBackground(new Color(253, 238, 251));
         }
-    }//GEN-LAST:event_panelNotasMouseExited
-
-    private void panelTarefasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTarefasMouseEntered
-        if (tipo != "tarefas") {
-            panelTarefas.setBackground(new Color(255, 209, 249));
-        }
-    }//GEN-LAST:event_panelTarefasMouseEntered
-
-    private void panelTarefasMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTarefasMouseExited
-        if (tipo != "tarefas") {
-            panelTarefas.setBackground(new Color(250, 185, 242));
-        } else {
-            panelTarefas.setBackground(new Color(253, 238, 251));
-        }
-    }//GEN-LAST:event_panelTarefasMouseExited
+    }//GEN-LAST:event_panelAfazeresMouseExited
 
     private void panelComprasMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelComprasMouseEntered
         if (tipo != "compras") {
@@ -400,25 +347,22 @@ public class Anotacoes extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel iconeAfazeres;
     private javax.swing.JLabel iconeCompras;
     private javax.swing.JLabel iconeEstudos;
-    private javax.swing.JLabel iconeNotas;
     private javax.swing.JLabel iconeOutros;
-    private javax.swing.JLabel iconeTarefas;
+    private javax.swing.JLabel labelAfazeres;
     private javax.swing.JLabel labelCompras;
     private javax.swing.JLabel labelEstudos;
-    private javax.swing.JLabel labelNotas;
     private javax.swing.JLabel labelOutros;
-    private javax.swing.JLabel labelTarefas;
     private javax.swing.JLabel labelTitulo;
+    private javax.swing.JPanel panelAfazeres;
     private javax.swing.JPanel panelCompras;
     private javax.swing.JPanel panelEstudos;
     private javax.swing.JPanel panelMenuAnotacoes;
-    private javax.swing.JPanel panelNotas;
     private javax.swing.JPanel panelNotasTela;
     private javax.swing.JPanel panelOutros;
     private javax.swing.JPanel panelPrincipal;
-    private javax.swing.JPanel panelTarefas;
     private javax.swing.JScrollPane scrollNotas;
     private javax.swing.JTextArea textAreaNotas;
     // End of variables declaration//GEN-END:variables

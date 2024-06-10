@@ -722,12 +722,13 @@ public class Gastos extends javax.swing.JInternalFrame {
         model.addRow(new Object[]{"Outros", gastosBD.buscarTotalGastos(gastosDados)});
         
         total = 0;
-        for (int i = 0; i < tabela.getRowCount(); i++) {
+        /*for (int i = 0; i < tabela.getRowCount(); i++) {
             if (tabela.getModel().getValueAt(i, 1) != null && !"".equals(tabela.getModel().getValueAt(i, 1).toString())) {
                 total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
             }
-        }
-        model.addRow(new Object[]{"Total", total});
+        }*/
+        //String totalFormatado = String.format("%.02f", total);
+        model.addRow(new Object[]{"Total", String.format("%.02f", Double.parseDouble(gastosBD.buscarSomaTotalGastos(gastosDados)))});
     }//GEN-LAST:event_panelTotalMouseClicked
 
     private void panelLazerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLazerMouseClicked
