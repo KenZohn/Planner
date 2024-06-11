@@ -54,7 +54,7 @@ public class Inicio extends javax.swing.JInternalFrame {
                 if (calendarioBD.buscarCalendario(calendarioDados) != null) {
                     String mesFormatado = String.format("%02d", i);
                     String diaFormatado = String.format("%02d", j);
-                    campoCalendario.setText(campoCalendario.getText() + "Dia " + mesFormatado + "/" + diaFormatado + " - " + calendarioBD.buscarCalendario(calendarioDados) + "\n");
+                    campoCalendario.setText(campoCalendario.getText() + "Dia " + diaFormatado + "/" + mesFormatado + " - " + calendarioBD.buscarCalendario(calendarioDados) + "\n");
                 }
             }
             dia = 1;
@@ -69,7 +69,11 @@ public class Inicio extends javax.swing.JInternalFrame {
         gastosDados.setCod_usuario(cod_usuario);
         gastosDados.setMes(Integer.parseInt(new SimpleDateFormat("MM").format(dataAtual)));
 
-        campoGastos.setText(String.format("R$ %.02f", Double.parseDouble(gastosBD.buscarSomaTotalGastos(gastosDados))));
+        if (gastosBD.buscarSomaTotalGastos(gastosDados) == null) {
+            campoGastos.setText(String.format("R$ 0,00"));
+        } else {
+            campoGastos.setText(String.format("R$ %.02f", Double.parseDouble(gastosBD.buscarSomaTotalGastos(gastosDados))));
+        }
     }
 
     public void buscarAfazeres() {
@@ -169,9 +173,11 @@ public class Inicio extends javax.swing.JInternalFrame {
         panelInicio.setPreferredSize(new java.awt.Dimension(1152, 578));
         panelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelCalendario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelCalendario.setOpaque(false);
+        panelCalendario.setPreferredSize(new java.awt.Dimension(553, 400));
         panelCalendario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPaneCalendario.setPreferredSize(new java.awt.Dimension(513, 322));
 
         campoCalendario.setEditable(false);
         campoCalendario.setColumns(20);
@@ -180,17 +186,17 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoCalendario.setRows(5);
         jScrollPaneCalendario.setViewportView(campoCalendario);
 
-        panelCalendario.add(jScrollPaneCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, 513, 337));
+        panelCalendario.add(jScrollPaneCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, -1, -1));
 
         labelCalendario.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         labelCalendario.setForeground(new java.awt.Color(51, 51, 51));
         labelCalendario.setText("Próximos eventos");
         panelCalendario.add(labelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
-        panelInicio.add(panelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 553, 415));
+        panelInicio.add(panelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, -1, -1));
 
-        panelGastos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelGastos.setOpaque(false);
+        panelGastos.setPreferredSize(new java.awt.Dimension(553, 118));
         panelGastos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelGastos.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
@@ -203,11 +209,12 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoGastos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         panelGastos.add(campoGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, 240, 40));
 
-        panelInicio.add(panelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 445, 553, 118));
+        panelInicio.add(panelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 415, -1, -1));
 
-        panelAfazeres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelAfazeres.setOpaque(false);
         panelAfazeres.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jScrollPaneAfazeres.setPreferredSize(new java.awt.Dimension(514, 109));
 
         campoAfazeres.setEditable(false);
         campoAfazeres.setColumns(20);
@@ -216,16 +223,15 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoAfazeres.setRows(5);
         jScrollPaneAfazeres.setViewportView(campoAfazeres);
 
-        panelAfazeres.add(jScrollPaneAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 514, 94));
+        panelAfazeres.add(jScrollPaneAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
         labelAfazeres.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         labelAfazeres.setForeground(new java.awt.Color(51, 51, 51));
-        labelAfazeres.setText("Afazeres");
+        labelAfazeres.setText("To Do");
         panelAfazeres.add(labelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
         panelInicio.add(panelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 15, 554, 172));
 
-        panelCompras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelCompras.setOpaque(false);
         panelCompras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -234,6 +240,8 @@ public class Inicio extends javax.swing.JInternalFrame {
         labelCompras.setText("Compras");
         panelCompras.add(labelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
+        jScrollPaneCompras.setPreferredSize(new java.awt.Dimension(514, 109));
+
         campoCompras.setEditable(false);
         campoCompras.setColumns(20);
         campoCompras.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -241,11 +249,10 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoCompras.setRows(5);
         jScrollPaneCompras.setViewportView(campoCompras);
 
-        panelCompras.add(jScrollPaneCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 514, 94));
+        panelCompras.add(jScrollPaneCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        panelInicio.add(panelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 202, 567, 173));
+        panelInicio.add(panelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 187, 567, 173));
 
-        panelEstudos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         panelEstudos.setOpaque(false);
         panelEstudos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -254,6 +261,8 @@ public class Inicio extends javax.swing.JInternalFrame {
         labelEstudos.setText("Estudos");
         panelEstudos.add(labelEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
+        jScrollPaneEstudos.setPreferredSize(new java.awt.Dimension(514, 109));
+
         campoEstudos.setEditable(false);
         campoEstudos.setColumns(20);
         campoEstudos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -261,9 +270,9 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoEstudos.setRows(5);
         jScrollPaneEstudos.setViewportView(campoEstudos);
 
-        panelEstudos.add(jScrollPaneEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 514, 94));
+        panelEstudos.add(jScrollPaneEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
 
-        panelInicio.add(panelEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 390, 567, 173));
+        panelInicio.add(panelEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 360, 567, 173));
 
         getContentPane().add(panelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1152, 578));
 

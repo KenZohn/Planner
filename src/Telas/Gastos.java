@@ -5,6 +5,8 @@ import Dados.GastosDados;
 import Dados.UsuarioDados;
 import java.awt.Color;
 import java.awt.Font;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
@@ -19,13 +21,14 @@ public class Gastos extends javax.swing.JInternalFrame {
     private int qtd_linha;
 
     public Gastos() {
+
         initComponents();
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         //tira a barra que ja vem Jinternalframe
-        
-        tabela.getTableHeader().setFont(new Font( "Arial" , Font.BOLD, 20 ));
-        
+
+        tabela.getTableHeader().setFont(new Font("Arial", Font.BOLD, 20));
+
         UsuarioDados usuarioDados = new UsuarioDados();
         Login loginTela = new Login();
         cod_usuario = loginTela.cod_usuario;
@@ -36,11 +39,66 @@ public class Gastos extends javax.swing.JInternalFrame {
         tipo_gastos = "fixo";
 
         desselecionarMes();
-        panelJaneiro.setBackground(new Color(175, 234, 226));
-        mes = 1;
+        mesAtual();
 
         buscarDados();
         somarTabela();
+        buscarTotais();
+    }
+
+    public void mesAtual() {
+        Date dataAtual = new Date();
+        mes = Integer.parseInt(new SimpleDateFormat("MM").format(dataAtual));
+        if (mes == 1) {
+            panelJaneiro.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Janeiro");
+            labelTotalMes.setText("Total de Janeiro");
+        } else if (mes == 2) {
+            panelFevereiro.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Fevereiro");
+            labelTotalMes.setText("Total de Fevereiro");
+        } else if (mes == 3) {
+            panelMarco.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Marco");
+            labelTotalMes.setText("Total de Março");
+        } else if (mes == 4) {
+            panelAbril.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Abril");
+            labelTotalMes.setText("Total de Abril");
+        } else if (mes == 5) {
+            panelMaio.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Maio");
+            labelTotalMes.setText("Total de Maio");
+        } else if (mes == 6) {
+            panelJunho.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Junho");
+            labelTotalMes.setText("Total de Junho");
+        } else if (mes == 7) {
+            panelJulho.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Julho");
+            labelTotalMes.setText("Total de Julho");
+        } else if (mes == 8) {
+            panelAgosto.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Agosto");
+            labelTotalMes.setText("Total de Agosto");
+        } else if (mes == 9) {
+            panelSetembro.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Setembro");
+            labelTotalMes.setText("Total de Setembro");
+        } else if (mes == 10) {
+            panelOutubro.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Outubro");
+            labelTotalMes.setText("Total de Outubro");
+        } else if (mes == 11) {
+            panelNovembro.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Novembro");
+            labelTotalMes.setText("Total de Novembro");
+        } else if (mes == 12) {
+            panelDezembro.setBackground(new Color(175, 234, 226));
+            labelMes.setText("Gastos de Dezembro");
+            labelTotalMes.setText("Total de Dezembro");
+        }
+
     }
 
     public void desselecionar() {
@@ -103,14 +161,120 @@ public class Gastos extends javax.swing.JInternalFrame {
                 total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
             }
         }
-        
+
         String totalFormatado = String.format("%.02f", total);
         campoTotal.setText(totalFormatado + "");
-        botaoSalvar.setVisible(true);
-        totalGastos.setVisible(true);
-        campoTotal.setVisible(true);
-        
+
+        if (tipo_gastos != "total") {
+            botaoSalvar.setVisible(true);
+            totalGastos.setVisible(true);
+            campoTotal.setVisible(true);
+        }
     }
+
+    public void buscarTotais() {
+        GastosBD gastosBD = new GastosBD();
+        GastosDados gastosDados = new GastosDados();
+
+        gastosDados.setCod_usuario(cod_usuario);
+        gastosDados.setMes(mes);
+
+        gastosDados.setTipo_gastos("fixo");
+        if (gastosBD.buscarTotalGastos(gastosDados) == null) {
+            campoFixo.setText("R$ 0,00");
+        } else {
+            campoFixo.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
+        }
+
+        gastosDados.setTipo_gastos("mercado");
+        if (gastosBD.buscarTotalGastos(gastosDados) == null) {
+            campoMercado.setText("R$ 0,00");
+        } else {
+            campoMercado.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
+        }
+
+        gastosDados.setTipo_gastos("lazer");
+        if (gastosBD.buscarTotalGastos(gastosDados) == null) {
+            campoLazer.setText("R$ 0,00");
+        } else {
+            campoLazer.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
+        }
+
+        gastosDados.setTipo_gastos("outros");
+        if (gastosBD.buscarTotalGastos(gastosDados) == null) {
+            campoOutros.setText("R$ 0,00");
+        } else {
+            campoOutros.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
+        }
+
+        if (gastosBD.buscarSomaTotalGastos(gastosDados) == null) {
+            campoTotais.setText("R$ 0,00");
+        } else {
+            campoTotais.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarSomaTotalGastos(gastosDados))));
+        }
+    }
+
+    public void relatarTotais() {
+        if (tipo_gastos == "total") {
+            desselecionar();
+            panelTotal.setBackground(new Color(175, 234, 226));
+            tipo_gastos = "total";
+            botaoSalvar.setVisible(false);
+            totalGastos.setVisible(false);
+            campoTotal.setVisible(false);
+
+            GastosDados gastosDados = new GastosDados();
+            GastosBD gastosBD = new GastosBD();
+
+            gastosDados.setCod_usuario(cod_usuario);
+            gastosDados.setAno(ano);
+            gastosDados.setMes(mes);
+
+            DefaultTableModel model = (DefaultTableModel) tabela.getModel();
+            model.setRowCount(0);
+            gastosDados.setTipo_gastos("fixo");
+            if (gastosBD.buscarTotalGastos(gastosDados) == null) {
+                model.addRow(new Object[]{"Fixo", "0,00"});
+            } else {
+                model.addRow(new Object[]{"Fixo", String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados)))});
+            }
+
+            gastosDados.setTipo_gastos("mercado");
+            if (gastosBD.buscarTotalGastos(gastosDados) == null) {
+                model.addRow(new Object[]{"Mercado", "0,00"});
+            } else {
+                model.addRow(new Object[]{"Mercado", String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados)))});
+            }
+
+            gastosDados.setTipo_gastos("lazer");
+            if (gastosBD.buscarTotalGastos(gastosDados) == null) {
+                model.addRow(new Object[]{"Lazer", "0,00"});
+            } else {
+                model.addRow(new Object[]{"Lazer", String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados)))});
+            }
+
+            gastosDados.setTipo_gastos("outros");
+            if (gastosBD.buscarTotalGastos(gastosDados) == null) {
+                model.addRow(new Object[]{"Outros", "0,00"});
+            } else {
+                model.addRow(new Object[]{"Outros", String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados)))});
+            }
+
+            total = 0;
+            /*for (int i = 0; i < tabela.getRowCount(); i++) {
+            if (tabela.getModel().getValueAt(i, 1) != null && !"".equals(tabela.getModel().getValueAt(i, 1).toString())) {
+                total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
+            }
+        }*/
+            //String totalFormatado = String.format("%.02f", total);
+            if (gastosBD.buscarSomaTotalGastos(gastosDados) == null) {
+                model.addRow(new Object[]{"Total", "0,00"});
+            } else {
+                model.addRow(new Object[]{"Total", String.format("%.02f", Double.parseDouble(gastosBD.buscarSomaTotalGastos(gastosDados)))});
+            }
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -159,9 +323,22 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelPrincipal = new javax.swing.JPanel();
         campoTotal = new javax.swing.JTextField();
         totalGastos = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        jScrollPaneTabela = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
         botaoSalvar = new javax.swing.JButton();
+        labelMes = new javax.swing.JLabel();
+        panelTotais = new javax.swing.JPanel();
+        labelTotais = new javax.swing.JLabel();
+        labelTotalFixo = new javax.swing.JLabel();
+        campoFixo = new javax.swing.JTextField();
+        labelTotalMercado = new javax.swing.JLabel();
+        campoMercado = new javax.swing.JTextField();
+        labelTotalLazer = new javax.swing.JLabel();
+        campoLazer = new javax.swing.JTextField();
+        labelTotalOutros = new javax.swing.JLabel();
+        campoOutros = new javax.swing.JTextField();
+        labelTotalMes = new javax.swing.JLabel();
+        campoTotais = new javax.swing.JTextField();
 
         setBackground(new java.awt.Color(141, 231, 219));
         setBorder(null);
@@ -621,12 +798,13 @@ public class Gastos extends javax.swing.JInternalFrame {
         campoTotal.setBackground(new java.awt.Color(141, 225, 214));
         campoTotal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 210, 100, 40));
+        campoTotal.setPreferredSize(new java.awt.Dimension(150, 40));
+        panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, -1, -1));
 
         totalGastos.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
         totalGastos.setForeground(new java.awt.Color(0, 0, 0));
         totalGastos.setText("Total");
-        panelPrincipal.add(totalGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 180, 70, -1));
+        panelPrincipal.add(totalGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
 
         tabela.setBackground(new java.awt.Color(141, 225, 214));
         tabela.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -651,25 +829,114 @@ public class Gastos extends javax.swing.JInternalFrame {
                 tabelaKeyReleased(evt);
             }
         });
-        jScrollPane2.setViewportView(tabela);
+        jScrollPaneTabela.setViewportView(tabela);
         if (tabela.getColumnModel().getColumnCount() > 0) {
             tabela.getColumnModel().getColumn(0).setResizable(false);
             tabela.getColumnModel().getColumn(0).setPreferredWidth(250);
             tabela.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        panelPrincipal.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 50, 500, 350));
+        panelPrincipal.add(jScrollPaneTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 500, 350));
 
         botaoSalvar.setBackground(new java.awt.Color(244, 173, 227));
         botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         botaoSalvar.setForeground(new java.awt.Color(0, 0, 0));
         botaoSalvar.setText("Salvar");
+        botaoSalvar.setPreferredSize(new java.awt.Dimension(120, 40));
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 360, 100, -1));
+        panelPrincipal.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, -1));
+
+        labelMes.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
+        labelMes.setForeground(new java.awt.Color(51, 51, 51));
+        labelMes.setText("Gastos de Janeiro");
+        panelPrincipal.add(labelMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+
+        panelTotais.setBackground(new java.awt.Color(102, 102, 102));
+        panelTotais.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelTotais.setPreferredSize(new java.awt.Dimension(250, 428));
+        panelTotais.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelTotais.setBackground(new java.awt.Color(204, 204, 204));
+        labelTotais.setFont(new java.awt.Font("Segoe UI Black", 0, 22)); // NOI18N
+        labelTotais.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotais.setText("Totais");
+        panelTotais.add(labelTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
+        labelTotalFixo.setBackground(new java.awt.Color(204, 204, 204));
+        labelTotalFixo.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        labelTotalFixo.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalFixo.setText("Fixo");
+        panelTotais.add(labelTotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
+
+        campoFixo.setEditable(false);
+        campoFixo.setBackground(new java.awt.Color(204, 204, 204));
+        campoFixo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campoFixo.setForeground(new java.awt.Color(51, 51, 51));
+        campoFixo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoFixo.setPreferredSize(new java.awt.Dimension(150, 35));
+        panelTotais.add(campoFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+
+        labelTotalMercado.setBackground(new java.awt.Color(204, 204, 204));
+        labelTotalMercado.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        labelTotalMercado.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalMercado.setText("Mercado");
+        panelTotais.add(labelTotalMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
+
+        campoMercado.setEditable(false);
+        campoMercado.setBackground(new java.awt.Color(204, 204, 204));
+        campoMercado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campoMercado.setForeground(new java.awt.Color(51, 51, 51));
+        campoMercado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoMercado.setPreferredSize(new java.awt.Dimension(150, 35));
+        panelTotais.add(campoMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+
+        labelTotalLazer.setBackground(new java.awt.Color(204, 204, 204));
+        labelTotalLazer.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        labelTotalLazer.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalLazer.setText("Lazer");
+        panelTotais.add(labelTotalLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
+
+        campoLazer.setEditable(false);
+        campoLazer.setBackground(new java.awt.Color(204, 204, 204));
+        campoLazer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campoLazer.setForeground(new java.awt.Color(51, 51, 51));
+        campoLazer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoLazer.setPreferredSize(new java.awt.Dimension(150, 35));
+        panelTotais.add(campoLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+
+        labelTotalOutros.setBackground(new java.awt.Color(204, 204, 204));
+        labelTotalOutros.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        labelTotalOutros.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalOutros.setText("Outros");
+        panelTotais.add(labelTotalOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
+
+        campoOutros.setEditable(false);
+        campoOutros.setBackground(new java.awt.Color(204, 204, 204));
+        campoOutros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campoOutros.setForeground(new java.awt.Color(51, 51, 51));
+        campoOutros.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoOutros.setPreferredSize(new java.awt.Dimension(150, 35));
+        panelTotais.add(campoOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+
+        labelTotalMes.setBackground(new java.awt.Color(204, 204, 204));
+        labelTotalMes.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        labelTotalMes.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalMes.setText("Total de Janeiro");
+        panelTotais.add(labelTotalMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
+
+        campoTotais.setEditable(false);
+        campoTotais.setBackground(new java.awt.Color(204, 204, 204));
+        campoTotais.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campoTotais.setForeground(new java.awt.Color(51, 51, 51));
+        campoTotais.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoTotais.setPreferredSize(new java.awt.Dimension(150, 35));
+        panelTotais.add(campoTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
+
+        panelPrincipal.add(panelTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(882, 20, 250, 428));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
@@ -693,42 +960,8 @@ public class Gastos extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_panelMercadoMouseClicked
 
     private void panelTotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTotalMouseClicked
-        desselecionar();
-        panelTotal.setBackground(new Color(175, 234, 226));
         tipo_gastos = "total";
-        botaoSalvar.setVisible(false);
-        totalGastos.setVisible(false);
-        campoTotal.setVisible(false);
-        
-        GastosDados gastosDados = new GastosDados();
-        GastosBD gastosBD = new GastosBD();
-        
-        gastosDados.setCod_usuario(cod_usuario);
-        gastosDados.setAno(ano);
-        gastosDados.setMes(mes);
-        
-        DefaultTableModel model = (DefaultTableModel) tabela.getModel();
-        model.setRowCount(0);
-        gastosDados.setTipo_gastos("fixo");
-        model.addRow(new Object[]{"Fixo", gastosBD.buscarTotalGastos(gastosDados)});
-        
-        gastosDados.setTipo_gastos("mercado");
-        model.addRow(new Object[]{"Mercado", gastosBD.buscarTotalGastos(gastosDados)});
-        
-        gastosDados.setTipo_gastos("lazer");
-        model.addRow(new Object[]{"Lazer", gastosBD.buscarTotalGastos(gastosDados)});
-        
-        gastosDados.setTipo_gastos("outros");
-        model.addRow(new Object[]{"Outros", gastosBD.buscarTotalGastos(gastosDados)});
-        
-        total = 0;
-        /*for (int i = 0; i < tabela.getRowCount(); i++) {
-            if (tabela.getModel().getValueAt(i, 1) != null && !"".equals(tabela.getModel().getValueAt(i, 1).toString())) {
-                total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
-            }
-        }*/
-        //String totalFormatado = String.format("%.02f", total);
-        model.addRow(new Object[]{"Total", String.format("%.02f", Double.parseDouble(gastosBD.buscarSomaTotalGastos(gastosDados)))});
+        relatarTotais();
     }//GEN-LAST:event_panelTotalMouseClicked
 
     private void panelLazerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLazerMouseClicked
@@ -753,6 +986,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 1;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Janeiro");
+        labelTotalMes.setText("Total de Janeiro");
     }//GEN-LAST:event_panelJaneiroMouseClicked
 
     private void panelFevereiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFevereiroMouseClicked
@@ -761,6 +998,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 2;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Fevereiro");
+        labelTotalMes.setText("Total de Fevereiro");
     }//GEN-LAST:event_panelFevereiroMouseClicked
 
     private void panelMarcoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMarcoMouseClicked
@@ -769,6 +1010,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 3;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Março");
+        labelTotalMes.setText("Total de Março");
     }//GEN-LAST:event_panelMarcoMouseClicked
 
     private void panelAbrilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAbrilMouseClicked
@@ -777,6 +1022,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 4;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Abril");
+        labelTotalMes.setText("Total de Abril");
     }//GEN-LAST:event_panelAbrilMouseClicked
 
     private void panelMaioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMaioMouseClicked
@@ -785,6 +1034,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 5;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Maio");
+        labelTotalMes.setText("Total de Maio");
     }//GEN-LAST:event_panelMaioMouseClicked
 
     private void panelJunhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJunhoMouseClicked
@@ -793,6 +1046,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 6;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Junho");
+        labelTotalMes.setText("Total de Junho");
     }//GEN-LAST:event_panelJunhoMouseClicked
 
     private void panelJulhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJulhoMouseClicked
@@ -801,6 +1058,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 7;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Julho");
+        labelTotalMes.setText("Total de Julho");
     }//GEN-LAST:event_panelJulhoMouseClicked
 
     private void panelAgostoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgostoMouseClicked
@@ -809,6 +1070,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 8;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Agosto");
+        labelTotalMes.setText("Total de Agosto");
     }//GEN-LAST:event_panelAgostoMouseClicked
 
     private void panelSetembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSetembroMouseClicked
@@ -817,6 +1082,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 9;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Setembro");
+        labelTotalMes.setText("Total de Setembro");
     }//GEN-LAST:event_panelSetembroMouseClicked
 
     private void panelOutubroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutubroMouseClicked
@@ -825,6 +1094,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 10;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Outubro");
+        labelTotalMes.setText("Total de Outubro");
     }//GEN-LAST:event_panelOutubroMouseClicked
 
     private void panelNovembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNovembroMouseClicked
@@ -833,6 +1106,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 11;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Novembro");
+        labelTotalMes.setText("Total de Novembro");
     }//GEN-LAST:event_panelNovembroMouseClicked
 
     private void panelDezembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDezembroMouseClicked
@@ -841,6 +1118,10 @@ public class Gastos extends javax.swing.JInternalFrame {
         mes = 12;
         buscarDados();
         somarTabela();
+        buscarTotais();
+        relatarTotais();
+        labelMes.setText("Gastos de Dezembro");
+        labelTotalMes.setText("Total de Dezembro");
     }//GEN-LAST:event_panelDezembroMouseClicked
 
     private void tabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaKeyReleased
@@ -848,7 +1129,7 @@ public class Gastos extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) tabela.getModel();
             model.addRow(new Object[]{"", ""});
         }
-        
+
         somarTabela();
     }//GEN-LAST:event_tabelaKeyReleased
 
@@ -1132,6 +1413,11 @@ public class Gastos extends javax.swing.JInternalFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoSalvar;
+    private javax.swing.JTextField campoFixo;
+    private javax.swing.JTextField campoLazer;
+    private javax.swing.JTextField campoMercado;
+    private javax.swing.JTextField campoOutros;
+    private javax.swing.JTextField campoTotais;
     private javax.swing.JTextField campoTotal;
     private javax.swing.JLabel iconeFixo;
     private javax.swing.JLabel iconeLazer;
@@ -1139,7 +1425,7 @@ public class Gastos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel iconeOutros;
     private javax.swing.JLabel iconeTotal;
     private javax.swing.JPanel jPanelMenuMeses;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPaneTabela;
     private javax.swing.JLabel labelAbril;
     private javax.swing.JLabel labelAgosto;
     private javax.swing.JLabel labelDezembro;
@@ -1152,11 +1438,18 @@ public class Gastos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelMaio;
     private javax.swing.JLabel labelMarco;
     private javax.swing.JLabel labelMercado;
+    private javax.swing.JLabel labelMes;
     private javax.swing.JLabel labelNovembro;
     private javax.swing.JLabel labelOutros;
     private javax.swing.JLabel labelOutubro;
     private javax.swing.JLabel labelSetembro;
+    private javax.swing.JLabel labelTotais;
     private javax.swing.JLabel labelTotal;
+    private javax.swing.JLabel labelTotalFixo;
+    private javax.swing.JLabel labelTotalLazer;
+    private javax.swing.JLabel labelTotalMercado;
+    private javax.swing.JLabel labelTotalMes;
+    private javax.swing.JLabel labelTotalOutros;
     private javax.swing.JPanel panelAbril;
     private javax.swing.JPanel panelAgosto;
     private javax.swing.JPanel panelDezembro;
@@ -1175,6 +1468,7 @@ public class Gastos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelOutubro;
     private javax.swing.JPanel panelPrincipal;
     private javax.swing.JPanel panelSetembro;
+    private javax.swing.JPanel panelTotais;
     private javax.swing.JPanel panelTotal;
     private javax.swing.JTable tabela;
     private javax.swing.JLabel totalGastos;

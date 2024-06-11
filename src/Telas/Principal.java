@@ -4,6 +4,8 @@ import Banco.UsuarioBD;
 import Dados.UsuarioDados;
 import java.awt.Color;
 import java.awt.Component;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.swing.JFrame;
 
 public class Principal extends javax.swing.JFrame {
@@ -22,6 +24,13 @@ public class Principal extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         nome = usuarioBD.buscarNome(usuarioDados);
         labelNome.setText("Bem vindo, " + nome);
+        
+        buscarDataAtual();
+    }
+    
+    public void buscarDataAtual() {
+        Date dataAtual = new Date();
+        labelData.setText(Integer.parseInt(new SimpleDateFormat("dd").format(dataAtual)) + "/" + (new SimpleDateFormat("MM").format(dataAtual)));
     }
     
     @SuppressWarnings("unchecked")
@@ -33,6 +42,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu = new javax.swing.JPanel();
         panelAno = new javax.swing.JPanel();
         labelAno = new javax.swing.JLabel();
+        labelData = new javax.swing.JLabel();
         panelInicio = new javax.swing.JPanel();
         labelInicio = new javax.swing.JLabel();
         iconeInicio = new javax.swing.JLabel();
@@ -88,6 +98,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelAno.setBackground(new java.awt.Color(153, 153, 255));
+        panelAno.setPreferredSize(new java.awt.Dimension(190, 60));
         panelAno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAno.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
@@ -95,9 +106,14 @@ public class Principal extends javax.swing.JFrame {
         labelAno.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelAno.setText("2024");
         labelAno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelAno.add(labelAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 5, -1, -1));
+        panelAno.add(labelAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 7, -1, -1));
 
-        panelMenu.add(panelAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 130, 60));
+        labelData.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelData.setForeground(new java.awt.Color(227, 227, 227));
+        labelData.setText("00/00");
+        panelAno.add(labelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, -1, -1));
+
+        panelMenu.add(panelAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelInicio.setBackground(new java.awt.Color(255, 234, 189));
         panelInicio.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -135,7 +151,7 @@ public class Principal extends javax.swing.JFrame {
         });
         panelInicio.add(iconeInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 5, -1, -1));
 
-        panelMenu.add(panelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 0, 130, 60));
+        panelMenu.add(panelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 130, 60));
 
         panelCalendario.setBackground(new java.awt.Color(175, 216, 253));
         panelCalendario.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -173,7 +189,7 @@ public class Principal extends javax.swing.JFrame {
         });
         panelCalendario.add(iconeCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 5, -1, -1));
 
-        panelMenu.add(panelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 0, 130, 60));
+        panelMenu.add(panelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 130, 60));
 
         panelAnotacoes.setBackground(new java.awt.Color(252, 219, 248));
         panelAnotacoes.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -211,7 +227,7 @@ public class Principal extends javax.swing.JFrame {
         });
         panelAnotacoes.add(iconeAnotacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 5, -1, -1));
 
-        panelMenu.add(panelAnotacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 0, 130, 60));
+        panelMenu.add(panelAnotacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 130, 60));
 
         panelGastos.setBackground(new java.awt.Color(141, 231, 219));
         panelGastos.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -249,7 +265,7 @@ public class Principal extends javax.swing.JFrame {
         });
         panelGastos.add(iconeGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 5, -1, -1));
 
-        panelMenu.add(panelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 0, 130, 60));
+        panelMenu.add(panelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 130, 60));
 
         panelDados.setBackground(new java.awt.Color(224, 198, 250));
         panelDados.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -270,7 +286,7 @@ public class Principal extends javax.swing.JFrame {
         labelDados.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelDados.setText("Dados");
         labelDados.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        panelDados.add(labelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
+        panelDados.add(labelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 40, -1, -1));
 
         iconeDados.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Outros (40px).png"))); // NOI18N
         iconeDados.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -284,9 +300,9 @@ public class Principal extends javax.swing.JFrame {
                 iconeDadosMouseExited(evt);
             }
         });
-        panelDados.add(iconeDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 0, -1, -1));
+        panelDados.add(iconeDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 0, -1, -1));
 
-        panelMenu.add(panelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 0, 130, 60));
+        panelMenu.add(panelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 130, 60));
 
         panelFechar.setBackground(new java.awt.Color(255, 255, 255));
         panelFechar.setMaximumSize(new java.awt.Dimension(45, 30));
@@ -354,7 +370,7 @@ public class Principal extends javax.swing.JFrame {
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelNome.setForeground(new java.awt.Color(51, 51, 51));
         labelNome.setText("Bem vindo, Usuário");
-        panelMenu.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 30, -1, -1));
+        panelMenu.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 30, -1, -1));
 
         panelPrincipal.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -555,6 +571,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel labelAnotacoes;
     private javax.swing.JLabel labelCalendario;
     private javax.swing.JLabel labelDados;
+    private javax.swing.JLabel labelData;
     private javax.swing.JLabel labelGastos;
     private javax.swing.JLabel labelInicio;
     private javax.swing.JLabel labelNome;

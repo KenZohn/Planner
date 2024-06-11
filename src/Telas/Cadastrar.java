@@ -2,6 +2,7 @@ package Telas;
 
 import Banco.UsuarioBD;
 import Dados.UsuarioDados;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 
 public class Cadastrar extends javax.swing.JFrame {
@@ -32,6 +33,8 @@ public class Cadastrar extends javax.swing.JFrame {
         iconeFechar = new javax.swing.JLabel();
         botaoCancelar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        panelMinimizar = new javax.swing.JPanel();
+        iconeFechar1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(400, 350));
@@ -115,10 +118,17 @@ public class Cadastrar extends javax.swing.JFrame {
         });
         principal.add(botaoFinalizarCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 290, -1, -1));
 
-        botaoFechar.setBackground(new java.awt.Color(255, 255, 204));
+        botaoFechar.setBackground(new java.awt.Color(255, 234, 189));
+        botaoFechar.setPreferredSize(new java.awt.Dimension(45, 30));
         botaoFechar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 botaoFecharMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                botaoFecharMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                botaoFecharMouseExited(evt);
             }
         });
         botaoFechar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -126,11 +136,11 @@ public class Cadastrar extends javax.swing.JFrame {
         iconeFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/letra-x.png"))); // NOI18N
         iconeFechar.setText("jLabel2");
         iconeFechar.setPreferredSize(new java.awt.Dimension(30, 30));
-        botaoFechar.add(iconeFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        botaoFechar.add(iconeFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
-        principal.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 0, 30, 30));
+        principal.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(356, 0, -1, -1));
 
-        botaoCancelar.setBackground(new java.awt.Color(238, 8, 8));
+        botaoCancelar.setBackground(new java.awt.Color(253, 103, 103));
         botaoCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botaoCancelar.setForeground(new java.awt.Color(0, 0, 0));
         botaoCancelar.setText("Cancelar");
@@ -149,6 +159,32 @@ public class Cadastrar extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Criar conta");
         principal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, -1, -1));
+
+        panelMinimizar.setBackground(new java.awt.Color(255, 234, 189));
+        panelMinimizar.setMaximumSize(new java.awt.Dimension(45, 30));
+        panelMinimizar.setMinimumSize(new java.awt.Dimension(45, 30));
+        panelMinimizar.setPreferredSize(new java.awt.Dimension(45, 30));
+        panelMinimizar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelMinimizarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelMinimizarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelMinimizarMouseExited(evt);
+            }
+        });
+        panelMinimizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        iconeFechar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Minimizar (30px).png"))); // NOI18N
+        iconeFechar1.setText("jLabel2");
+        iconeFechar1.setMaximumSize(new java.awt.Dimension(30, 30));
+        iconeFechar1.setMinimumSize(new java.awt.Dimension(30, 30));
+        iconeFechar1.setPreferredSize(new java.awt.Dimension(30, 30));
+        panelMinimizar.add(iconeFechar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
+
+        principal.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(311, 0, -1, -1));
 
         getContentPane().add(principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -191,6 +227,26 @@ public class Cadastrar extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_botaoCancelarActionPerformed
 
+    private void panelMinimizarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseClicked
+        this.setExtendedState(Principal.ICONIFIED);
+    }//GEN-LAST:event_panelMinimizarMouseClicked
+
+    private void panelMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseEntered
+        panelMinimizar.setBackground(new Color(252, 245, 228));
+    }//GEN-LAST:event_panelMinimizarMouseEntered
+
+    private void panelMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseExited
+        panelMinimizar.setBackground(new Color(255, 234, 189));
+    }//GEN-LAST:event_panelMinimizarMouseExited
+
+    private void botaoFecharMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoFecharMouseEntered
+        botaoFechar.setBackground(new Color(222, 75, 75));
+    }//GEN-LAST:event_botaoFecharMouseEntered
+
+    private void botaoFecharMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoFecharMouseExited
+        botaoFechar.setBackground(new Color(255, 234, 189));
+    }//GEN-LAST:event_botaoFecharMouseExited
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField TextEmail;
@@ -201,11 +257,13 @@ public class Cadastrar extends javax.swing.JFrame {
     private javax.swing.JPanel botaoFechar;
     private javax.swing.JButton botaoFinalizarCadastro;
     private javax.swing.JLabel iconeFechar;
+    private javax.swing.JLabel iconeFechar1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelLogin;
     private javax.swing.JLabel labelNome;
     private javax.swing.JLabel labelSenha;
+    private javax.swing.JPanel panelMinimizar;
     private javax.swing.JPanel principal;
     // End of variables declaration//GEN-END:variables
 }

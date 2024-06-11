@@ -98,7 +98,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
 
         labelAfazeres.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelAfazeres.setForeground(new java.awt.Color(0, 0, 0));
-        labelAfazeres.setText("Afazeres");
+        labelAfazeres.setText("To Do");
         panelAfazeres.add(labelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         iconeAfazeres.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Tarefas (40px).png"))); // NOI18N

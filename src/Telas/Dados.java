@@ -54,6 +54,7 @@ public class Dados extends javax.swing.JInternalFrame {
         botaoDadosSalvar2 = new javax.swing.JButton();
         campoConfSenhaNova = new javax.swing.JPasswordField();
         campoSenhaNova = new javax.swing.JPasswordField();
+        botaoVoltarDados1 = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(224, 198, 250));
         setBorder(null);
@@ -72,6 +73,7 @@ public class Dados extends javax.swing.JInternalFrame {
         jPanel1.setOpaque(false);
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        campoNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoNome.setMaximumSize(new java.awt.Dimension(250, 30));
         campoNome.setMinimumSize(new java.awt.Dimension(250, 30));
         campoNome.setPreferredSize(new java.awt.Dimension(250, 30));
@@ -82,18 +84,20 @@ public class Dados extends javax.swing.JInternalFrame {
         });
         jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
+        campoEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoEmail.setMaximumSize(new java.awt.Dimension(250, 30));
         campoEmail.setMinimumSize(new java.awt.Dimension(250, 30));
         campoEmail.setPreferredSize(new java.awt.Dimension(250, 30));
         jPanel1.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
+        campoLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoLogin.setMaximumSize(new java.awt.Dimension(250, 30));
         campoLogin.setMinimumSize(new java.awt.Dimension(250, 30));
         campoLogin.setPreferredSize(new java.awt.Dimension(250, 30));
         jPanel1.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
         botaoDadosSalvar.setBackground(new java.awt.Color(204, 102, 255));
-        botaoDadosSalvar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoDadosSalvar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoDadosSalvar.setForeground(new java.awt.Color(0, 0, 0));
         botaoDadosSalvar.setText("Salvar ");
         botaoDadosSalvar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,39 +107,39 @@ public class Dados extends javax.swing.JInternalFrame {
         });
         jPanel1.add(botaoDadosSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 150, 40));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("Login");
         jLabel1.setMaximumSize(new java.awt.Dimension(40, 30));
         jLabel1.setMinimumSize(new java.awt.Dimension(40, 30));
         jLabel1.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, -1, -1));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 60, -1));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(0, 0, 0));
         jLabel2.setText("Nome");
         jLabel2.setMaximumSize(new java.awt.Dimension(40, 30));
         jLabel2.setMinimumSize(new java.awt.Dimension(40, 30));
         jLabel2.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 90, -1, -1));
+        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 60, -1));
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(0, 0, 0));
         jLabel3.setText("E-mail");
         jLabel3.setMaximumSize(new java.awt.Dimension(40, 30));
         jLabel3.setMinimumSize(new java.awt.Dimension(40, 30));
         jLabel3.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 130, -1, -1));
+        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 60, -1));
 
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setText("Alterar Dados");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
 
         botaoVoltarDados.setBackground(new java.awt.Color(204, 102, 255));
-        botaoVoltarDados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoVoltarDados.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoVoltarDados.setForeground(new java.awt.Color(0, 0, 0));
-        botaoVoltarDados.setText("ctrl-z");
+        botaoVoltarDados.setText("Desfazer");
         botaoVoltarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoVoltarDadosActionPerformed(evt);
@@ -149,29 +153,29 @@ public class Dados extends javax.swing.JInternalFrame {
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("confirmar senha");
+        jLabel5.setText("Confirmar senha");
         jLabel5.setMaximumSize(new java.awt.Dimension(40, 30));
         jLabel5.setMinimumSize(new java.awt.Dimension(40, 30));
         jLabel5.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 110, -1));
+        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 140, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Nova Senha");
         jLabel7.setMaximumSize(new java.awt.Dimension(40, 30));
         jLabel7.setMinimumSize(new java.awt.Dimension(40, 30));
         jLabel7.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 80, -1));
+        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 110, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Alterar Senha");
         jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
 
         botaoDadosSalvar2.setBackground(new java.awt.Color(204, 102, 255));
-        botaoDadosSalvar2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        botaoDadosSalvar2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoDadosSalvar2.setForeground(new java.awt.Color(0, 0, 0));
         botaoDadosSalvar2.setText("Salvar alterações");
         botaoDadosSalvar2.addActionListener(new java.awt.event.ActionListener() {
@@ -179,24 +183,32 @@ public class Dados extends javax.swing.JInternalFrame {
                 botaoDadosSalvar2ActionPerformed(evt);
             }
         });
-        jPanel2.add(botaoDadosSalvar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 150, 40));
+        jPanel2.add(botaoDadosSalvar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 180, 40));
 
+        campoConfSenhaNova.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoConfSenhaNova.setMaximumSize(new java.awt.Dimension(250, 30));
         campoConfSenhaNova.setMinimumSize(new java.awt.Dimension(250, 30));
         campoConfSenhaNova.setPreferredSize(new java.awt.Dimension(250, 30));
-        jPanel2.add(campoConfSenhaNova, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        jPanel2.add(campoConfSenhaNova, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
 
+        campoSenhaNova.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoSenhaNova.setMaximumSize(new java.awt.Dimension(250, 30));
         campoSenhaNova.setMinimumSize(new java.awt.Dimension(250, 30));
         campoSenhaNova.setPreferredSize(new java.awt.Dimension(250, 30));
-        campoSenhaNova.addActionListener(new java.awt.event.ActionListener() {
+        jPanel2.add(campoSenhaNova, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
+
+        botaoVoltarDados1.setBackground(new java.awt.Color(204, 102, 255));
+        botaoVoltarDados1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoVoltarDados1.setForeground(new java.awt.Color(0, 0, 0));
+        botaoVoltarDados1.setText("Limpar");
+        botaoVoltarDados1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoSenhaNovaActionPerformed(evt);
+                botaoVoltarDados1ActionPerformed(evt);
             }
         });
-        jPanel2.add(campoSenhaNova, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        jPanel2.add(botaoVoltarDados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 150, 40));
 
-        panelPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 440, 300));
+        panelPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 480, 300));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
@@ -251,15 +263,17 @@ public class Dados extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_botaoDadosSalvar2ActionPerformed
 
-    private void campoSenhaNovaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoSenhaNovaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoSenhaNovaActionPerformed
+    private void botaoVoltarDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarDados1ActionPerformed
+        campoSenhaNova.setText("");
+        campoConfSenhaNova.setText("");
+    }//GEN-LAST:event_botaoVoltarDados1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoDadosSalvar;
     private javax.swing.JButton botaoDadosSalvar2;
     private javax.swing.JButton botaoVoltarDados;
+    private javax.swing.JButton botaoVoltarDados1;
     private javax.swing.JPasswordField campoConfSenhaNova;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoLogin;
