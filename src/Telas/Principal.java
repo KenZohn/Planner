@@ -357,8 +357,9 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 0, -1, -1));
 
         panelDeslogar.setBackground(new java.awt.Color(255, 255, 255));
+        panelDeslogar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         panelDeslogar.setForeground(new java.awt.Color(0, 0, 0));
-        panelDeslogar.setText("sair da conta");
+        panelDeslogar.setText("Sair da conta");
         panelDeslogar.setBorder(null);
         panelDeslogar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -370,7 +371,7 @@ public class Principal extends javax.swing.JFrame {
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelNome.setForeground(new java.awt.Color(51, 51, 51));
         labelNome.setText("Bem vindo, Usuário");
-        panelMenu.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(890, 30, -1, -1));
+        panelMenu.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, -1, -1));
 
         panelPrincipal.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
