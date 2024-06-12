@@ -227,4 +227,39 @@ public class UsuarioBD {
         }
     }
     
+    public boolean excluirUsuario(UsuarioDados usuarioDados) {
+        boolean status = true;
+
+        System.out.println("Excluir usuario");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e pronto para excluir");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+
+            String sql = "DELETE FROM usuario"
+                    + " WHERE cod_usuario = '" + usuarioDados.getCod_usuario() + "';";
+
+            System.out.println("SQL: " + sql);
+
+            if (stmt.executeUpdate(sql) != 0) {
+                status = true;
+            } else {
+                status = false;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            status = false;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return status;
+    }
 }

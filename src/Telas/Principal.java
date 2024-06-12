@@ -520,7 +520,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelDeslogarActionPerformed
 
     private void iconeDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeDadosMouseClicked
-        Dados dados = new Dados();
+        Dados dados = new Dados(this);
         jDesktopPane.removeAll();
         jDesktopPane.add(dados).setVisible(true);
     }//GEN-LAST:event_iconeDadosMouseClicked
@@ -534,7 +534,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_iconeDadosMouseExited
 
     private void panelDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDadosMouseClicked
-        Dados dados = new Dados();
+        Dados dados = new Dados(this);
         jDesktopPane.removeAll();
         jDesktopPane.add(dados).setVisible(true);
     }//GEN-LAST:event_panelDadosMouseClicked

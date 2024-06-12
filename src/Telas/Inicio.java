@@ -33,6 +33,7 @@ public class Inicio extends javax.swing.JInternalFrame {
 
         buscarCalendario();
         buscarGastos();
+        buscarGastosPassado();
         buscarAfazeres();
         buscarCompras();
         buscarEstudos();
@@ -77,7 +78,18 @@ public class Inicio extends javax.swing.JInternalFrame {
     }
     
     public void buscarGastosPassado() {
-        
+        GastosDados gastosDados = new GastosDados();
+        GastosBD gastosBD = new GastosBD();
+        Date dataAtual = new Date();
+
+        gastosDados.setCod_usuario(cod_usuario);
+        gastosDados.setMes(Integer.parseInt(new SimpleDateFormat("MM").format(dataAtual)) - 1);
+
+        if (gastosBD.buscarSomaTotalGastos(gastosDados) == null) {
+            campoGastosPassado.setText(String.format("R$ 0,00"));
+        } else {
+            campoGastosPassado.setText(String.format("R$ %.02f", Double.parseDouble(gastosBD.buscarSomaTotalGastos(gastosDados))));
+        }
     }
 
     public void buscarAfazeres() {
@@ -150,8 +162,8 @@ public class Inicio extends javax.swing.JInternalFrame {
         panelGastos = new javax.swing.JPanel();
         labelGastos = new javax.swing.JLabel();
         campoGastos = new javax.swing.JTextField();
-        campoGastos1 = new javax.swing.JTextField();
-        labelGastos1 = new javax.swing.JLabel();
+        labelGastosPassado = new javax.swing.JLabel();
+        campoGastosPassado = new javax.swing.JTextField();
         panelAfazeres = new javax.swing.JPanel();
         jScrollPaneAfazeres = new javax.swing.JScrollPane();
         campoAfazeres = new javax.swing.JTextArea();
@@ -215,15 +227,15 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoGastos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         panelGastos.add(campoGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 63, 240, 40));
 
-        campoGastos1.setEditable(false);
-        campoGastos1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        campoGastos1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        panelGastos.add(campoGastos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, 240, 40));
+        labelGastosPassado.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
+        labelGastosPassado.setForeground(new java.awt.Color(51, 51, 51));
+        labelGastosPassado.setText("Gastos do mês passado");
+        panelGastos.add(labelGastosPassado, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 20, -1, -1));
 
-        labelGastos1.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        labelGastos1.setForeground(new java.awt.Color(51, 51, 51));
-        labelGastos1.setText("Gastos do mês passado");
-        panelGastos.add(labelGastos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 20, -1, -1));
+        campoGastosPassado.setEditable(false);
+        campoGastosPassado.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        campoGastosPassado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        panelGastos.add(campoGastosPassado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, 240, 40));
 
         panelInicio.add(panelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 415, -1, -1));
 
@@ -302,7 +314,7 @@ public class Inicio extends javax.swing.JInternalFrame {
     private javax.swing.JTextArea campoCompras;
     private javax.swing.JTextArea campoEstudos;
     private javax.swing.JTextField campoGastos;
-    private javax.swing.JTextField campoGastos1;
+    private javax.swing.JTextField campoGastosPassado;
     private javax.swing.JScrollPane jScrollPaneAfazeres;
     private javax.swing.JScrollPane jScrollPaneCalendario;
     private javax.swing.JScrollPane jScrollPaneCompras;
@@ -312,7 +324,7 @@ public class Inicio extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelCompras;
     private javax.swing.JLabel labelEstudos;
     private javax.swing.JLabel labelGastos;
-    private javax.swing.JLabel labelGastos1;
+    private javax.swing.JLabel labelGastosPassado;
     private javax.swing.JPanel panelAfazeres;
     private javax.swing.JPanel panelCalendario;
     private javax.swing.JPanel panelCompras;

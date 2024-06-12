@@ -801,6 +801,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         tabela.setRowHeight(30);
         tabela.setRowSelectionAllowed(false);
         tabela.setShowGrid(true);
+        tabela.getTableHeader().setReorderingAllowed(false);
         tabela.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 tabelaKeyReleased(evt);

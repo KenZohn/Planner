@@ -25,7 +25,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
 
         desselecionar();
         panelAfazeres.setBackground(new Color(253, 238, 251));
-        labelTitulo.setText("Afazeres");
+        labelTitulo.setText("To Do");
         tipo = "afazeres";
         buscarConteudo();
     }
@@ -97,7 +97,6 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelAfazeres.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAfazeres.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelAfazeres.setForeground(new java.awt.Color(0, 0, 0));
         labelAfazeres.setText("To Do");
         panelAfazeres.add(labelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -124,7 +123,6 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelCompras.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelCompras.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelCompras.setForeground(new java.awt.Color(0, 0, 0));
         labelCompras.setText("Compras");
         panelCompras.add(labelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -151,7 +149,6 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelEstudos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelEstudos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelEstudos.setForeground(new java.awt.Color(0, 0, 0));
         labelEstudos.setText("Estudos");
         panelEstudos.add(labelEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -178,7 +175,6 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelOutros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelOutros.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelOutros.setForeground(new java.awt.Color(0, 0, 0));
         labelOutros.setText("Outros");
         panelOutros.add(labelOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -200,8 +196,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelNotasTela.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelTitulo.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
-        labelTitulo.setForeground(new java.awt.Color(0, 0, 0));
-        labelTitulo.setText("Notas");
+        labelTitulo.setText("To Do");
         panelNotasTela.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
         scrollNotas.setMaximumSize(new java.awt.Dimension(560, 380));
@@ -243,7 +238,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
     private void panelAfazeresMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAfazeresMouseClicked
         desselecionar();
         panelAfazeres.setBackground(new Color(253, 238, 251));
-        labelTitulo.setText("Afazeres");
+        labelTitulo.setText("To Do");
         tipo = "afazeres";
         buscarConteudo();
     }//GEN-LAST:event_panelAfazeresMouseClicked

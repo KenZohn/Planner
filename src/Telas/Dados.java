@@ -11,12 +11,15 @@ public class Dados extends javax.swing.JInternalFrame {
     private String nome;
     private String email;
     private String login, senha;
+    private Principal telaPrincipal;
 
-    public Dados() {
+    public Dados(Principal principal) {
         initComponents();
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
         buscarDadosUsuario();
+
+        telaPrincipal = principal;
     }
 
     public void buscarDadosUsuario() {
@@ -32,29 +35,42 @@ public class Dados extends javax.swing.JInternalFrame {
         campoLogin.setText(usuarioBD.buscarLogin(usuarioDados).toString());
     }
 
+    public void excluirConta() {
+        int resultado = JOptionPane.showConfirmDialog(null, "Todos os dados serão perdidos. Deseja excluir a conta?", "Confirmar exclusão", JOptionPane.YES_NO_OPTION);
+        if (resultado == JOptionPane.YES_OPTION) {
+            UsuarioDados usuarioDados = new UsuarioDados();
+            UsuarioBD usuarioBD = new UsuarioBD();
+
+            usuarioDados.setCod_usuario(cod_usuario);
+            usuarioBD.excluirUsuario(usuarioDados);
+            JOptionPane.showMessageDialog(null, "Conta excluída com sucesso.", "Conta excluída", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         panelPrincipal = new javax.swing.JPanel();
-        jPanel1 = new javax.swing.JPanel();
+        panelAlterarDados = new javax.swing.JPanel();
+        labelAlterarDados = new javax.swing.JLabel();
+        labelNome = new javax.swing.JLabel();
+        labelEmail = new javax.swing.JLabel();
+        labelLogin = new javax.swing.JLabel();
         campoNome = new javax.swing.JTextField();
         campoEmail = new javax.swing.JTextField();
         campoLogin = new javax.swing.JTextField();
-        botaoDadosSalvar = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        botaoVoltarDados = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        botaoDadosSalvar2 = new javax.swing.JButton();
-        campoConfSenhaNova = new javax.swing.JPasswordField();
+        botaoDesfazer = new javax.swing.JButton();
+        botaoSalvarDados = new javax.swing.JButton();
+        panelAlterarSenha = new javax.swing.JPanel();
+        labelAlterarSenha = new javax.swing.JLabel();
+        labelSenha = new javax.swing.JLabel();
+        labelConfirmarSenha = new javax.swing.JLabel();
         campoSenhaNova = new javax.swing.JPasswordField();
-        botaoVoltarDados1 = new javax.swing.JButton();
+        campoConfSenhaNova = new javax.swing.JPasswordField();
+        botaoLimpar = new javax.swing.JButton();
+        botaoSalvarSenha = new javax.swing.JButton();
+        botaoExcluirConta = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(224, 198, 250));
         setBorder(null);
@@ -69,225 +85,232 @@ public class Dados extends javax.swing.JInternalFrame {
         panelPrincipal.setPreferredSize(new java.awt.Dimension(1152, 578));
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setOpaque(false);
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelAlterarDados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelAlterarDados.setOpaque(false);
+        panelAlterarDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelAlterarDados.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        labelAlterarDados.setText("Alterar Dados");
+        panelAlterarDados.add(labelAlterarDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 35, -1, -1));
+
+        labelNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelNome.setText("Nome");
+        labelNome.setMaximumSize(new java.awt.Dimension(40, 30));
+        labelNome.setMinimumSize(new java.awt.Dimension(40, 30));
+        labelNome.setPreferredSize(new java.awt.Dimension(40, 30));
+        panelAlterarDados.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 60, -1));
+
+        labelEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelEmail.setText("E-mail");
+        labelEmail.setMaximumSize(new java.awt.Dimension(40, 30));
+        labelEmail.setMinimumSize(new java.awt.Dimension(40, 30));
+        labelEmail.setPreferredSize(new java.awt.Dimension(40, 30));
+        panelAlterarDados.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 60, -1));
+
+        labelLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelLogin.setText("Login");
+        labelLogin.setMaximumSize(new java.awt.Dimension(40, 30));
+        labelLogin.setMinimumSize(new java.awt.Dimension(40, 30));
+        labelLogin.setPreferredSize(new java.awt.Dimension(40, 30));
+        panelAlterarDados.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 60, -1));
 
         campoNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoNome.setMaximumSize(new java.awt.Dimension(250, 30));
         campoNome.setMinimumSize(new java.awt.Dimension(250, 30));
         campoNome.setPreferredSize(new java.awt.Dimension(250, 30));
-        campoNome.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoNomeActionPerformed(evt);
-            }
-        });
-        jPanel1.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        panelAlterarDados.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
 
         campoEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoEmail.setMaximumSize(new java.awt.Dimension(250, 30));
         campoEmail.setMinimumSize(new java.awt.Dimension(250, 30));
         campoEmail.setPreferredSize(new java.awt.Dimension(250, 30));
-        jPanel1.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        panelAlterarDados.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
 
         campoLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoLogin.setMaximumSize(new java.awt.Dimension(250, 30));
         campoLogin.setMinimumSize(new java.awt.Dimension(250, 30));
         campoLogin.setPreferredSize(new java.awt.Dimension(250, 30));
-        jPanel1.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        panelAlterarDados.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
-        botaoDadosSalvar.setBackground(new java.awt.Color(204, 102, 255));
-        botaoDadosSalvar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        botaoDadosSalvar.setForeground(new java.awt.Color(0, 0, 0));
-        botaoDadosSalvar.setText("Salvar ");
-        botaoDadosSalvar.addActionListener(new java.awt.event.ActionListener() {
+        botaoDesfazer.setBackground(new java.awt.Color(227, 227, 227));
+        botaoDesfazer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoDesfazer.setText("Desfazer");
+        botaoDesfazer.setPreferredSize(new java.awt.Dimension(150, 40));
+        botaoDesfazer.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoDadosSalvarActionPerformed(evt);
+                botaoDesfazerActionPerformed(evt);
             }
         });
-        jPanel1.add(botaoDadosSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 150, 40));
+        panelAlterarDados.add(botaoDesfazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, -1, -1));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel1.setText("Login");
-        jLabel1.setMaximumSize(new java.awt.Dimension(40, 30));
-        jLabel1.setMinimumSize(new java.awt.Dimension(40, 30));
-        jLabel1.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 60, -1));
-
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel2.setText("Nome");
-        jLabel2.setMaximumSize(new java.awt.Dimension(40, 30));
-        jLabel2.setMinimumSize(new java.awt.Dimension(40, 30));
-        jLabel2.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 90, 60, -1));
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel3.setText("E-mail");
-        jLabel3.setMaximumSize(new java.awt.Dimension(40, 30));
-        jLabel3.setMinimumSize(new java.awt.Dimension(40, 30));
-        jLabel3.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 60, -1));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel4.setText("Alterar Dados");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 40, -1, -1));
-
-        botaoVoltarDados.setBackground(new java.awt.Color(204, 102, 255));
-        botaoVoltarDados.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        botaoVoltarDados.setForeground(new java.awt.Color(0, 0, 0));
-        botaoVoltarDados.setText("Desfazer");
-        botaoVoltarDados.addActionListener(new java.awt.event.ActionListener() {
+        botaoSalvarDados.setBackground(new java.awt.Color(153, 255, 204));
+        botaoSalvarDados.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoSalvarDados.setText("Salvar ");
+        botaoSalvarDados.setPreferredSize(new java.awt.Dimension(150, 40));
+        botaoSalvarDados.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoVoltarDadosActionPerformed(evt);
+                botaoSalvarDadosActionPerformed(evt);
             }
         });
-        jPanel1.add(botaoVoltarDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 150, 40));
+        panelAlterarDados.add(botaoSalvarDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, -1, -1));
 
-        panelPrincipal.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 440, 300));
+        panelPrincipal.add(panelAlterarDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 440, 300));
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel2.setOpaque(false);
-        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelAlterarSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelAlterarSenha.setOpaque(false);
+        panelAlterarSenha.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel5.setText("Confirmar senha");
-        jLabel5.setMaximumSize(new java.awt.Dimension(40, 30));
-        jLabel5.setMinimumSize(new java.awt.Dimension(40, 30));
-        jLabel5.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 140, -1));
+        labelAlterarSenha.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
+        labelAlterarSenha.setText("Alterar Senha");
+        panelAlterarSenha.add(labelAlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 35, -1, -1));
 
-        jLabel7.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel7.setText("Nova Senha");
-        jLabel7.setMaximumSize(new java.awt.Dimension(40, 30));
-        jLabel7.setMinimumSize(new java.awt.Dimension(40, 30));
-        jLabel7.setPreferredSize(new java.awt.Dimension(40, 30));
-        jPanel2.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 110, -1));
+        labelSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelSenha.setText("Nova Senha");
+        labelSenha.setMaximumSize(new java.awt.Dimension(40, 30));
+        labelSenha.setMinimumSize(new java.awt.Dimension(40, 30));
+        labelSenha.setPreferredSize(new java.awt.Dimension(40, 30));
+        panelAlterarSenha.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, 110, -1));
 
-        jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel8.setText("Alterar Senha");
-        jPanel2.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, -1, -1));
-
-        botaoDadosSalvar2.setBackground(new java.awt.Color(204, 102, 255));
-        botaoDadosSalvar2.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        botaoDadosSalvar2.setForeground(new java.awt.Color(0, 0, 0));
-        botaoDadosSalvar2.setText("Salvar alterações");
-        botaoDadosSalvar2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoDadosSalvar2ActionPerformed(evt);
-            }
-        });
-        jPanel2.add(botaoDadosSalvar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 230, 180, 40));
-
-        campoConfSenhaNova.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoConfSenhaNova.setMaximumSize(new java.awt.Dimension(250, 30));
-        campoConfSenhaNova.setMinimumSize(new java.awt.Dimension(250, 30));
-        campoConfSenhaNova.setPreferredSize(new java.awt.Dimension(250, 30));
-        jPanel2.add(campoConfSenhaNova, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
+        labelConfirmarSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        labelConfirmarSenha.setText("Confirmar senha");
+        labelConfirmarSenha.setMaximumSize(new java.awt.Dimension(40, 30));
+        labelConfirmarSenha.setMinimumSize(new java.awt.Dimension(40, 30));
+        labelConfirmarSenha.setPreferredSize(new java.awt.Dimension(40, 30));
+        panelAlterarSenha.add(labelConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, 140, -1));
 
         campoSenhaNova.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoSenhaNova.setMaximumSize(new java.awt.Dimension(250, 30));
         campoSenhaNova.setMinimumSize(new java.awt.Dimension(250, 30));
         campoSenhaNova.setPreferredSize(new java.awt.Dimension(250, 30));
-        jPanel2.add(campoSenhaNova, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
+        panelAlterarSenha.add(campoSenhaNova, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, -1, -1));
 
-        botaoVoltarDados1.setBackground(new java.awt.Color(204, 102, 255));
-        botaoVoltarDados1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        botaoVoltarDados1.setForeground(new java.awt.Color(0, 0, 0));
-        botaoVoltarDados1.setText("Limpar");
-        botaoVoltarDados1.addActionListener(new java.awt.event.ActionListener() {
+        campoConfSenhaNova.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campoConfSenhaNova.setMaximumSize(new java.awt.Dimension(250, 30));
+        campoConfSenhaNova.setMinimumSize(new java.awt.Dimension(250, 30));
+        campoConfSenhaNova.setPreferredSize(new java.awt.Dimension(250, 30));
+        panelAlterarSenha.add(campoConfSenhaNova, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 170, -1, -1));
+
+        botaoLimpar.setBackground(new java.awt.Color(227, 227, 227));
+        botaoLimpar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoLimpar.setText("Limpar");
+        botaoLimpar.setPreferredSize(new java.awt.Dimension(150, 40));
+        botaoLimpar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoVoltarDados1ActionPerformed(evt);
+                botaoLimparActionPerformed(evt);
             }
         });
-        jPanel2.add(botaoVoltarDados1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 230, 150, 40));
+        panelAlterarSenha.add(botaoLimpar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, -1, -1));
 
-        panelPrincipal.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 480, 300));
+        botaoSalvarSenha.setBackground(new java.awt.Color(153, 255, 204));
+        botaoSalvarSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoSalvarSenha.setText("Salvar");
+        botaoSalvarSenha.setPreferredSize(new java.awt.Dimension(150, 40));
+        botaoSalvarSenha.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoSalvarSenhaActionPerformed(evt);
+            }
+        });
+        panelAlterarSenha.add(botaoSalvarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 230, -1, -1));
+
+        panelPrincipal.add(panelAlterarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 110, 480, 300));
+
+        botaoExcluirConta.setBackground(new java.awt.Color(253, 103, 103));
+        botaoExcluirConta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoExcluirConta.setText("Excluir conta");
+        botaoExcluirConta.setPreferredSize(new java.awt.Dimension(150, 40));
+        botaoExcluirConta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoExcluirContaActionPerformed(evt);
+            }
+        });
+        panelPrincipal.add(botaoExcluirConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(952, 498, -1, -1));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void campoNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoNomeActionPerformed
-
-    }//GEN-LAST:event_campoNomeActionPerformed
-
-    private void botaoDadosSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDadosSalvarActionPerformed
+    private void botaoSalvarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarDadosActionPerformed
         UsuarioDados usuarioDados = new UsuarioDados();
         UsuarioBD usuarioBD = new UsuarioBD();
 
         nome = campoNome.getText();
         email = campoEmail.getText();
         login = campoLogin.getText();
-     
 
         usuarioDados.setCod_usuario(cod_usuario);
         usuarioDados.setNome(nome);
         usuarioDados.setEmail(email);
         usuarioDados.setLogin(login);
-     
+
         System.out.println("cod2:" + cod_usuario);
 
-        if (usuarioBD.atualizarDados(usuarioDados) == true) {
-            JOptionPane.showMessageDialog(null, "atualizado com sucesso!!!", "atualizado", JOptionPane.INFORMATION_MESSAGE);
-
+        if ("".equals(campoNome.getText()) || "".equals(campoEmail.getText()) || "".equals(campoLogin.getText())) {
+            JOptionPane.showMessageDialog(null, "Preencha os campos corretamente.", "Erro", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Erro na atualização", "Erro", JOptionPane.ERROR_MESSAGE);
+            if (usuarioBD.atualizarDados(usuarioDados) == true) {
+                JOptionPane.showMessageDialog(null, "Dados atualizados com sucesso.", "Atualizado", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro na atualização", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         }
-    }//GEN-LAST:event_botaoDadosSalvarActionPerformed
+    }//GEN-LAST:event_botaoSalvarDadosActionPerformed
 
-    private void botaoVoltarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarDadosActionPerformed
+    private void botaoDesfazerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDesfazerActionPerformed
         buscarDadosUsuario();
-    }//GEN-LAST:event_botaoVoltarDadosActionPerformed
+    }//GEN-LAST:event_botaoDesfazerActionPerformed
 
-    private void botaoDadosSalvar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoDadosSalvar2ActionPerformed
-        if (campoSenhaNova.getText() == null ? campoConfSenhaNova.getText() == null : campoSenhaNova.getText().equals(campoConfSenhaNova.getText())) {
-            UsuarioDados usuarioDados = new UsuarioDados();
-            UsuarioBD usuarioBD = new UsuarioBD();
-            senha= campoSenhaNova.getText();
-            usuarioDados.setCod_usuario(cod_usuario);
-            usuarioDados.setSenha(senha);
-           usuarioBD.atualizarSenha(usuarioDados);
-            JOptionPane.showMessageDialog(null, "atualizado com sucesso!!!", "atualizado", JOptionPane.INFORMATION_MESSAGE);
-
+    private void botaoSalvarSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarSenhaActionPerformed
+        if ("".equals(campoSenhaNova.getText()) || "".equals(campoConfSenhaNova.getText())) {
+            JOptionPane.showMessageDialog(null, "Preencha os campos corretamente", "Erro", JOptionPane.ERROR_MESSAGE);
         } else {
-            JOptionPane.showMessageDialog(null, "Erro na confirmação", "Erro", JOptionPane.ERROR_MESSAGE);
+            if (campoSenhaNova.getText() == null ? campoConfSenhaNova.getText() == null : campoSenhaNova.getText().equals(campoConfSenhaNova.getText())) {
+                UsuarioDados usuarioDados = new UsuarioDados();
+                UsuarioBD usuarioBD = new UsuarioBD();
+                senha = campoSenhaNova.getText();
+                usuarioDados.setCod_usuario(cod_usuario);
+                usuarioDados.setSenha(senha);
+                usuarioBD.atualizarSenha(usuarioDados);
+                JOptionPane.showMessageDialog(null, "Senha atualizada com sucesso.", "Atualizado", JOptionPane.INFORMATION_MESSAGE);
+            } else {
+                JOptionPane.showMessageDialog(null, "Erro na confirmação", "Erro", JOptionPane.ERROR_MESSAGE);
+            }
         }
+    }//GEN-LAST:event_botaoSalvarSenhaActionPerformed
 
-    }//GEN-LAST:event_botaoDadosSalvar2ActionPerformed
-
-    private void botaoVoltarDados1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoVoltarDados1ActionPerformed
+    private void botaoLimparActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoLimparActionPerformed
         campoSenhaNova.setText("");
         campoConfSenhaNova.setText("");
-    }//GEN-LAST:event_botaoVoltarDados1ActionPerformed
+    }//GEN-LAST:event_botaoLimparActionPerformed
+
+    private void botaoExcluirContaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoExcluirContaActionPerformed
+        excluirConta();
+        Login telaLogin = new Login();
+        telaLogin.setVisible(true);
+        telaPrincipal.dispose();
+    }//GEN-LAST:event_botaoExcluirContaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoDadosSalvar;
-    private javax.swing.JButton botaoDadosSalvar2;
-    private javax.swing.JButton botaoVoltarDados;
-    private javax.swing.JButton botaoVoltarDados1;
+    private javax.swing.JButton botaoDesfazer;
+    private javax.swing.JButton botaoExcluirConta;
+    private javax.swing.JButton botaoLimpar;
+    private javax.swing.JButton botaoSalvarDados;
+    private javax.swing.JButton botaoSalvarSenha;
     private javax.swing.JPasswordField campoConfSenhaNova;
     private javax.swing.JTextField campoEmail;
     private javax.swing.JTextField campoLogin;
     private javax.swing.JTextField campoNome;
     private javax.swing.JPasswordField campoSenhaNova;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel7;
-    private javax.swing.JLabel jLabel8;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
+    private javax.swing.JLabel labelAlterarDados;
+    private javax.swing.JLabel labelAlterarSenha;
+    private javax.swing.JLabel labelConfirmarSenha;
+    private javax.swing.JLabel labelEmail;
+    private javax.swing.JLabel labelLogin;
+    private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelSenha;
+    private javax.swing.JPanel panelAlterarDados;
+    private javax.swing.JPanel panelAlterarSenha;
     private javax.swing.JPanel panelPrincipal;
     // End of variables declaration//GEN-END:variables
 }
