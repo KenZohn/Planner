@@ -163,7 +163,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         }
 
         String totalFormatado = String.format("%.02f", total);
-        campoTotal.setText(totalFormatado + "");
+        campoTotal.setText("R$ " + totalFormatado + "");
 
         if (tipo_gastos != "total") {
             botaoSalvar.setVisible(true);
@@ -215,7 +215,7 @@ public class Gastos extends javax.swing.JInternalFrame {
     }
 
     public void relatarTotais() {
-        if (tipo_gastos == "total") {
+        if ("total".equals(tipo_gastos)) {
             desselecionar();
             panelTotal.setBackground(new Color(175, 234, 226));
             tipo_gastos = "total";
@@ -261,12 +261,7 @@ public class Gastos extends javax.swing.JInternalFrame {
             }
 
             total = 0;
-            /*for (int i = 0; i < tabela.getRowCount(); i++) {
-            if (tabela.getModel().getValueAt(i, 1) != null && !"".equals(tabela.getModel().getValueAt(i, 1).toString())) {
-                total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
-            }
-        }*/
-            //String totalFormatado = String.format("%.02f", total);
+
             if (gastosBD.buscarSomaTotalGastos(gastosDados) == null) {
                 model.addRow(new Object[]{"Total", "0,00"});
             } else {
@@ -372,7 +367,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelJaneiro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelJaneiro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelJaneiro.setForeground(new java.awt.Color(0, 0, 0));
         labelJaneiro.setText("Jan");
         panelJaneiro.add(labelJaneiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
@@ -396,7 +390,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelFevereiro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelFevereiro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelFevereiro.setForeground(new java.awt.Color(0, 0, 0));
         labelFevereiro.setText("Fev");
         panelFevereiro.add(labelFevereiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 10, -1, -1));
 
@@ -420,7 +413,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMarco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelMarco.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelMarco.setForeground(new java.awt.Color(0, 0, 0));
         labelMarco.setText("Mar");
         panelMarco.add(labelMarco, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, -1, -1));
 
@@ -444,7 +436,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelAbril.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAbril.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelAbril.setForeground(new java.awt.Color(0, 0, 0));
         labelAbril.setText("Abr");
         panelAbril.add(labelAbril, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 10, -1, -1));
 
@@ -468,7 +459,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMaio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelMaio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelMaio.setForeground(new java.awt.Color(0, 0, 0));
         labelMaio.setText("Mai");
         panelMaio.add(labelMaio, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 10, -1, -1));
 
@@ -492,7 +482,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelJunho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelJunho.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelJunho.setForeground(new java.awt.Color(0, 0, 0));
         labelJunho.setText("Jun");
         panelJunho.add(labelJunho, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 10, -1, -1));
 
@@ -516,7 +505,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelJulho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelJulho.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelJulho.setForeground(new java.awt.Color(0, 0, 0));
         labelJulho.setText("Jul");
         panelJulho.add(labelJulho, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 10, -1, -1));
 
@@ -540,7 +528,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelAgosto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAgosto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelAgosto.setForeground(new java.awt.Color(0, 0, 0));
         labelAgosto.setText("Ago");
         panelAgosto.add(labelAgosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 10, -1, -1));
 
@@ -564,7 +551,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelSetembro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelSetembro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelSetembro.setForeground(new java.awt.Color(0, 0, 0));
         labelSetembro.setText("Set");
         panelSetembro.add(labelSetembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 10, -1, -1));
 
@@ -588,7 +574,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelOutubro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelOutubro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelOutubro.setForeground(new java.awt.Color(0, 0, 0));
         labelOutubro.setText("Out");
         panelOutubro.add(labelOutubro, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 10, -1, -1));
 
@@ -612,7 +597,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelNovembro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelNovembro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelNovembro.setForeground(new java.awt.Color(0, 0, 0));
         labelNovembro.setText("Nov");
         panelNovembro.add(labelNovembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 10, -1, -1));
 
@@ -636,7 +620,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelDezembro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelDezembro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelDezembro.setForeground(new java.awt.Color(0, 0, 0));
         labelDezembro.setText("Dez");
         panelDezembro.add(labelDezembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, -1, -1));
 
@@ -669,7 +652,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelFixo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelFixo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelFixo.setForeground(new java.awt.Color(0, 0, 0));
         labelFixo.setText("Fixo");
         panelFixo.add(labelFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -696,7 +678,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMercado.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelMercado.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelMercado.setForeground(new java.awt.Color(0, 0, 0));
         labelMercado.setText("Mercado");
         panelMercado.add(labelMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -723,7 +704,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelLazer.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelLazer.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelLazer.setForeground(new java.awt.Color(0, 0, 0));
         labelLazer.setText("Lazer");
         panelLazer.add(labelLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -750,7 +730,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelOutros.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelOutros.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelOutros.setForeground(new java.awt.Color(0, 0, 0));
         labelOutros.setText("Outros");
         panelOutros.add(labelOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -777,7 +756,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelTotal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelTotal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelTotal.setForeground(new java.awt.Color(0, 0, 0));
         labelTotal.setText("Relatório");
         panelTotal.add(labelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
@@ -795,18 +773,17 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         campoTotal.setEditable(false);
-        campoTotal.setBackground(new java.awt.Color(141, 225, 214));
+        campoTotal.setBackground(new java.awt.Color(212, 241, 237));
         campoTotal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoTotal.setPreferredSize(new java.awt.Dimension(150, 40));
         panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, -1, -1));
 
-        totalGastos.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
-        totalGastos.setForeground(new java.awt.Color(0, 0, 0));
+        totalGastos.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         totalGastos.setText("Total");
-        panelPrincipal.add(totalGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, -1, -1));
+        panelPrincipal.add(totalGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 285, -1, -1));
 
-        tabela.setBackground(new java.awt.Color(141, 225, 214));
+        tabela.setBackground(new java.awt.Color(242, 242, 242));
         tabela.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -838,11 +815,13 @@ public class Gastos extends javax.swing.JInternalFrame {
 
         panelPrincipal.add(jScrollPaneTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 500, 350));
 
-        botaoSalvar.setBackground(new java.awt.Color(244, 173, 227));
+        botaoSalvar.setBackground(new java.awt.Color(51, 51, 51));
         botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        botaoSalvar.setForeground(new java.awt.Color(0, 0, 0));
+        botaoSalvar.setForeground(new java.awt.Color(242, 242, 242));
         botaoSalvar.setText("Salvar");
-        botaoSalvar.setPreferredSize(new java.awt.Dimension(120, 40));
+        botaoSalvar.setMaximumSize(new java.awt.Dimension(150, 40));
+        botaoSalvar.setMinimumSize(new java.awt.Dimension(150, 40));
+        botaoSalvar.setPreferredSize(new java.awt.Dimension(150, 40));
         botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoSalvarActionPerformed(evt);
@@ -860,76 +839,65 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelTotais.setPreferredSize(new java.awt.Dimension(250, 428));
         panelTotais.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelTotais.setBackground(new java.awt.Color(204, 204, 204));
         labelTotais.setFont(new java.awt.Font("Segoe UI Black", 0, 22)); // NOI18N
-        labelTotais.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotais.setForeground(new java.awt.Color(242, 242, 242));
         labelTotais.setText("Totais");
         panelTotais.add(labelTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
 
-        labelTotalFixo.setBackground(new java.awt.Color(204, 204, 204));
         labelTotalFixo.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        labelTotalFixo.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalFixo.setForeground(new java.awt.Color(242, 242, 242));
         labelTotalFixo.setText("Fixo");
         panelTotais.add(labelTotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
         campoFixo.setEditable(false);
-        campoFixo.setBackground(new java.awt.Color(204, 204, 204));
         campoFixo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoFixo.setForeground(new java.awt.Color(51, 51, 51));
         campoFixo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoFixo.setPreferredSize(new java.awt.Dimension(150, 35));
         panelTotais.add(campoFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
-        labelTotalMercado.setBackground(new java.awt.Color(204, 204, 204));
         labelTotalMercado.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        labelTotalMercado.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalMercado.setForeground(new java.awt.Color(242, 242, 242));
         labelTotalMercado.setText("Mercado");
         panelTotais.add(labelTotalMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
         campoMercado.setEditable(false);
-        campoMercado.setBackground(new java.awt.Color(204, 204, 204));
         campoMercado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoMercado.setForeground(new java.awt.Color(51, 51, 51));
         campoMercado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoMercado.setPreferredSize(new java.awt.Dimension(150, 35));
         panelTotais.add(campoMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
-        labelTotalLazer.setBackground(new java.awt.Color(204, 204, 204));
         labelTotalLazer.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        labelTotalLazer.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalLazer.setForeground(new java.awt.Color(242, 242, 242));
         labelTotalLazer.setText("Lazer");
         panelTotais.add(labelTotalLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
         campoLazer.setEditable(false);
-        campoLazer.setBackground(new java.awt.Color(204, 204, 204));
         campoLazer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoLazer.setForeground(new java.awt.Color(51, 51, 51));
         campoLazer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoLazer.setPreferredSize(new java.awt.Dimension(150, 35));
         panelTotais.add(campoLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
-        labelTotalOutros.setBackground(new java.awt.Color(204, 204, 204));
         labelTotalOutros.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        labelTotalOutros.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalOutros.setForeground(new java.awt.Color(242, 242, 242));
         labelTotalOutros.setText("Outros");
         panelTotais.add(labelTotalOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
         campoOutros.setEditable(false);
-        campoOutros.setBackground(new java.awt.Color(204, 204, 204));
         campoOutros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoOutros.setForeground(new java.awt.Color(51, 51, 51));
         campoOutros.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         campoOutros.setPreferredSize(new java.awt.Dimension(150, 35));
         panelTotais.add(campoOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
-        labelTotalMes.setBackground(new java.awt.Color(204, 204, 204));
         labelTotalMes.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        labelTotalMes.setForeground(new java.awt.Color(204, 204, 204));
+        labelTotalMes.setForeground(new java.awt.Color(242, 242, 242));
         labelTotalMes.setText("Total de Janeiro");
         panelTotais.add(labelTotalMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
 
         campoTotais.setEditable(false);
-        campoTotais.setBackground(new java.awt.Color(204, 204, 204));
         campoTotais.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoTotais.setForeground(new java.awt.Color(51, 51, 51));
         campoTotais.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -1407,6 +1375,8 @@ public class Gastos extends javax.swing.JInternalFrame {
             /*if (descricao.equals("") && valor == 0) {
                 gastosBD.excluirGastos(gastosDados);
             }*/
+            
+            buscarTotais();
         }
     }//GEN-LAST:event_botaoSalvarActionPerformed
 

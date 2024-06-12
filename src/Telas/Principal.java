@@ -130,7 +130,6 @@ public class Principal extends javax.swing.JFrame {
         panelInicio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelInicio.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelInicio.setForeground(new java.awt.Color(0, 0, 0));
         labelInicio.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelInicio.setText("Início");
         labelInicio.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -168,7 +167,6 @@ public class Principal extends javax.swing.JFrame {
         panelCalendario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelCalendario.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelCalendario.setForeground(new java.awt.Color(0, 0, 0));
         labelCalendario.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelCalendario.setText("Calendário");
         labelCalendario.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -206,7 +204,6 @@ public class Principal extends javax.swing.JFrame {
         panelAnotacoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAnotacoes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelAnotacoes.setForeground(new java.awt.Color(0, 0, 0));
         labelAnotacoes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelAnotacoes.setText("Anotações");
         labelAnotacoes.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -244,7 +241,6 @@ public class Principal extends javax.swing.JFrame {
         panelGastos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelGastos.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelGastos.setForeground(new java.awt.Color(0, 0, 0));
         labelGastos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelGastos.setText("Gastos");
         labelGastos.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -282,7 +278,6 @@ public class Principal extends javax.swing.JFrame {
         panelDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelDados.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        labelDados.setForeground(new java.awt.Color(0, 0, 0));
         labelDados.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         labelDados.setText("Dados");
         labelDados.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -322,10 +317,6 @@ public class Principal extends javax.swing.JFrame {
         panelFechar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         iconeFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/letra-x.png"))); // NOI18N
-        iconeFechar.setText("jLabel2");
-        iconeFechar.setMaximumSize(new java.awt.Dimension(30, 30));
-        iconeFechar.setMinimumSize(new java.awt.Dimension(30, 30));
-        iconeFechar.setPreferredSize(new java.awt.Dimension(30, 30));
         panelFechar.add(iconeFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
         panelMenu.add(panelFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1108, 0, -1, -1));
@@ -347,18 +338,15 @@ public class Principal extends javax.swing.JFrame {
         });
         panelMinimizar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iconeFechar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Minimizar (30px).png"))); // NOI18N
-        iconeFechar1.setText("jLabel2");
+        iconeFechar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Minimizar (24px).png"))); // NOI18N
         iconeFechar1.setMaximumSize(new java.awt.Dimension(30, 30));
         iconeFechar1.setMinimumSize(new java.awt.Dimension(30, 30));
         iconeFechar1.setPreferredSize(new java.awt.Dimension(30, 30));
-        panelMinimizar.add(iconeFechar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
+        panelMinimizar.add(iconeFechar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
         panelMenu.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 0, -1, -1));
 
-        panelDeslogar.setBackground(new java.awt.Color(255, 255, 255));
         panelDeslogar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        panelDeslogar.setForeground(new java.awt.Color(0, 0, 0));
         panelDeslogar.setText("Sair da conta");
         panelDeslogar.setBorder(null);
         panelDeslogar.addActionListener(new java.awt.event.ActionListener() {
