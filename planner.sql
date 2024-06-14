@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/05/2024 às 00:00
+-- Tempo de geração: 12/06/2024 às 16:14
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -39,13 +39,12 @@ CREATE TABLE `anotacoes` (
 --
 
 INSERT INTO `anotacoes` (`cod_anotacoes`, `cod_usuario`, `tipo`, `conteudo`) VALUES
-(1, 1, 'notas', 'escala de trabalho dia impar \ndias de folga ?\nescala extra'),
-(2, 1, 'tarefas', 'nao esquecer de lavar o uniforme\n\n'),
-(3, 1, 'estudos', 'prova dia 10 do marcilio'),
-(4, 1, 'compras', 'shampoo\ncondicionador\n'),
-(5, 0, 'notas', 'oi'),
-(6, 2, 'notas', 'jojojoj'),
-(7, 6, 'notas', 'oiiiiiii vc é bravo');
+(2, 2, 'afazeres', 'Não esquecer de lavar o uniforme\r\n\r\n'),
+(3, 2, 'estudos', 'Prova de Cálculo no dia 10'),
+(4, 2, 'compras', 'Shampoo\r\nCondicionador\r\n'),
+(8, 6, 'afazeres', 'Limpar o banheiro'),
+(9, 6, 'compras', 'Banana\nFrango'),
+(10, 6, 'estudos', 'Estudar Framework');
 
 -- --------------------------------------------------------
 
@@ -67,8 +66,16 @@ CREATE TABLE `calendario` (
 --
 
 INSERT INTO `calendario` (`cod_calendario`, `cod_usuario`, `ano`, `mes`, `dia`, `conteudo`) VALUES
-(1, 1, 2024, 5, 25, 'aula de ingles \nnao esquecer de entregar atividade '),
-(2, 1, 2024, 6, 27, 'aniversario joaquim :D');
+(1, 2, 2024, 5, 25, 'aula de ingles \nnao esquecer de entregar atividade '),
+(2, 2, 2024, 6, 27, 'aniversario joaquim :D'),
+(3, 0, 2024, 5, 25, 'Joinha'),
+(5, 0, 2024, 5, 28, 'Eclipse solar 2'),
+(10, 6, 2024, 6, 10, 'Prova de Cálculo'),
+(11, 6, 2024, 6, 24, 'Prova de Contabilidade'),
+(12, 6, 2024, 6, 25, 'Apresentação do PI'),
+(14, 6, 2024, 7, 5, 'Último dia de aula!'),
+(15, 6, 2024, 12, 13, 'Níver de alguém...'),
+(16, 6, 2024, 2, 15, 'Início das aulas');
 
 -- --------------------------------------------------------
 
@@ -86,6 +93,23 @@ CREATE TABLE `gastos` (
   `descricao` text NOT NULL,
   `valor` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `gastos`
+--
+
+INSERT INTO `gastos` (`cod_gastos`, `cod_usuario`, `tipo_gastos`, `ano`, `mes`, `linha_item`, `descricao`, `valor`) VALUES
+(1, 6, 'fixo', 0, 6, 0, 'Aluguel', 668.8),
+(2, 6, 'fixo', 0, 6, 1, 'Internet', 94.9),
+(3, 6, 'fixo', 0, 6, 2, 'Celular', 33),
+(4, 6, 'fixo', 0, 6, 3, 'Água', 38.8),
+(5, 6, 'fixo', 0, 6, 4, 'Luz', 45),
+(6, 6, 'mercado', 0, 6, 0, 'Máximo', 45.8),
+(7, 6, 'mercado', 0, 6, 1, 'Whey Protein', 75),
+(8, 6, 'fixo', 0, 5, 0, 'Aluguel', 670),
+(9, 6, 'fixo', 0, 5, 1, 'Água', 38),
+(10, 6, 'fixo', 0, 5, 2, 'Luz', 45),
+(11, 6, 'lazer', 0, 6, 0, 'Cinema', 40);
 
 -- --------------------------------------------------------
 
@@ -106,8 +130,9 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome`, `email`, `login`, `senha`) VALUES
-(2, 'thais', 'thais.ferreira', 'thaisf', '123456'),
-(6, 'johnny', 'johnny.bravo@gmail', 'johnny', '123456');
+(0, 'Aladim', 'lampadamagica123@email.com', 'admin', '123456'),
+(2, 'Thais', 'thais.ferreira@email.com', 'thaisf', '354679'),
+(6, 'Johnny', 'johnny.bravo@email.com', 'johnny', '1');
 
 --
 -- Índices para tabelas despejadas
@@ -147,25 +172,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `anotacoes`
 --
 ALTER TABLE `anotacoes`
-  MODIFY `cod_anotacoes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `cod_anotacoes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `calendario`
 --
 ALTER TABLE `calendario`
-  MODIFY `cod_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `cod_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT de tabela `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `cod_gastos` int(4) NOT NULL AUTO_INCREMENT;
+  MODIFY `cod_gastos` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `cod_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

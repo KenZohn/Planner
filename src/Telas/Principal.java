@@ -62,8 +62,9 @@ public class Principal extends javax.swing.JFrame {
         iconeFechar = new javax.swing.JLabel();
         panelMinimizar = new javax.swing.JPanel();
         iconeFechar1 = new javax.swing.JLabel();
-        panelDeslogar = new javax.swing.JButton();
         labelNome = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1152, 648));
@@ -98,6 +99,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelAno.setBackground(new java.awt.Color(153, 153, 255));
+        panelAno.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelAno.setPreferredSize(new java.awt.Dimension(190, 60));
         panelAno.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -108,14 +110,17 @@ public class Principal extends javax.swing.JFrame {
         labelAno.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         panelAno.add(labelAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 7, -1, -1));
 
-        labelData.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        labelData.setFont(new java.awt.Font("Segoe UI", 0, 26)); // NOI18N
         labelData.setForeground(new java.awt.Color(227, 227, 227));
         labelData.setText("00/00");
-        panelAno.add(labelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 20, -1, -1));
+        labelData.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        labelData.setPreferredSize(new java.awt.Dimension(68, 48));
+        panelAno.add(labelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 7, -1, -1));
 
         panelMenu.add(panelAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelInicio.setBackground(new java.awt.Color(255, 234, 189));
+        panelInicio.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelInicioMouseClicked(evt);
@@ -153,6 +158,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.add(panelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 130, 60));
 
         panelCalendario.setBackground(new java.awt.Color(175, 216, 253));
+        panelCalendario.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelCalendario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelCalendarioMouseClicked(evt);
@@ -190,6 +196,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.add(panelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 0, 130, 60));
 
         panelAnotacoes.setBackground(new java.awt.Color(252, 219, 248));
+        panelAnotacoes.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelAnotacoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelAnotacoesMouseClicked(evt);
@@ -227,6 +234,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.add(panelAnotacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 0, 130, 60));
 
         panelGastos.setBackground(new java.awt.Color(141, 231, 219));
+        panelGastos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelGastos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelGastosMouseClicked(evt);
@@ -264,6 +272,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.add(panelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 0, 130, 60));
 
         panelDados.setBackground(new java.awt.Color(224, 198, 250));
+        panelDados.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelDados.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelDadosMouseClicked(evt);
@@ -316,7 +325,7 @@ public class Principal extends javax.swing.JFrame {
         });
         panelFechar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iconeFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/letra-x.png"))); // NOI18N
+        iconeFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fechar (30px).png"))); // NOI18N
         panelFechar.add(iconeFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
         panelMenu.add(panelFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1108, 0, -1, -1));
@@ -346,20 +355,28 @@ public class Principal extends javax.swing.JFrame {
 
         panelMenu.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 0, -1, -1));
 
-        panelDeslogar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        panelDeslogar.setText("Sair da conta");
-        panelDeslogar.setBorder(null);
-        panelDeslogar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                panelDeslogarActionPerformed(evt);
-            }
-        });
-        panelMenu.add(panelDeslogar, new org.netbeans.lib.awtextra.AbsoluteConstraints(930, 0, 140, 30));
-
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelNome.setForeground(new java.awt.Color(51, 51, 51));
         labelNome.setText("Bem vindo, Usuário");
-        panelMenu.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 30, -1, -1));
+        panelMenu.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 30, -1, -1));
+
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanel1.setOpaque(false);
+        jPanel1.setPreferredSize(new java.awt.Dimension(100, 30));
+        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jPanel1MouseClicked(evt);
+            }
+        });
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Sair");
+        jLabel1.setPreferredSize(new java.awt.Dimension(30, 30));
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 0, -1, -1));
+
+        panelMenu.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, -1, -1));
 
         panelPrincipal.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -513,12 +530,6 @@ public class Principal extends javax.swing.JFrame {
         panelGastos.setBackground(new Color(141, 231, 219));
     }//GEN-LAST:event_iconeGastosMouseExited
 
-    private void panelDeslogarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_panelDeslogarActionPerformed
-        Login telaLogin = new Login();
-        telaLogin.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_panelDeslogarActionPerformed
-
     private void iconeDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeDadosMouseClicked
         Dados dados = new Dados(this);
         jDesktopPane.removeAll();
@@ -547,6 +558,12 @@ public class Principal extends javax.swing.JFrame {
         panelDados.setBackground(new Color(224, 198, 250));
     }//GEN-LAST:event_panelDadosMouseExited
 
+    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+        Login telaLogin = new Login();
+        telaLogin.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_jPanel1MouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel iconeAnotacoes;
     private javax.swing.JLabel iconeCalendario;
@@ -556,6 +573,8 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel iconeGastos;
     private javax.swing.JLabel iconeInicio;
     private javax.swing.JDesktopPane jDesktopPane;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAno;
     private javax.swing.JLabel labelAnotacoes;
     private javax.swing.JLabel labelCalendario;
@@ -568,7 +587,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel panelAnotacoes;
     private javax.swing.JPanel panelCalendario;
     private javax.swing.JPanel panelDados;
-    private javax.swing.JButton panelDeslogar;
     private javax.swing.JPanel panelFechar;
     private javax.swing.JPanel panelGastos;
     private javax.swing.JPanel panelInicio;

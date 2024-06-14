@@ -1488,6 +1488,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f7" green="ec" red="e0" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
             </Property>
@@ -1518,9 +1525,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Jan"/>
               </Properties>
               <Constraints>
@@ -1535,6 +1539,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1566,9 +1577,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Fev"/>
               </Properties>
               <Constraints>
@@ -1583,6 +1591,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1614,9 +1629,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Mar"/>
               </Properties>
               <Constraints>
@@ -1631,6 +1643,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1662,9 +1681,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Abr"/>
               </Properties>
               <Constraints>
@@ -1679,6 +1695,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1710,9 +1733,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Mai"/>
               </Properties>
               <Constraints>
@@ -1727,6 +1747,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1758,9 +1785,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Jun"/>
               </Properties>
               <Constraints>
@@ -1775,6 +1799,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1806,9 +1837,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Jul"/>
               </Properties>
               <Constraints>
@@ -1823,6 +1851,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1854,9 +1889,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Ago"/>
               </Properties>
               <Constraints>
@@ -1871,6 +1903,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1902,9 +1941,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Set"/>
               </Properties>
               <Constraints>
@@ -1919,6 +1955,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1950,9 +1993,6 @@
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="Out"/>
               </Properties>
               <Constraints>
@@ -1967,6 +2007,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="e6" green="c0" red="96" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -1997,9 +2044,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nov"/>
               </Properties>
@@ -2045,9 +2089,6 @@
               <Properties>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Dez"/>
               </Properties>

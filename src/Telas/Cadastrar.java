@@ -235,7 +235,7 @@ public class Cadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoMinimizarMouseExited
 
     private void botaoVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseEntered
-        botaoVoltar.setBackground(new Color(239, 239, 92));
+        botaoVoltar.setBackground(new Color(252, 245, 228));
     }//GEN-LAST:event_botaoVoltarMouseEntered
 
     private void botaoVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseExited

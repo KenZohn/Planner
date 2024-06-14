@@ -79,20 +79,20 @@ public class Login extends javax.swing.JFrame {
         labelLogin.setMaximumSize(new java.awt.Dimension(46, 30));
         labelLogin.setMinimumSize(new java.awt.Dimension(46, 30));
         labelLogin.setPreferredSize(new java.awt.Dimension(46, 30));
-        panelPrincipal.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
+        panelPrincipal.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, -1, -1));
 
         labelSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelSenha.setText("Senha");
         labelSenha.setMaximumSize(new java.awt.Dimension(46, 30));
         labelSenha.setMinimumSize(new java.awt.Dimension(46, 30));
         labelSenha.setPreferredSize(new java.awt.Dimension(46, 30));
-        panelPrincipal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 50, -1));
+        panelPrincipal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 50, -1));
 
         campoLogin.setBackground(new java.awt.Color(217, 247, 254));
         campoLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoLogin.setMaximumSize(new java.awt.Dimension(150, 30));
-        campoLogin.setMinimumSize(new java.awt.Dimension(150, 30));
-        campoLogin.setPreferredSize(new java.awt.Dimension(150, 30));
+        campoLogin.setMaximumSize(new java.awt.Dimension(200, 30));
+        campoLogin.setMinimumSize(new java.awt.Dimension(200, 30));
+        campoLogin.setPreferredSize(new java.awt.Dimension(200, 30));
         campoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoLoginActionPerformed(evt);
@@ -103,9 +103,9 @@ public class Login extends javax.swing.JFrame {
                 campoLoginKeyPressed(evt);
             }
         });
-        panelPrincipal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
+        panelPrincipal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
-        botaoEntrar.setBackground(new java.awt.Color(127, 215, 219));
+        botaoEntrar.setBackground(new java.awt.Color(159, 225, 228));
         botaoEntrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoEntrar.setText("Entrar");
         botaoEntrar.setMaximumSize(new java.awt.Dimension(160, 40));
@@ -116,9 +116,9 @@ public class Login extends javax.swing.JFrame {
                 botaoEntrarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 220, -1, -1));
+        panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
-        botaoCadastrar.setBackground(new java.awt.Color(127, 215, 219));
+        botaoCadastrar.setBackground(new java.awt.Color(159, 225, 228));
         botaoCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoCadastrar.setText("Criar Conta");
         botaoCadastrar.setMaximumSize(new java.awt.Dimension(160, 40));
@@ -129,7 +129,7 @@ public class Login extends javax.swing.JFrame {
                 botaoCadastrarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 280, -1, -1));
+        panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
 
         botaoFechar.setBackground(new java.awt.Color(255, 234, 189));
         botaoFechar.setMaximumSize(new java.awt.Dimension(45, 30));
@@ -148,25 +148,24 @@ public class Login extends javax.swing.JFrame {
         });
         botaoFechar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        iconeFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/letra-x.png"))); // NOI18N
-        iconeFechar.setPreferredSize(new java.awt.Dimension(30, 30));
+        iconeFechar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Fechar (30px).png"))); // NOI18N
         botaoFechar.add(iconeFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 0, -1, -1));
 
         panelPrincipal.add(botaoFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(556, 0, -1, -1));
 
         campoSenha.setBackground(new java.awt.Color(217, 247, 254));
         campoSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoSenha.setMaximumSize(new java.awt.Dimension(150, 30));
-        campoSenha.setMinimumSize(new java.awt.Dimension(150, 30));
-        campoSenha.setPreferredSize(new java.awt.Dimension(150, 30));
+        campoSenha.setMaximumSize(new java.awt.Dimension(200, 30));
+        campoSenha.setMinimumSize(new java.awt.Dimension(200, 30));
+        campoSenha.setPreferredSize(new java.awt.Dimension(200, 30));
         campoSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 campoSenhaKeyPressed(evt);
             }
         });
-        panelPrincipal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 140, -1, -1));
+        panelPrincipal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
-        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/novalogo (2).jpg"))); // NOI18N
+        imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.jpg"))); // NOI18N
         panelPrincipal.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
 
         labelPlanner.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N

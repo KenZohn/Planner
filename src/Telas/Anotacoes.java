@@ -80,6 +80,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelMenuAnotacoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelAfazeres.setBackground(new java.awt.Color(250, 185, 242));
+        panelAfazeres.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelAfazeres.setMaximumSize(new java.awt.Dimension(288, 55));
         panelAfazeres.setMinimumSize(new java.awt.Dimension(288, 55));
         panelAfazeres.setPreferredSize(new java.awt.Dimension(288, 55));
@@ -106,6 +107,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelMenuAnotacoes.add(panelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelCompras.setBackground(new java.awt.Color(250, 185, 242));
+        panelCompras.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelCompras.setMaximumSize(new java.awt.Dimension(288, 55));
         panelCompras.setMinimumSize(new java.awt.Dimension(288, 55));
         panelCompras.setPreferredSize(new java.awt.Dimension(288, 55));
@@ -132,6 +134,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelMenuAnotacoes.add(panelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 0, -1, -1));
 
         panelEstudos.setBackground(new java.awt.Color(250, 185, 242));
+        panelEstudos.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelEstudos.setMaximumSize(new java.awt.Dimension(288, 55));
         panelEstudos.setMinimumSize(new java.awt.Dimension(288, 55));
         panelEstudos.setPreferredSize(new java.awt.Dimension(288, 55));

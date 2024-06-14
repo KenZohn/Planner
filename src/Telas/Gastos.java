@@ -269,6 +269,43 @@ public class Gastos extends javax.swing.JInternalFrame {
             }
         }
     }
+    
+    public void salvar(){
+        GastosDados gastosDados = new GastosDados();
+        GastosBD gastosBD = new GastosBD();
+        for (int i = 0; i < tabela.getRowCount(); i++) {
+            if (tabela.getModel().getValueAt(i, 0).toString() == null || "".equals(tabela.getModel().getValueAt(i, 0).toString())) {
+                descricao = "";
+            } else {
+                descricao = tabela.getModel().getValueAt(i, 0).toString();
+            }
+            if (tabela.getModel().getValueAt(i, 1).toString() == null || "".equals(tabela.getModel().getValueAt(i, 1).toString())) {
+                valor = 0;
+            } else {
+                valor = Float.parseFloat(tabela.getModel().getValueAt(i, 1).toString());
+            }
+
+            gastosDados.setCod_usuario(cod_usuario);
+            gastosDados.setTipo_gastos(tipo_gastos);
+            gastosDados.setAno(ano);
+            gastosDados.setMes(mes);
+            gastosDados.setLinha_item(i);
+            gastosDados.setDescricao(descricao);
+            gastosDados.setValor(valor);
+
+            if (!"".equals(descricao) && valor != 0) {
+                if (gastosBD.verificarGastos(gastosDados) == null && gastosBD.verificarGastosDescricao(gastosDados) == null) {
+                    gastosBD.inserirGastos(gastosDados);
+                } else {
+                    gastosBD.atualizarGastos(gastosDados);
+                }
+            } else {
+                gastosBD.atualizarGastos(gastosDados);
+            }
+        }
+        
+        buscarTotais();
+    }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -350,6 +387,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelJaneiro.setBackground(new java.awt.Color(56, 208, 187));
+        panelJaneiro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelJaneiro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelJaneiro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelJaneiro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -373,6 +411,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelJaneiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelFevereiro.setBackground(new java.awt.Color(56, 208, 187));
+        panelFevereiro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelFevereiro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelFevereiro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelFevereiro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -396,6 +435,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelFevereiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 0, -1, -1));
 
         panelMarco.setBackground(new java.awt.Color(56, 208, 187));
+        panelMarco.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelMarco.setMaximumSize(new java.awt.Dimension(96, 55));
         panelMarco.setMinimumSize(new java.awt.Dimension(96, 55));
         panelMarco.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -419,6 +459,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelMarco, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 0, -1, -1));
 
         panelAbril.setBackground(new java.awt.Color(56, 208, 187));
+        panelAbril.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelAbril.setMaximumSize(new java.awt.Dimension(96, 55));
         panelAbril.setMinimumSize(new java.awt.Dimension(96, 55));
         panelAbril.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -442,6 +483,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelAbril, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 0, -1, -1));
 
         panelMaio.setBackground(new java.awt.Color(56, 208, 187));
+        panelMaio.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelMaio.setMaximumSize(new java.awt.Dimension(96, 55));
         panelMaio.setMinimumSize(new java.awt.Dimension(96, 55));
         panelMaio.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -465,6 +507,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelMaio, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 0, -1, -1));
 
         panelJunho.setBackground(new java.awt.Color(56, 208, 187));
+        panelJunho.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelJunho.setMaximumSize(new java.awt.Dimension(96, 55));
         panelJunho.setMinimumSize(new java.awt.Dimension(96, 55));
         panelJunho.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -488,6 +531,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelJunho, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, -1, -1));
 
         panelJulho.setBackground(new java.awt.Color(56, 208, 187));
+        panelJulho.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelJulho.setMaximumSize(new java.awt.Dimension(96, 55));
         panelJulho.setMinimumSize(new java.awt.Dimension(96, 55));
         panelJulho.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -511,6 +555,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelJulho, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 0, -1, -1));
 
         panelAgosto.setBackground(new java.awt.Color(56, 208, 187));
+        panelAgosto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelAgosto.setMaximumSize(new java.awt.Dimension(96, 55));
         panelAgosto.setMinimumSize(new java.awt.Dimension(96, 55));
         panelAgosto.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -534,6 +579,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelAgosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(672, 0, -1, -1));
 
         panelSetembro.setBackground(new java.awt.Color(56, 208, 187));
+        panelSetembro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelSetembro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelSetembro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelSetembro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -557,6 +603,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelSetembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 0, -1, -1));
 
         panelOutubro.setBackground(new java.awt.Color(56, 208, 187));
+        panelOutubro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelOutubro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelOutubro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelOutubro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -580,6 +627,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         jPanelMenuMeses.add(panelOutubro, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 0, -1, -1));
 
         panelNovembro.setBackground(new java.awt.Color(56, 208, 187));
+        panelNovembro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelNovembro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelNovembro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelNovembro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -635,6 +683,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMenuAnotacoes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelFixo.setBackground(new java.awt.Color(90, 215, 198));
+        panelFixo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelFixo.setMaximumSize(new java.awt.Dimension(192, 55));
         panelFixo.setMinimumSize(new java.awt.Dimension(192, 55));
         panelFixo.setPreferredSize(new java.awt.Dimension(192, 55));
@@ -661,6 +710,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMenuAnotacoes.add(panelFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 55));
 
         panelMercado.setBackground(new java.awt.Color(90, 215, 198));
+        panelMercado.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelMercado.setMaximumSize(new java.awt.Dimension(192, 55));
         panelMercado.setMinimumSize(new java.awt.Dimension(192, 55));
         panelMercado.setPreferredSize(new java.awt.Dimension(192, 55));
@@ -687,6 +737,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMenuAnotacoes.add(panelMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 230, 55));
 
         panelLazer.setBackground(new java.awt.Color(90, 215, 198));
+        panelLazer.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelLazer.setMaximumSize(new java.awt.Dimension(192, 55));
         panelLazer.setMinimumSize(new java.awt.Dimension(192, 55));
         panelLazer.setPreferredSize(new java.awt.Dimension(192, 55));
@@ -713,6 +764,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelMenuAnotacoes.add(panelLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 231, 55));
 
         panelOutros.setBackground(new java.awt.Color(90, 215, 198));
+        panelOutros.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelOutros.setMaximumSize(new java.awt.Dimension(192, 55));
         panelOutros.setMinimumSize(new java.awt.Dimension(192, 55));
         panelOutros.setPreferredSize(new java.awt.Dimension(192, 55));
@@ -736,7 +788,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         iconeOutros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/outros (40px).png"))); // NOI18N
         panelOutros.add(iconeOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, 231, 55));
+        panelMenuAnotacoes.add(panelOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(691, 0, 231, 55));
 
         panelTotal.setBackground(new java.awt.Color(90, 215, 198));
         panelTotal.setMaximumSize(new java.awt.Dimension(192, 55));
@@ -762,7 +814,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         iconeTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Relatorio (40px).png"))); // NOI18N
         panelTotal.add(iconeTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(921, 0, 231, -1));
+        panelMenuAnotacoes.add(panelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(922, 0, 231, -1));
 
         getContentPane().add(panelMenuAnotacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1152, 55));
 
@@ -783,7 +835,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         totalGastos.setText("Total");
         panelPrincipal.add(totalGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 285, -1, -1));
 
-        tabela.setBackground(new java.awt.Color(242, 242, 242));
+        tabela.setBackground(new java.awt.Color(245, 245, 245));
         tabela.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
         tabela.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -1100,6 +1152,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         }
 
         somarTabela();
+        salvar();
     }//GEN-LAST:event_tabelaKeyReleased
 
     private void panelFixoMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFixoMouseEntered

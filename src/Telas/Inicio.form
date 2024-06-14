@@ -119,7 +119,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Pr&#xf3;ximos eventos"/>
+                <Property name="text" type="java.lang.String" value="Compromissos"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -165,6 +165,9 @@
             <Component class="javax.swing.JTextField" name="campoGastos">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f5" green="f5" red="f5" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
@@ -195,6 +198,9 @@
             <Component class="javax.swing.JTextField" name="campoGastosPassado">
               <Properties>
                 <Property name="editable" type="boolean" value="false"/>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="f5" green="f5" red="f5" type="rgb"/>
+                </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="24" style="0"/>
                 </Property>
@@ -260,7 +266,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="To Do"/>
+                <Property name="text" type="java.lang.String" value="Fazer"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -292,7 +298,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Compras"/>
+                <Property name="text" type="java.lang.String" value="Comprar"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
@@ -354,7 +360,7 @@
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="33" green="33" red="33" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Estudos"/>
+                <Property name="text" type="java.lang.String" value="Estudar"/>
               </Properties>
               <Constraints>
                 <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">

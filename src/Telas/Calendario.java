@@ -1775,6 +1775,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelMenuMeses.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelJaneiro.setBackground(new java.awt.Color(224, 236, 247));
+        panelJaneiro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelJaneiro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelJaneiro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelJaneiro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1792,13 +1793,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelJaneiro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelJaneiro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelJaneiro.setForeground(new java.awt.Color(0, 0, 0));
         labelJaneiro.setText("Jan");
         panelJaneiro.add(labelJaneiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, -1, -1));
 
         panelMenuMeses.add(panelJaneiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 96, 55));
 
         panelFevereiro.setBackground(new java.awt.Color(150, 192, 230));
+        panelFevereiro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelFevereiro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelFevereiro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelFevereiro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1816,13 +1817,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelFevereiro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelFevereiro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelFevereiro.setForeground(new java.awt.Color(0, 0, 0));
         labelFevereiro.setText("Fev");
         panelFevereiro.add(labelFevereiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 10, -1, -1));
 
         panelMenuMeses.add(panelFevereiro, new org.netbeans.lib.awtextra.AbsoluteConstraints(96, 0, 96, 55));
 
         panelMarco.setBackground(new java.awt.Color(150, 192, 230));
+        panelMarco.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelMarco.setMaximumSize(new java.awt.Dimension(96, 55));
         panelMarco.setMinimumSize(new java.awt.Dimension(96, 55));
         panelMarco.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1840,13 +1841,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelMarco.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelMarco.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelMarco.setForeground(new java.awt.Color(0, 0, 0));
         labelMarco.setText("Mar");
         panelMarco.add(labelMarco, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, -1, -1));
 
         panelMenuMeses.add(panelMarco, new org.netbeans.lib.awtextra.AbsoluteConstraints(192, 0, 96, 55));
 
         panelAbril.setBackground(new java.awt.Color(150, 192, 230));
+        panelAbril.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelAbril.setMaximumSize(new java.awt.Dimension(96, 55));
         panelAbril.setMinimumSize(new java.awt.Dimension(96, 55));
         panelAbril.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1864,13 +1865,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelAbril.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAbril.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelAbril.setForeground(new java.awt.Color(0, 0, 0));
         labelAbril.setText("Abr");
         panelAbril.add(labelAbril, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 10, -1, -1));
 
         panelMenuMeses.add(panelAbril, new org.netbeans.lib.awtextra.AbsoluteConstraints(288, 0, 96, 55));
 
         panelMaio.setBackground(new java.awt.Color(150, 192, 230));
+        panelMaio.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelMaio.setMaximumSize(new java.awt.Dimension(96, 55));
         panelMaio.setMinimumSize(new java.awt.Dimension(96, 55));
         panelMaio.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1888,13 +1889,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelMaio.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelMaio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelMaio.setForeground(new java.awt.Color(0, 0, 0));
         labelMaio.setText("Mai");
         panelMaio.add(labelMaio, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 10, -1, -1));
 
         panelMenuMeses.add(panelMaio, new org.netbeans.lib.awtextra.AbsoluteConstraints(384, 0, 96, 55));
 
         panelJunho.setBackground(new java.awt.Color(150, 192, 230));
+        panelJunho.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelJunho.setMaximumSize(new java.awt.Dimension(96, 55));
         panelJunho.setMinimumSize(new java.awt.Dimension(96, 55));
         panelJunho.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1912,13 +1913,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelJunho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelJunho.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelJunho.setForeground(new java.awt.Color(0, 0, 0));
         labelJunho.setText("Jun");
         panelJunho.add(labelJunho, new org.netbeans.lib.awtextra.AbsoluteConstraints(29, 10, -1, -1));
 
         panelMenuMeses.add(panelJunho, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 96, 55));
 
         panelJulho.setBackground(new java.awt.Color(150, 192, 230));
+        panelJulho.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelJulho.setMaximumSize(new java.awt.Dimension(96, 55));
         panelJulho.setMinimumSize(new java.awt.Dimension(96, 55));
         panelJulho.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1936,13 +1937,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelJulho.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelJulho.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelJulho.setForeground(new java.awt.Color(0, 0, 0));
         labelJulho.setText("Jul");
         panelJulho.add(labelJulho, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 10, -1, -1));
 
         panelMenuMeses.add(panelJulho, new org.netbeans.lib.awtextra.AbsoluteConstraints(576, 0, 96, 55));
 
         panelAgosto.setBackground(new java.awt.Color(150, 192, 230));
+        panelAgosto.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelAgosto.setMaximumSize(new java.awt.Dimension(96, 55));
         panelAgosto.setMinimumSize(new java.awt.Dimension(96, 55));
         panelAgosto.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1960,13 +1961,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelAgosto.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelAgosto.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelAgosto.setForeground(new java.awt.Color(0, 0, 0));
         labelAgosto.setText("Ago");
         panelAgosto.add(labelAgosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 10, -1, -1));
 
         panelMenuMeses.add(panelAgosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(672, 0, 96, 55));
 
         panelSetembro.setBackground(new java.awt.Color(150, 192, 230));
+        panelSetembro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelSetembro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelSetembro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelSetembro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -1984,13 +1985,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelSetembro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelSetembro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelSetembro.setForeground(new java.awt.Color(0, 0, 0));
         labelSetembro.setText("Set");
         panelSetembro.add(labelSetembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(31, 10, -1, -1));
 
         panelMenuMeses.add(panelSetembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(768, 0, 96, 55));
 
         panelOutubro.setBackground(new java.awt.Color(150, 192, 230));
+        panelOutubro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelOutubro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelOutubro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelOutubro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -2008,13 +2009,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelOutubro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelOutubro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelOutubro.setForeground(new java.awt.Color(0, 0, 0));
         labelOutubro.setText("Out");
         panelOutubro.add(labelOutubro, new org.netbeans.lib.awtextra.AbsoluteConstraints(28, 10, -1, -1));
 
         panelMenuMeses.add(panelOutubro, new org.netbeans.lib.awtextra.AbsoluteConstraints(864, 0, 96, 55));
 
         panelNovembro.setBackground(new java.awt.Color(150, 192, 230));
+        panelNovembro.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
         panelNovembro.setMaximumSize(new java.awt.Dimension(96, 55));
         panelNovembro.setMinimumSize(new java.awt.Dimension(96, 55));
         panelNovembro.setPreferredSize(new java.awt.Dimension(96, 55));
@@ -2032,7 +2033,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelNovembro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelNovembro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelNovembro.setForeground(new java.awt.Color(0, 0, 0));
         labelNovembro.setText("Nov");
         panelNovembro.add(labelNovembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(26, 10, -1, -1));
 
@@ -2056,7 +2056,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelDezembro.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelDezembro.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        labelDezembro.setForeground(new java.awt.Color(0, 0, 0));
         labelDezembro.setText("Dez");
         panelDezembro.add(labelDezembro, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 10, -1, -1));
 

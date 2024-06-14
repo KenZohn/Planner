@@ -67,6 +67,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
             </Property>
@@ -111,6 +118,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -157,6 +171,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
             </Property>
@@ -201,6 +222,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -247,6 +275,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
             </Property>
@@ -291,6 +326,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -337,6 +379,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
             </Property>
@@ -381,6 +430,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -427,6 +483,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
             </Property>
@@ -472,6 +535,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
             </Property>
@@ -516,6 +586,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="bb" green="d0" red="38" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[96, 55]"/>
@@ -633,6 +710,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c6" green="d7" red="5a" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[192, 55]"/>
             </Property>
@@ -689,6 +773,13 @@
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c6" green="d7" red="5a" type="rgb"/>
+            </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
             </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[192, 55]"/>
@@ -747,6 +838,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c6" green="d7" red="5a" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[192, 55]"/>
             </Property>
@@ -804,6 +902,13 @@
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="c6" green="d7" red="5a" type="rgb"/>
             </Property>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.MatteColorBorderInfo">
+                <MatteColorBorder bottom="0" left="0" right="1" top="0">
+                  <Color PropertyName="color" blue="66" green="66" red="66" type="rgb"/>
+                </MatteColorBorder>
+              </Border>
+            </Property>
             <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[192, 55]"/>
             </Property>
@@ -821,7 +926,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="690" y="0" width="231" height="55"/>
+              <AbsoluteConstraints x="691" y="0" width="231" height="55"/>
             </Constraint>
           </Constraints>
 
@@ -878,7 +983,7 @@
           </Events>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="921" y="0" width="231" height="-1"/>
+              <AbsoluteConstraints x="922" y="0" width="231" height="-1"/>
             </Constraint>
           </Constraints>
 
@@ -988,7 +1093,7 @@
             <Component class="javax.swing.JTable" name="tabela">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="f2" green="f2" red="f2" type="rgb"/>
+                  <Color blue="f5" green="f5" red="f5" type="rgb"/>
                 </Property>
                 <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                   <Font name="Segoe UI" size="20" style="0"/>

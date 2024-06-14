@@ -208,7 +208,7 @@ public class Inicio extends javax.swing.JInternalFrame {
 
         labelCalendario.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         labelCalendario.setForeground(new java.awt.Color(51, 51, 51));
-        labelCalendario.setText("Próximos eventos");
+        labelCalendario.setText("Compromissos");
         panelCalendario.add(labelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
         panelInicio.add(panelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, -1, -1));
@@ -223,6 +223,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         panelGastos.add(labelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 15, -1, -1));
 
         campoGastos.setEditable(false);
+        campoGastos.setBackground(new java.awt.Color(245, 245, 245));
         campoGastos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoGastos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         panelGastos.add(campoGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 63, 240, 40));
@@ -233,6 +234,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         panelGastos.add(labelGastosPassado, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 20, -1, -1));
 
         campoGastosPassado.setEditable(false);
+        campoGastosPassado.setBackground(new java.awt.Color(245, 245, 245));
         campoGastosPassado.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoGastosPassado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         panelGastos.add(campoGastosPassado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, 240, 40));
@@ -255,7 +257,7 @@ public class Inicio extends javax.swing.JInternalFrame {
 
         labelAfazeres.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         labelAfazeres.setForeground(new java.awt.Color(51, 51, 51));
-        labelAfazeres.setText("To Do");
+        labelAfazeres.setText("Fazer");
         panelAfazeres.add(labelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
         panelInicio.add(panelAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(583, 15, 554, 172));
@@ -265,7 +267,7 @@ public class Inicio extends javax.swing.JInternalFrame {
 
         labelCompras.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         labelCompras.setForeground(new java.awt.Color(51, 51, 51));
-        labelCompras.setText("Compras");
+        labelCompras.setText("Comprar");
         panelCompras.add(labelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
         jScrollPaneCompras.setPreferredSize(new java.awt.Dimension(514, 109));
@@ -286,7 +288,7 @@ public class Inicio extends javax.swing.JInternalFrame {
 
         labelEstudos.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
         labelEstudos.setForeground(new java.awt.Color(51, 51, 51));
-        labelEstudos.setText("Estudos");
+        labelEstudos.setText("Estudar");
         panelEstudos.add(labelEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
         jScrollPaneEstudos.setPreferredSize(new java.awt.Dimension(514, 109));
