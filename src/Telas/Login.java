@@ -63,6 +63,7 @@ public class Login extends javax.swing.JFrame {
         labelPlanner = new javax.swing.JLabel();
         panelMinimizar = new javax.swing.JPanel();
         iconeFechar1 = new javax.swing.JLabel();
+        botaoRedefinir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -116,7 +117,7 @@ public class Login extends javax.swing.JFrame {
                 botaoEntrarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
+        panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
 
         botaoCadastrar.setBackground(new java.awt.Color(159, 225, 228));
         botaoCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -129,7 +130,7 @@ public class Login extends javax.swing.JFrame {
                 botaoCadastrarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 280, -1, -1));
+        panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
 
         botaoFechar.setBackground(new java.awt.Color(255, 234, 189));
         botaoFechar.setMaximumSize(new java.awt.Dimension(45, 30));
@@ -201,7 +202,20 @@ public class Login extends javax.swing.JFrame {
 
         panelPrincipal.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 0, -1, -1));
 
-        getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        botaoRedefinir.setBackground(new java.awt.Color(159, 225, 228));
+        botaoRedefinir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        botaoRedefinir.setText("Esqueci minha senha");
+        botaoRedefinir.setMaximumSize(new java.awt.Dimension(160, 40));
+        botaoRedefinir.setMinimumSize(new java.awt.Dimension(160, 40));
+        botaoRedefinir.setPreferredSize(new java.awt.Dimension(160, 40));
+        botaoRedefinir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                botaoRedefinirActionPerformed(evt);
+            }
+        });
+        panelPrincipal.add(botaoRedefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 220, -1));
+
+        getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -255,11 +269,16 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_campoLoginKeyPressed
 
+    private void botaoRedefinirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRedefinirActionPerformed
+       
+    }//GEN-LAST:event_botaoRedefinirActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastrar;
     private javax.swing.JButton botaoEntrar;
     private javax.swing.JPanel botaoFechar;
+    private javax.swing.JButton botaoRedefinir;
     private javax.swing.JTextField campoLogin;
     private javax.swing.JPasswordField campoSenha;
     private javax.swing.JLabel iconeFechar;

@@ -21,11 +21,13 @@ public class UsuarioBD {
         try {
             stmt = connection.createStatement();
 
-            String sql = "INSERT INTO usuario(nome, email, login, senha) "
+            String sql = "INSERT INTO usuario(nome, email, login, senha, pergunta,resposta) "
                     + "VALUES ('" + usuarioDados.getNome() + "', '"
                     + usuarioDados.getEmail() + "', '"
                     + usuarioDados.getLogin() + "', '"
-                    + usuarioDados.getSenha() + "')";
+                    + usuarioDados.getSenha() + "', '"
+                    + usuarioDados.getPergunta()+ "','"
+                    + usuarioDados.getResposta ()+ "')";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);

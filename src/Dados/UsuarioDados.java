@@ -7,6 +7,8 @@ public class UsuarioDados {
     private String email;
     private String login;
     private String senha;
+    private String pergunta;
+    private String resposta;
 
     public UsuarioDados() {
         this.cod_usuario = 0;
@@ -14,14 +16,35 @@ public class UsuarioDados {
         this.email = null;
         this.login = null;
         this.senha = null;
+        this.pergunta = null;
+        this.resposta = null;
     }
 
-    public UsuarioDados(int cod_usuario, String nome, String email, String login, String senha) {
+    public UsuarioDados(int cod_usuario, String nome, String email, String login, String senha, String pergunta, String resposta) {
         this.cod_usuario = cod_usuario;
         this.nome = nome;
         this.email = email;
         this.login = login;
         this.senha = senha;
+        this.pergunta = pergunta;
+        this.resposta = resposta;
+    }
+
+
+    public String getPergunta() {
+        return pergunta;
+    }
+
+    public void setPergunta(String pergunta) {
+        this.pergunta = pergunta;
+    }
+
+    public String getResposta() {
+        return resposta;
+    }
+
+    public void setResposta(String resposta) {
+        this.resposta = resposta;
     }
 
     public int getCod_usuario() {
