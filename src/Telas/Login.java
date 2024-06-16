@@ -11,6 +11,7 @@ public class Login extends javax.swing.JFrame {
 
     private Cadastrar cadastrar;
     private Principal principal;
+    private Redefinir redefinir;
     public static int codUsuario;
 
     public Login() {
@@ -271,7 +272,8 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_campoLoginKeyPressed
 
     private void botaoRedefinirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoRedefinirActionPerformed
-       
+        redefinir.setVisible(true);
+        dispose();
     }//GEN-LAST:event_botaoRedefinirActionPerformed
 
 
