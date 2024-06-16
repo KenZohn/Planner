@@ -14,7 +14,7 @@ public class Inicio extends javax.swing.JInternalFrame {
 
     private int ano, mes, dia, cod_usuario;
 
-    public Inicio(int cod) {
+    public Inicio() {
         initComponents();
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
@@ -22,7 +22,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         CalendarioBD calendarioBD = new CalendarioBD();
         CalendarioDados calendarioDados = new CalendarioDados();
 
-        cod_usuario = cod;
+        cod_usuario = Login.codUsuario;
         Date dataAtual = new Date();
         ano = Integer.parseInt(new SimpleDateFormat("yyyy").format(dataAtual));
         mes = Integer.parseInt(new SimpleDateFormat("MM").format(dataAtual));
@@ -202,6 +202,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoCalendario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoCalendario.setLineWrap(true);
         campoCalendario.setRows(5);
+        campoCalendario.setMargin(new java.awt.Insets(5, 15, 5, 15));
         jScrollPaneCalendario.setViewportView(campoCalendario);
 
         panelCalendario.add(jScrollPaneCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, -1, -1));
@@ -226,7 +227,9 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoGastos.setBackground(new java.awt.Color(245, 245, 245));
         campoGastos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoGastos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        panelGastos.add(campoGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 63, 240, 40));
+        campoGastos.setOpaque(true);
+        campoGastos.setPreferredSize(new java.awt.Dimension(240, 40));
+        panelGastos.add(campoGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 63, -1, -1));
 
         labelGastosPassado.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         labelGastosPassado.setForeground(new java.awt.Color(51, 51, 51));
@@ -237,7 +240,9 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoGastosPassado.setBackground(new java.awt.Color(245, 245, 245));
         campoGastosPassado.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoGastosPassado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        panelGastos.add(campoGastosPassado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, 240, 40));
+        campoGastosPassado.setOpaque(true);
+        campoGastosPassado.setPreferredSize(new java.awt.Dimension(240, 40));
+        panelGastos.add(campoGastosPassado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, -1, -1));
 
         panelInicio.add(panelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 415, -1, -1));
 
@@ -250,7 +255,8 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoAfazeres.setColumns(20);
         campoAfazeres.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoAfazeres.setLineWrap(true);
-        campoAfazeres.setRows(5);
+        campoAfazeres.setRows(3);
+        campoAfazeres.setMargin(new java.awt.Insets(5, 15, 5, 15));
         jScrollPaneAfazeres.setViewportView(campoAfazeres);
 
         panelAfazeres.add(jScrollPaneAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
@@ -276,7 +282,8 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoCompras.setColumns(20);
         campoCompras.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoCompras.setLineWrap(true);
-        campoCompras.setRows(5);
+        campoCompras.setRows(3);
+        campoCompras.setMargin(new java.awt.Insets(5, 15, 5, 15));
         jScrollPaneCompras.setViewportView(campoCompras);
 
         panelCompras.add(jScrollPaneCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
@@ -297,7 +304,8 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoEstudos.setColumns(20);
         campoEstudos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoEstudos.setLineWrap(true);
-        campoEstudos.setRows(5);
+        campoEstudos.setRows(3);
+        campoEstudos.setMargin(new java.awt.Insets(5, 15, 5, 15));
         jScrollPaneEstudos.setViewportView(campoEstudos);
 
         panelEstudos.add(jScrollPaneEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));

@@ -11,28 +11,133 @@ import javax.swing.JFrame;
 public class Principal extends javax.swing.JFrame {
 
     private int cod_usuario;
-    private String nome;
-    
+    private String nome, menu;
+
     public Principal(UsuarioDados usuarioDados) {
         initComponents();
+
+        menu = "inicio";
         cod_usuario = usuarioDados.getCod_usuario();
         UsuarioBD usuarioBD = new UsuarioBD();
-        Inicio inicio = new Inicio(cod_usuario);
-        
+        Inicio inicio = new Inicio();
+
         jDesktopPane.removeAll();
         jDesktopPane.add(inicio).setVisible(true);
         setLocationRelativeTo(null);
         nome = usuarioBD.buscarNome(usuarioDados);
         labelNome.setText("Bem vindo, " + nome);
-        
+
         buscarDataAtual();
     }
-    
+
     public void buscarDataAtual() {
         Date dataAtual = new Date();
         labelData.setText(Integer.parseInt(new SimpleDateFormat("dd").format(dataAtual)) + "/" + (new SimpleDateFormat("MM").format(dataAtual)));
     }
-    
+
+    public void desselecionarMenu() {
+        panelInicio.setBackground(new Color(255, 234, 189));
+        panelCalendario.setBackground(new Color(175, 216, 253));
+        panelAnotacoes.setBackground(new Color(252, 219, 248));
+        panelGastos.setBackground(new Color(141, 231, 219));
+        panelDados.setBackground(new Color(224, 198, 250));
+    }
+
+    public void selecionarInicio() {
+        desselecionarMenu();
+        menu = "inicio";
+        panelInicio.setBackground(new Color(255, 234, 189));
+        Inicio inicio = new Inicio();
+        jDesktopPane.removeAll();
+        jDesktopPane.add(inicio).setVisible(true);
+    }
+
+    public void selecionarCalendario() {
+        desselecionarMenu();
+        menu = "calendario";
+        panelCalendario.setBackground(new Color(175, 216, 253));
+        Calendario calendario = new Calendario();
+        jDesktopPane.removeAll();
+        jDesktopPane.add(calendario).setVisible(true);
+    }
+
+    public void selecionarAnotacoes() {
+        desselecionarMenu();
+        menu = "anotacoes";
+        panelAnotacoes.setBackground(new Color(252, 219, 248));
+        Anotacoes anotacoes = new Anotacoes();
+        jDesktopPane.removeAll();
+        jDesktopPane.add(anotacoes).setVisible(true);
+    }
+
+    public void selecionarGastos() {
+        desselecionarMenu();
+        menu = "gastos";
+        panelGastos.setBackground(new Color(141, 231, 219));
+        Gastos gastos = new Gastos();
+        jDesktopPane.removeAll();
+        jDesktopPane.add(gastos).setVisible(true);
+    }
+
+    public void selecionarDados() {
+        desselecionarMenu();
+        menu = "dados";
+        panelDados.setBackground(new Color(224, 198, 250));
+        Dados dados = new Dados(this);
+        jDesktopPane.removeAll();
+        jDesktopPane.add(dados).setVisible(true);
+    }
+
+    public void passarMouseInicio() {
+        if (!"inicio".equals(menu)) {
+            panelInicio.setBackground(new Color(255, 242, 215));
+        }
+    }
+
+    public void tirarMouseInicio() {
+        panelInicio.setBackground(new Color(255, 234, 189));
+    }
+
+    public void passarMouseCalendario() {
+        if (!"calendario".equals(menu)) {
+            panelCalendario.setBackground(new Color(214, 230, 244));
+        }
+    }
+
+    public void tirarMouseCalendario() {
+        panelCalendario.setBackground(new Color(175, 216, 253));
+    }
+
+    public void passarMouseAnotacoes() {
+        if (!"anotacoes".equals(menu)) {
+            panelAnotacoes.setBackground(new Color(253, 238, 251));
+        }
+    }
+
+    public void tirarMouseAnotacoes() {
+        panelAnotacoes.setBackground(new Color(252, 219, 248));
+    }
+
+    public void passarMouseGastos() {
+        if (!"gastos".equals(menu)) {
+            panelGastos.setBackground(new Color(208, 240, 235));
+        }
+    }
+
+    public void tirarMouseGastos() {
+        panelGastos.setBackground(new Color(141, 231, 219));
+    }
+
+    public void passarMouseDados() {
+        if (!"dados".equals(menu)) {
+            panelDados.setBackground(new Color(235, 219, 252));
+        }
+    }
+
+    public void tirarMouseDados() {
+        panelDados.setBackground(new Color(224, 198, 250));
+    }
+
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -62,9 +167,9 @@ public class Principal extends javax.swing.JFrame {
         iconeFechar = new javax.swing.JLabel();
         panelMinimizar = new javax.swing.JPanel();
         iconeFechar1 = new javax.swing.JLabel();
+        panelSair = new javax.swing.JPanel();
+        labelSair = new javax.swing.JLabel();
         labelNome = new javax.swing.JLabel();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1152, 648));
@@ -355,28 +460,33 @@ public class Principal extends javax.swing.JFrame {
 
         panelMenu.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1063, 0, -1, -1));
 
+        panelSair.setBackground(new java.awt.Color(255, 255, 255));
+        panelSair.setPreferredSize(new java.awt.Dimension(100, 30));
+        panelSair.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                panelSairMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                panelSairMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                panelSairMouseExited(evt);
+            }
+        });
+        panelSair.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        labelSair.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        labelSair.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labelSair.setText("Sair");
+        labelSair.setPreferredSize(new java.awt.Dimension(30, 30));
+        panelSair.add(labelSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 0, -1, -1));
+
+        panelMenu.add(panelSair, new org.netbeans.lib.awtextra.AbsoluteConstraints(963, 0, -1, -1));
+
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelNome.setForeground(new java.awt.Color(51, 51, 51));
         labelNome.setText("Bem vindo, Usuário");
         panelMenu.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 30, -1, -1));
-
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jPanel1.setOpaque(false);
-        jPanel1.setPreferredSize(new java.awt.Dimension(100, 30));
-        jPanel1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel1MouseClicked(evt);
-            }
-        });
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Sair");
-        jLabel1.setPreferredSize(new java.awt.Dimension(30, 30));
-        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 0, -1, -1));
-
-        panelMenu.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 0, -1, -1));
 
         panelPrincipal.add(panelMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -395,27 +505,19 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void panelCalendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCalendarioMouseClicked
-        Calendario calendario = new Calendario();
-        jDesktopPane.removeAll();
-        jDesktopPane.add(calendario).setVisible(true);
+        selecionarCalendario();
     }//GEN-LAST:event_panelCalendarioMouseClicked
 
     private void panelInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseClicked
-        Inicio inicio = new Inicio(cod_usuario);
-        jDesktopPane.removeAll();
-        jDesktopPane.add(inicio).setVisible(true);
+        selecionarInicio();
     }//GEN-LAST:event_panelInicioMouseClicked
 
     private void panelAnotacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAnotacoesMouseClicked
-        Anotacoes anotacoes = new Anotacoes();
-        jDesktopPane.removeAll();
-        jDesktopPane.add(anotacoes).setVisible(true);
+        selecionarAnotacoes();
     }//GEN-LAST:event_panelAnotacoesMouseClicked
 
     private void panelGastosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelGastosMouseClicked
-        Gastos gastos = new Gastos();
-        jDesktopPane.removeAll();
-        jDesktopPane.add(gastos).setVisible(true);
+        selecionarGastos();
     }//GEN-LAST:event_panelGastosMouseClicked
 
     private void panelFecharMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFecharMouseClicked
@@ -423,27 +525,19 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelFecharMouseClicked
 
     private void iconeInicioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeInicioMouseClicked
-        Inicio inicio = new Inicio(cod_usuario);
-        jDesktopPane.removeAll();
-        jDesktopPane.add(inicio).setVisible(true);
+        selecionarInicio();
     }//GEN-LAST:event_iconeInicioMouseClicked
 
     private void iconeCalendarioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeCalendarioMouseClicked
-        Calendario calendario = new Calendario();
-        jDesktopPane.removeAll();
-        jDesktopPane.add(calendario).setVisible(true);
+        selecionarCalendario();
     }//GEN-LAST:event_iconeCalendarioMouseClicked
 
     private void iconeAnotacoesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeAnotacoesMouseClicked
-        Anotacoes anotacoes = new Anotacoes();
-        jDesktopPane.removeAll();
-        jDesktopPane.add(anotacoes).setVisible(true);
+        selecionarAnotacoes();
     }//GEN-LAST:event_iconeAnotacoesMouseClicked
 
     private void iconeGastosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeGastosMouseClicked
-        Gastos gastos = new Gastos();
-        jDesktopPane.removeAll();
-        jDesktopPane.add(gastos).setVisible(true);
+        selecionarGastos();
     }//GEN-LAST:event_iconeGastosMouseClicked
 
     private void panelFecharMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFecharMouseEntered
@@ -459,7 +553,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelMinimizarMouseClicked
 
     private void panelMinimizarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseEntered
-        panelMinimizar.setBackground(new Color(200, 200, 200));
+        panelMinimizar.setBackground(new Color(235, 235, 235));
     }//GEN-LAST:event_panelMinimizarMouseEntered
 
     private void panelMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMinimizarMouseExited
@@ -467,102 +561,106 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_panelMinimizarMouseExited
 
     private void panelInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseEntered
-        panelInicio.setBackground(new Color(255, 242, 215));
+        passarMouseInicio();
     }//GEN-LAST:event_panelInicioMouseEntered
 
     private void panelInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelInicioMouseExited
-        panelInicio.setBackground(new Color(255, 234, 189));
+        tirarMouseInicio();
     }//GEN-LAST:event_panelInicioMouseExited
 
     private void panelCalendarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCalendarioMouseEntered
-        panelCalendario.setBackground(new Color(224, 236, 247));
+        passarMouseCalendario();
     }//GEN-LAST:event_panelCalendarioMouseEntered
 
     private void panelCalendarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelCalendarioMouseExited
-        panelCalendario.setBackground(new Color(175, 216, 253));
+        tirarMouseCalendario();
     }//GEN-LAST:event_panelCalendarioMouseExited
 
     private void panelAnotacoesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAnotacoesMouseEntered
-        panelAnotacoes.setBackground(new Color(253, 238, 251));
+        passarMouseAnotacoes();
     }//GEN-LAST:event_panelAnotacoesMouseEntered
 
     private void panelAnotacoesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAnotacoesMouseExited
-        panelAnotacoes.setBackground(new Color(252, 219, 248));
+        tirarMouseAnotacoes();
     }//GEN-LAST:event_panelAnotacoesMouseExited
 
     private void panelGastosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelGastosMouseEntered
-        panelGastos.setBackground(new Color(208, 240, 235));
+        passarMouseGastos();
     }//GEN-LAST:event_panelGastosMouseEntered
 
     private void panelGastosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelGastosMouseExited
-        panelGastos.setBackground(new Color(141, 231, 219));
+        tirarMouseGastos();
     }//GEN-LAST:event_panelGastosMouseExited
 
     private void iconeInicioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeInicioMouseEntered
-        panelInicio.setBackground(new Color(255, 242, 215));
+        passarMouseInicio();
     }//GEN-LAST:event_iconeInicioMouseEntered
 
     private void iconeInicioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeInicioMouseExited
-        panelInicio.setBackground(new Color(255, 234, 189));
+        tirarMouseInicio();
     }//GEN-LAST:event_iconeInicioMouseExited
 
     private void iconeCalendarioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeCalendarioMouseEntered
-        panelCalendario.setBackground(new Color(224, 236, 247));
+        passarMouseCalendario();
     }//GEN-LAST:event_iconeCalendarioMouseEntered
 
     private void iconeCalendarioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeCalendarioMouseExited
-        panelCalendario.setBackground(new Color(175, 216, 253));
+        tirarMouseCalendario();
     }//GEN-LAST:event_iconeCalendarioMouseExited
 
     private void iconeAnotacoesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeAnotacoesMouseEntered
-        panelAnotacoes.setBackground(new Color(253, 238, 251));
+        passarMouseAnotacoes();
     }//GEN-LAST:event_iconeAnotacoesMouseEntered
 
     private void iconeAnotacoesMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeAnotacoesMouseExited
-        panelAnotacoes.setBackground(new Color(252, 219, 248));
+        tirarMouseAnotacoes();
     }//GEN-LAST:event_iconeAnotacoesMouseExited
 
     private void iconeGastosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeGastosMouseEntered
-        panelGastos.setBackground(new Color(208, 240, 235));
+        passarMouseGastos();
     }//GEN-LAST:event_iconeGastosMouseEntered
 
     private void iconeGastosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeGastosMouseExited
-        panelGastos.setBackground(new Color(141, 231, 219));
+        tirarMouseGastos();
     }//GEN-LAST:event_iconeGastosMouseExited
 
     private void iconeDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeDadosMouseClicked
-        Dados dados = new Dados(this);
-        jDesktopPane.removeAll();
-        jDesktopPane.add(dados).setVisible(true);
+        selecionarDados();
     }//GEN-LAST:event_iconeDadosMouseClicked
 
     private void iconeDadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeDadosMouseEntered
-        panelDados.setBackground(new Color(235, 219, 252));
+        passarMouseDados();
     }//GEN-LAST:event_iconeDadosMouseEntered
 
     private void iconeDadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iconeDadosMouseExited
-        panelDados.setBackground(new Color(224, 198, 250));
+        tirarMouseDados();
     }//GEN-LAST:event_iconeDadosMouseExited
 
     private void panelDadosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDadosMouseClicked
-        Dados dados = new Dados(this);
-        jDesktopPane.removeAll();
-        jDesktopPane.add(dados).setVisible(true);
+        selecionarDados();
     }//GEN-LAST:event_panelDadosMouseClicked
 
     private void panelDadosMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDadosMouseEntered
-        panelDados.setBackground(new Color(235, 219, 252));
+        passarMouseDados();
     }//GEN-LAST:event_panelDadosMouseEntered
 
     private void panelDadosMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDadosMouseExited
-        panelDados.setBackground(new Color(224, 198, 250));
+        tirarMouseDados();
     }//GEN-LAST:event_panelDadosMouseExited
 
-    private void jPanel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel1MouseClicked
+    private void panelSairMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSairMouseClicked
         Login telaLogin = new Login();
         telaLogin.setVisible(true);
         dispose();
-    }//GEN-LAST:event_jPanel1MouseClicked
+    }//GEN-LAST:event_panelSairMouseClicked
+
+    private void panelSairMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSairMouseEntered
+        panelSair.setBackground(new Color(235, 235, 235));
+    }//GEN-LAST:event_panelSairMouseEntered
+
+    private void panelSairMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSairMouseExited
+        panelSair.setBackground(new Color(255, 255, 255));
+    }//GEN-LAST:event_panelSairMouseExited
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel iconeAnotacoes;
@@ -573,8 +671,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel iconeGastos;
     private javax.swing.JLabel iconeInicio;
     private javax.swing.JDesktopPane jDesktopPane;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel labelAno;
     private javax.swing.JLabel labelAnotacoes;
     private javax.swing.JLabel labelCalendario;
@@ -583,6 +679,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel labelGastos;
     private javax.swing.JLabel labelInicio;
     private javax.swing.JLabel labelNome;
+    private javax.swing.JLabel labelSair;
     private javax.swing.JPanel panelAno;
     private javax.swing.JPanel panelAnotacoes;
     private javax.swing.JPanel panelCalendario;
@@ -593,5 +690,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel panelMenu;
     private javax.swing.JPanel panelMinimizar;
     private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JPanel panelSair;
     // End of variables declaration//GEN-END:variables
 }

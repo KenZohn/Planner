@@ -11,7 +11,7 @@ public class Login extends javax.swing.JFrame {
 
     private Cadastrar cadastrar;
     private Principal principal;
-    public static int cod_usuario;
+    public static int codUsuario;
 
     public Login() {
         initComponents();
@@ -36,8 +36,7 @@ public class Login extends javax.swing.JFrame {
 
         if (acesso.verificaAcesso(usuarioDados) == true) {
             usuarioDados.setCod_usuario(Integer.parseInt(usuarioBD.buscarUsuario(usuarioDados)));
-            cod_usuario = Integer.parseInt(usuarioBD.buscarUsuario(usuarioDados));
-            System.out.println(cod_usuario);
+            codUsuario = Integer.parseInt(usuarioBD.buscarUsuario(usuarioDados));
             principal = new Principal(usuarioDados);
             principal.setVisible(true);
             dispose();
@@ -67,12 +66,14 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(600, 390));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelPrincipal.setBackground(new java.awt.Color(255, 234, 189));
-        panelPrincipal.setMaximumSize(new java.awt.Dimension(600, 350));
+        panelPrincipal.setMaximumSize(new java.awt.Dimension(600, 400));
         panelPrincipal.setMinimumSize(new java.awt.Dimension(600, 350));
-        panelPrincipal.setPreferredSize(new java.awt.Dimension(600, 350));
+        panelPrincipal.setPreferredSize(new java.awt.Dimension(600, 390));
+        panelPrincipal.setRequestFocusEnabled(false);
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
@@ -106,31 +107,31 @@ public class Login extends javax.swing.JFrame {
         });
         panelPrincipal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 80, -1, -1));
 
-        botaoEntrar.setBackground(new java.awt.Color(159, 225, 228));
+        botaoEntrar.setBackground(new java.awt.Color(192, 231, 233));
         botaoEntrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoEntrar.setText("Entrar");
         botaoEntrar.setMaximumSize(new java.awt.Dimension(160, 40));
-        botaoEntrar.setMinimumSize(new java.awt.Dimension(160, 40));
-        botaoEntrar.setPreferredSize(new java.awt.Dimension(160, 40));
+        botaoEntrar.setMinimumSize(new java.awt.Dimension(220, 40));
+        botaoEntrar.setPreferredSize(new java.awt.Dimension(220, 40));
         botaoEntrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoEntrarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 220, -1, -1));
+        panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
-        botaoCadastrar.setBackground(new java.awt.Color(159, 225, 228));
+        botaoCadastrar.setBackground(new java.awt.Color(192, 231, 233));
         botaoCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoCadastrar.setText("Criar Conta");
-        botaoCadastrar.setMaximumSize(new java.awt.Dimension(160, 40));
+        botaoCadastrar.setMaximumSize(new java.awt.Dimension(220, 40));
         botaoCadastrar.setMinimumSize(new java.awt.Dimension(160, 40));
-        botaoCadastrar.setPreferredSize(new java.awt.Dimension(160, 40));
+        botaoCadastrar.setPreferredSize(new java.awt.Dimension(220, 40));
         botaoCadastrar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastrarActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 290, -1, -1));
+        panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         botaoFechar.setBackground(new java.awt.Color(255, 234, 189));
         botaoFechar.setMaximumSize(new java.awt.Dimension(45, 30));
@@ -167,7 +168,7 @@ public class Login extends javax.swing.JFrame {
         panelPrincipal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 160, -1, -1));
 
         imgLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Logo.jpg"))); // NOI18N
-        panelPrincipal.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 40, -1, -1));
+        panelPrincipal.add(imgLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 60, -1, -1));
 
         labelPlanner.setFont(new java.awt.Font("Rockwell Extra Bold", 0, 36)); // NOI18N
         labelPlanner.setForeground(new java.awt.Color(1, 74, 110));
@@ -175,7 +176,7 @@ public class Login extends javax.swing.JFrame {
         labelPlanner.setMaximumSize(new java.awt.Dimension(202, 50));
         labelPlanner.setMinimumSize(new java.awt.Dimension(202, 50));
         labelPlanner.setPreferredSize(new java.awt.Dimension(202, 50));
-        panelPrincipal.add(labelPlanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 280, -1, -1));
+        panelPrincipal.add(labelPlanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 
         panelMinimizar.setBackground(new java.awt.Color(255, 234, 189));
         panelMinimizar.setMaximumSize(new java.awt.Dimension(45, 30));
@@ -202,20 +203,20 @@ public class Login extends javax.swing.JFrame {
 
         panelPrincipal.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 0, -1, -1));
 
-        botaoRedefinir.setBackground(new java.awt.Color(159, 225, 228));
+        botaoRedefinir.setBackground(new java.awt.Color(192, 231, 233));
         botaoRedefinir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoRedefinir.setText("Esqueci minha senha");
-        botaoRedefinir.setMaximumSize(new java.awt.Dimension(160, 40));
+        botaoRedefinir.setMaximumSize(new java.awt.Dimension(220, 40));
         botaoRedefinir.setMinimumSize(new java.awt.Dimension(160, 40));
-        botaoRedefinir.setPreferredSize(new java.awt.Dimension(160, 40));
+        botaoRedefinir.setPreferredSize(new java.awt.Dimension(220, 40));
         botaoRedefinir.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoRedefinirActionPerformed(evt);
             }
         });
-        panelPrincipal.add(botaoRedefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 360, 220, -1));
+        panelPrincipal.add(botaoRedefinir, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 320, -1, -1));
 
-        getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 440));
+        getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents

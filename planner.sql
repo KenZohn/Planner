@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 14/06/2024 às 03:10
+-- Tempo de geração: 16/06/2024 às 19:09
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -44,7 +44,8 @@ INSERT INTO `anotacoes` (`cod_anotacoes`, `cod_usuario`, `tipo`, `conteudo`) VAL
 (4, 2, 'compras', 'Shampoo\r\nCondicionador\r\n'),
 (8, 6, 'afazeres', 'Limpar o banheiro'),
 (9, 6, 'compras', 'Banana\nFrango'),
-(10, 6, 'estudos', 'Estudar Framework');
+(10, 6, 'estudos', 'Estudar Framework'),
+(11, 6, 'outros', 'Johnny');
 
 -- --------------------------------------------------------
 
@@ -75,7 +76,8 @@ INSERT INTO `calendario` (`cod_calendario`, `cod_usuario`, `ano`, `mes`, `dia`, 
 (12, 6, 2024, 6, 25, 'Apresentação do PI'),
 (14, 6, 2024, 7, 5, 'Último dia de aula!'),
 (15, 6, 2024, 12, 13, 'Níver de alguém...'),
-(16, 6, 2024, 2, 15, 'Início das aulas');
+(16, 6, 2024, 2, 15, 'Início das aulas'),
+(18, 6, 2024, 1, 1, 'Johnny');
 
 -- --------------------------------------------------------
 
@@ -115,7 +117,9 @@ INSERT INTO `gastos` (`cod_gastos`, `cod_usuario`, `tipo_gastos`, `ano`, `mes`, 
 (14, 6, 'fixo', 0, 1, 1, 'Internet', 94.9),
 (15, 6, 'fixo', 0, 1, 2, 'Celular', 33),
 (16, 6, 'fixo', 0, 1, 3, 'Água', 38),
-(17, 6, 'fixo', 0, 1, 4, 'Luz', 45);
+(17, 6, 'fixo', 0, 1, 4, 'Luz', 45),
+(18, 6, 'outros', 0, 1, 0, 'Johnny', 10),
+(19, 6, 'mercado', 0, 6, 2, 'Shampoo', 12);
 
 -- --------------------------------------------------------
 
@@ -178,19 +182,19 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `anotacoes`
 --
 ALTER TABLE `anotacoes`
-  MODIFY `cod_anotacoes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `cod_anotacoes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT de tabela `calendario`
 --
 ALTER TABLE `calendario`
-  MODIFY `cod_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `cod_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT de tabela `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `cod_gastos` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `cod_gastos` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`

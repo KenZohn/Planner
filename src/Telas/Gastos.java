@@ -11,7 +11,7 @@ import javax.swing.JTable;
 import javax.swing.plaf.basic.BasicInternalFrameUI;
 import javax.swing.table.DefaultTableModel;
 
-public class Gastos extends javax.swing.JInternalFrame {
+public final class Gastos extends javax.swing.JInternalFrame {
 
     private int mes, ano, cod_usuario;
     private float valor;
@@ -19,19 +19,32 @@ public class Gastos extends javax.swing.JInternalFrame {
     private String tipo_gastos;
     private String descricao;
     private int qtd_linha;
+    private String[] mesString;
 
     public Gastos() {
-
         initComponents();
+
         BasicInternalFrameUI ui = (BasicInternalFrameUI) this.getUI();
         ui.setNorthPane(null);
-        //tira a barra que ja vem Jinternalframe
+
+        mesString = new String[13];
+        mesString[1] = "Janeiro";
+        mesString[2] = "Fevereiro";
+        mesString[3] = "Março";
+        mesString[4] = "Abril";
+        mesString[5] = "Maio";
+        mesString[6] = "Junho";
+        mesString[7] = "Julho";
+        mesString[8] = "Agosto";
+        mesString[9] = "Setembro";
+        mesString[10] = "Outubro";
+        mesString[11] = "Novembro";
+        mesString[12] = "Dezembro";
 
         tabela.getTableHeader().setFont(new Font("Arial", Font.BOLD, 20));
 
         UsuarioDados usuarioDados = new UsuarioDados();
-        Login loginTela = new Login();
-        cod_usuario = loginTela.cod_usuario;
+        cod_usuario = Login.codUsuario;
         usuarioDados.setCod_usuario(cod_usuario);
 
         desselecionar();
@@ -40,71 +53,48 @@ public class Gastos extends javax.swing.JInternalFrame {
 
         desselecionarMes();
         mesAtual();
-
         buscarDados();
-        somarTabela();
         buscarTotais();
     }
 
     public void mesAtual() {
         Date dataAtual = new Date();
         mes = Integer.parseInt(new SimpleDateFormat("MM").format(dataAtual));
-        if (mes == 1) {
-            panelJaneiro.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Janeiro");
-            labelTotalMes.setText("Total de Janeiro");
-        } else if (mes == 2) {
-            panelFevereiro.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Fevereiro");
-            labelTotalMes.setText("Total de Fevereiro");
-        } else if (mes == 3) {
-            panelMarco.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Marco");
-            labelTotalMes.setText("Total de Março");
-        } else if (mes == 4) {
-            panelAbril.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Abril");
-            labelTotalMes.setText("Total de Abril");
-        } else if (mes == 5) {
-            panelMaio.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Maio");
-            labelTotalMes.setText("Total de Maio");
-        } else if (mes == 6) {
-            panelJunho.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Junho");
-            labelTotalMes.setText("Total de Junho");
-        } else if (mes == 7) {
-            panelJulho.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Julho");
-            labelTotalMes.setText("Total de Julho");
-        } else if (mes == 8) {
-            panelAgosto.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Agosto");
-            labelTotalMes.setText("Total de Agosto");
-        } else if (mes == 9) {
-            panelSetembro.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Setembro");
-            labelTotalMes.setText("Total de Setembro");
-        } else if (mes == 10) {
-            panelOutubro.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Outubro");
-            labelTotalMes.setText("Total de Outubro");
-        } else if (mes == 11) {
-            panelNovembro.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Novembro");
-            labelTotalMes.setText("Total de Novembro");
-        } else if (mes == 12) {
-            panelDezembro.setBackground(new Color(175, 234, 226));
-            labelMes.setText("Gastos de Dezembro");
-            labelTotalMes.setText("Total de Dezembro");
+        switch (mes) {
+            case 1 ->
+                panelJaneiro.setBackground(new Color(175, 234, 226));
+            case 2 ->
+                panelFevereiro.setBackground(new Color(175, 234, 226));
+            case 3 ->
+                panelMarco.setBackground(new Color(175, 234, 226));
+            case 4 ->
+                panelAbril.setBackground(new Color(175, 234, 226));
+            case 5 ->
+                panelMaio.setBackground(new Color(175, 234, 226));
+            case 6 ->
+                panelJunho.setBackground(new Color(175, 234, 226));
+            case 7 ->
+                panelJulho.setBackground(new Color(175, 234, 226));
+            case 8 ->
+                panelAgosto.setBackground(new Color(175, 234, 226));
+            case 9 ->
+                panelSetembro.setBackground(new Color(175, 234, 226));
+            case 10 ->
+                panelOutubro.setBackground(new Color(175, 234, 226));
+            case 11 ->
+                panelNovembro.setBackground(new Color(175, 234, 226));
+            case 12 ->
+                panelDezembro.setBackground(new Color(175, 234, 226));
+            default -> {
+            }
         }
-
+        labelTotais.setText(mesString[mes]);
     }
 
     public void desselecionar() {
         panelFixo.setBackground(new Color(90, 215, 198));
         panelMercado.setBackground(new Color(90, 215, 198));
-        panelTotal.setBackground(new Color(90, 215, 198));
+        panelRelatório.setBackground(new Color(90, 215, 198));
         panelLazer.setBackground(new Color(90, 215, 198));
         panelOutros.setBackground(new Color(90, 215, 198));
     }
@@ -122,6 +112,21 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelOutubro.setBackground(new Color(56, 208, 187));
         panelNovembro.setBackground(new Color(56, 208, 187));
         panelDezembro.setBackground(new Color(56, 208, 187));
+    }
+
+    public void voltarCorTotal() {
+        labelTotalFixo.setForeground(new Color(242, 242, 242));
+        labelTotalMercado.setForeground(new Color(242, 242, 242));
+        labelTotalLazer.setForeground(new Color(242, 242, 242));
+        labelTotalOutros.setForeground(new Color(242, 242, 242));
+        campoTotalFixo.setForeground(new Color(51, 51, 51));
+        campoTotalMercado.setForeground(new Color(51, 51, 51));
+        campoTotalLazer.setForeground(new Color(51, 51, 51));
+        campoTotalOutros.setForeground(new Color(51, 51, 51));
+        campoTotalFixo.setBackground(new Color(242, 242, 242));
+        campoTotalMercado.setBackground(new Color(242, 242, 242));
+        campoTotalLazer.setBackground(new Color(242, 242, 242));
+        campoTotalOutros.setBackground(new Color(242, 242, 242));
     }
 
     public void buscarDados() {
@@ -154,24 +159,6 @@ public class Gastos extends javax.swing.JInternalFrame {
         }
     }
 
-    public void somarTabela() {
-        total = 0;
-        for (int i = 0; i < tabela.getRowCount(); i++) {
-            if (tabela.getModel().getValueAt(i, 1) != null && !"".equals(tabela.getModel().getValueAt(i, 1).toString())) {
-                total += Double.parseDouble(tabela.getModel().getValueAt(i, 1).toString());
-            }
-        }
-
-        String totalFormatado = String.format("%.02f", total);
-        campoTotal.setText("R$ " + totalFormatado + "");
-
-        if (tipo_gastos != "total") {
-            botaoSalvar.setVisible(true);
-            totalGastos.setVisible(true);
-            campoTotal.setVisible(true);
-        }
-    }
-
     public void buscarTotais() {
         GastosBD gastosBD = new GastosBD();
         GastosDados gastosDados = new GastosDados();
@@ -181,30 +168,30 @@ public class Gastos extends javax.swing.JInternalFrame {
 
         gastosDados.setTipo_gastos("fixo");
         if (gastosBD.buscarTotalGastos(gastosDados) == null) {
-            campoFixo.setText("R$ 0,00");
+            campoTotalFixo.setText("R$ 0,00");
         } else {
-            campoFixo.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
+            campoTotalFixo.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
         }
 
         gastosDados.setTipo_gastos("mercado");
         if (gastosBD.buscarTotalGastos(gastosDados) == null) {
-            campoMercado.setText("R$ 0,00");
+            campoTotalMercado.setText("R$ 0,00");
         } else {
-            campoMercado.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
+            campoTotalMercado.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
         }
 
         gastosDados.setTipo_gastos("lazer");
         if (gastosBD.buscarTotalGastos(gastosDados) == null) {
-            campoLazer.setText("R$ 0,00");
+            campoTotalLazer.setText("R$ 0,00");
         } else {
-            campoLazer.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
+            campoTotalLazer.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
         }
 
         gastosDados.setTipo_gastos("outros");
         if (gastosBD.buscarTotalGastos(gastosDados) == null) {
-            campoOutros.setText("R$ 0,00");
+            campoTotalOutros.setText("R$ 0,00");
         } else {
-            campoOutros.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
+            campoTotalOutros.setText("R$ " + String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados))));
         }
 
         if (gastosBD.buscarSomaTotalGastos(gastosDados) == null) {
@@ -217,60 +204,35 @@ public class Gastos extends javax.swing.JInternalFrame {
     public void relatarTotais() {
         if ("total".equals(tipo_gastos)) {
             desselecionar();
-            panelTotal.setBackground(new Color(175, 234, 226));
+            panelRelatório.setBackground(new Color(175, 234, 226));
             tipo_gastos = "total";
-            botaoSalvar.setVisible(false);
-            totalGastos.setVisible(false);
-            campoTotal.setVisible(false);
 
             GastosDados gastosDados = new GastosDados();
             GastosBD gastosBD = new GastosBD();
 
             gastosDados.setCod_usuario(cod_usuario);
             gastosDados.setAno(ano);
-            gastosDados.setMes(mes);
 
             DefaultTableModel model = (DefaultTableModel) tabela.getModel();
             model.setRowCount(0);
-            gastosDados.setTipo_gastos("fixo");
-            if (gastosBD.buscarTotalGastos(gastosDados) == null) {
-                model.addRow(new Object[]{"Fixo", "0,00"});
-            } else {
-                model.addRow(new Object[]{"Fixo", String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados)))});
-            }
 
-            gastosDados.setTipo_gastos("mercado");
-            if (gastosBD.buscarTotalGastos(gastosDados) == null) {
-                model.addRow(new Object[]{"Mercado", "0,00"});
-            } else {
-                model.addRow(new Object[]{"Mercado", String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados)))});
+            for (int i = 1; i <= 12; i++) {
+                gastosDados.setMes(i);
+                if (gastosBD.buscarSomaTotalGastos(gastosDados) == null) {
+                    model.addRow(new Object[]{mesString[i], "0,00"});
+                } else {
+                    model.addRow(new Object[]{mesString[i], String.format("%.02f", Double.valueOf(gastosBD.buscarSomaTotalGastos(gastosDados)))});
+                }
             }
-
-            gastosDados.setTipo_gastos("lazer");
-            if (gastosBD.buscarTotalGastos(gastosDados) == null) {
-                model.addRow(new Object[]{"Lazer", "0,00"});
-            } else {
-                model.addRow(new Object[]{"Lazer", String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados)))});
-            }
-
-            gastosDados.setTipo_gastos("outros");
-            if (gastosBD.buscarTotalGastos(gastosDados) == null) {
-                model.addRow(new Object[]{"Outros", "0,00"});
-            } else {
-                model.addRow(new Object[]{"Outros", String.format("%.02f", Double.parseDouble(gastosBD.buscarTotalGastos(gastosDados)))});
-            }
-
-            total = 0;
-
-            if (gastosBD.buscarSomaTotalGastos(gastosDados) == null) {
-                model.addRow(new Object[]{"Total", "0,00"});
-            } else {
-                model.addRow(new Object[]{"Total", String.format("%.02f", Double.parseDouble(gastosBD.buscarSomaTotalGastos(gastosDados)))});
-            }
+            if (gastosBD.buscarTotalAnual(gastosDados) == null) {
+                    model.addRow(new Object[]{"Total", "0,00"});
+                } else {
+                    model.addRow(new Object[]{"Total", String.format("%.02f", Double.valueOf(gastosBD.buscarTotalAnual(gastosDados)))});
+                }
         }
     }
-    
-    public void salvar(){
+
+    public void salvar() {
         GastosDados gastosDados = new GastosDados();
         GastosBD gastosBD = new GastosBD();
         for (int i = 0; i < tabela.getRowCount(); i++) {
@@ -303,8 +265,20 @@ public class Gastos extends javax.swing.JInternalFrame {
                 gastosBD.atualizarGastos(gastosDados);
             }
         }
-        
+
         buscarTotais();
+    }
+
+    public void atualizarLabelMes(int mes) {
+        labelTotais.setText(mesString[mes]);
+    }
+
+    public void clicarBotaoMes() {
+        desselecionarMes();
+        buscarDados();
+        buscarTotais();
+        relatarTotais();
+        atualizarLabelMes(mes);
     }
 
     @SuppressWarnings("unchecked")
@@ -349,26 +323,23 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelOutros = new javax.swing.JPanel();
         labelOutros = new javax.swing.JLabel();
         iconeOutros = new javax.swing.JLabel();
-        panelTotal = new javax.swing.JPanel();
+        panelRelatório = new javax.swing.JPanel();
         labelTotal = new javax.swing.JLabel();
         iconeTotal = new javax.swing.JLabel();
         panelPrincipal = new javax.swing.JPanel();
-        campoTotal = new javax.swing.JTextField();
-        totalGastos = new javax.swing.JLabel();
         jScrollPaneTabela = new javax.swing.JScrollPane();
         tabela = new javax.swing.JTable();
-        botaoSalvar = new javax.swing.JButton();
-        labelMes = new javax.swing.JLabel();
         panelTotais = new javax.swing.JPanel();
+        labelTotaisDe = new javax.swing.JLabel();
         labelTotais = new javax.swing.JLabel();
         labelTotalFixo = new javax.swing.JLabel();
-        campoFixo = new javax.swing.JTextField();
+        campoTotalFixo = new javax.swing.JTextField();
         labelTotalMercado = new javax.swing.JLabel();
-        campoMercado = new javax.swing.JTextField();
+        campoTotalMercado = new javax.swing.JTextField();
         labelTotalLazer = new javax.swing.JLabel();
-        campoLazer = new javax.swing.JTextField();
+        campoTotalLazer = new javax.swing.JTextField();
         labelTotalOutros = new javax.swing.JLabel();
-        campoOutros = new javax.swing.JTextField();
+        campoTotalOutros = new javax.swing.JTextField();
         labelTotalMes = new javax.swing.JLabel();
         campoTotais = new javax.swing.JTextField();
 
@@ -684,9 +655,9 @@ public class Gastos extends javax.swing.JInternalFrame {
 
         panelFixo.setBackground(new java.awt.Color(90, 215, 198));
         panelFixo.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
-        panelFixo.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelFixo.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelFixo.setPreferredSize(new java.awt.Dimension(192, 55));
+        panelFixo.setMaximumSize(new java.awt.Dimension(230, 55));
+        panelFixo.setMinimumSize(new java.awt.Dimension(230, 55));
+        panelFixo.setPreferredSize(new java.awt.Dimension(230, 55));
         panelFixo.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelFixoMouseClicked(evt);
@@ -707,13 +678,13 @@ public class Gastos extends javax.swing.JInternalFrame {
         iconeFixo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Notas (40px).png"))); // NOI18N
         panelFixo.add(iconeFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 230, 55));
+        panelMenuAnotacoes.add(panelFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         panelMercado.setBackground(new java.awt.Color(90, 215, 198));
         panelMercado.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
-        panelMercado.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelMercado.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelMercado.setPreferredSize(new java.awt.Dimension(192, 55));
+        panelMercado.setMaximumSize(new java.awt.Dimension(230, 55));
+        panelMercado.setMinimumSize(new java.awt.Dimension(230, 55));
+        panelMercado.setPreferredSize(new java.awt.Dimension(230, 55));
         panelMercado.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelMercadoMouseClicked(evt);
@@ -734,13 +705,13 @@ public class Gastos extends javax.swing.JInternalFrame {
         iconeMercado.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Compras (40px).png"))); // NOI18N
         panelMercado.add(iconeMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, 230, 55));
+        panelMenuAnotacoes.add(panelMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 0, -1, -1));
 
         panelLazer.setBackground(new java.awt.Color(90, 215, 198));
         panelLazer.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
-        panelLazer.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelLazer.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelLazer.setPreferredSize(new java.awt.Dimension(192, 55));
+        panelLazer.setMaximumSize(new java.awt.Dimension(230, 55));
+        panelLazer.setMinimumSize(new java.awt.Dimension(230, 55));
+        panelLazer.setPreferredSize(new java.awt.Dimension(230, 55));
         panelLazer.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelLazerMouseClicked(evt);
@@ -761,13 +732,13 @@ public class Gastos extends javax.swing.JInternalFrame {
         iconeLazer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Lazer (40px).png"))); // NOI18N
         panelLazer.add(iconeLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 231, 55));
+        panelMenuAnotacoes.add(panelLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
 
         panelOutros.setBackground(new java.awt.Color(90, 215, 198));
         panelOutros.setBorder(javax.swing.BorderFactory.createMatteBorder(0, 0, 0, 1, new java.awt.Color(102, 102, 102)));
-        panelOutros.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelOutros.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelOutros.setPreferredSize(new java.awt.Dimension(192, 55));
+        panelOutros.setMaximumSize(new java.awt.Dimension(230, 55));
+        panelOutros.setMinimumSize(new java.awt.Dimension(230, 55));
+        panelOutros.setPreferredSize(new java.awt.Dimension(230, 55));
         panelOutros.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 panelOutrosMouseClicked(evt);
@@ -788,33 +759,33 @@ public class Gastos extends javax.swing.JInternalFrame {
         iconeOutros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/outros (40px).png"))); // NOI18N
         panelOutros.add(iconeOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(691, 0, 231, 55));
+        panelMenuAnotacoes.add(panelOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 0, -1, -1));
 
-        panelTotal.setBackground(new java.awt.Color(90, 215, 198));
-        panelTotal.setMaximumSize(new java.awt.Dimension(192, 55));
-        panelTotal.setMinimumSize(new java.awt.Dimension(192, 55));
-        panelTotal.setPreferredSize(new java.awt.Dimension(192, 55));
-        panelTotal.addMouseListener(new java.awt.event.MouseAdapter() {
+        panelRelatório.setBackground(new java.awt.Color(90, 215, 198));
+        panelRelatório.setMaximumSize(new java.awt.Dimension(232, 55));
+        panelRelatório.setMinimumSize(new java.awt.Dimension(232, 55));
+        panelRelatório.setPreferredSize(new java.awt.Dimension(232, 55));
+        panelRelatório.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                panelTotalMouseClicked(evt);
+                panelRelatórioMouseClicked(evt);
             }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                panelTotalMouseEntered(evt);
+                panelRelatórioMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                panelTotalMouseExited(evt);
+                panelRelatórioMouseExited(evt);
             }
         });
-        panelTotal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelRelatório.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         labelTotal.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         labelTotal.setText("Relatório");
-        panelTotal.add(labelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
+        panelRelatório.add(labelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 10, -1, -1));
 
         iconeTotal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Relatorio (40px).png"))); // NOI18N
-        panelTotal.add(iconeTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
+        panelRelatório.add(iconeTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 8, -1, -1));
 
-        panelMenuAnotacoes.add(panelTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(922, 0, 231, -1));
+        panelMenuAnotacoes.add(panelRelatório, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 0, -1, -1));
 
         getContentPane().add(panelMenuAnotacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 1152, 55));
 
@@ -824,16 +795,7 @@ public class Gastos extends javax.swing.JInternalFrame {
         panelPrincipal.setPreferredSize(new java.awt.Dimension(1152, 468));
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        campoTotal.setEditable(false);
-        campoTotal.setBackground(new java.awt.Color(212, 241, 237));
-        campoTotal.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoTotal.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        campoTotal.setPreferredSize(new java.awt.Dimension(150, 40));
-        panelPrincipal.add(campoTotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 320, -1, -1));
-
-        totalGastos.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
-        totalGastos.setText("Total");
-        panelPrincipal.add(totalGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 285, -1, -1));
+        jScrollPaneTabela.setPreferredSize(new java.awt.Dimension(500, 428));
 
         tabela.setBackground(new java.awt.Color(245, 245, 245));
         tabela.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
@@ -848,7 +810,7 @@ public class Gastos extends javax.swing.JInternalFrame {
                 "Descrição", "Valor"
             }
         ));
-        tabela.setMaximumSize(new java.awt.Dimension(205, 120));
+        tabela.setMaximumSize(new java.awt.Dimension(325, 120));
         tabela.setMinimumSize(new java.awt.Dimension(205, 120));
         tabela.setRowHeight(30);
         tabela.setRowSelectionAllowed(false);
@@ -866,98 +828,85 @@ public class Gastos extends javax.swing.JInternalFrame {
             tabela.getColumnModel().getColumn(1).setResizable(false);
         }
 
-        panelPrincipal.add(jScrollPaneTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 70, 500, 350));
-
-        botaoSalvar.setBackground(new java.awt.Color(51, 51, 51));
-        botaoSalvar.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        botaoSalvar.setForeground(new java.awt.Color(242, 242, 242));
-        botaoSalvar.setText("Salvar");
-        botaoSalvar.setMaximumSize(new java.awt.Dimension(150, 40));
-        botaoSalvar.setMinimumSize(new java.awt.Dimension(150, 40));
-        botaoSalvar.setPreferredSize(new java.awt.Dimension(150, 40));
-        botaoSalvar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                botaoSalvarActionPerformed(evt);
-            }
-        });
-        panelPrincipal.add(botaoSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 370, -1, -1));
-
-        labelMes.setFont(new java.awt.Font("Segoe UI Black", 0, 24)); // NOI18N
-        labelMes.setForeground(new java.awt.Color(51, 51, 51));
-        labelMes.setText("Gastos de Janeiro");
-        panelPrincipal.add(labelMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, -1, -1));
+        panelPrincipal.add(jScrollPaneTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 20, -1, -1));
 
         panelTotais.setBackground(new java.awt.Color(102, 102, 102));
         panelTotais.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        panelTotais.setPreferredSize(new java.awt.Dimension(250, 428));
+        panelTotais.setPreferredSize(new java.awt.Dimension(300, 428));
         panelTotais.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        labelTotaisDe.setFont(new java.awt.Font("Segoe UI Black", 0, 22)); // NOI18N
+        labelTotaisDe.setForeground(new java.awt.Color(242, 242, 242));
+        labelTotaisDe.setText("Totais de");
+        panelTotais.add(labelTotaisDe, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+
         labelTotais.setFont(new java.awt.Font("Segoe UI Black", 0, 22)); // NOI18N
-        labelTotais.setForeground(new java.awt.Color(242, 242, 242));
-        labelTotais.setText("Totais");
-        panelTotais.add(labelTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 20, -1, -1));
+        labelTotais.setForeground(new java.awt.Color(238, 238, 37));
+        labelTotais.setText("Janeiro");
+        panelTotais.add(labelTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 20, -1, -1));
 
         labelTotalFixo.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
-        labelTotalFixo.setForeground(new java.awt.Color(242, 242, 242));
+        labelTotalFixo.setForeground(new java.awt.Color(238, 238, 37));
         labelTotalFixo.setText("Fixo");
         panelTotais.add(labelTotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, -1, -1));
 
-        campoFixo.setEditable(false);
-        campoFixo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoFixo.setForeground(new java.awt.Color(51, 51, 51));
-        campoFixo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        campoFixo.setPreferredSize(new java.awt.Dimension(150, 35));
-        panelTotais.add(campoFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
+        campoTotalFixo.setEditable(false);
+        campoTotalFixo.setBackground(new java.awt.Color(70, 70, 70));
+        campoTotalFixo.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        campoTotalFixo.setForeground(new java.awt.Color(238, 238, 37));
+        campoTotalFixo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoTotalFixo.setPreferredSize(new java.awt.Dimension(200, 35));
+        panelTotais.add(campoTotalFixo, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         labelTotalMercado.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         labelTotalMercado.setForeground(new java.awt.Color(242, 242, 242));
         labelTotalMercado.setText("Mercado");
         panelTotais.add(labelTotalMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
-        campoMercado.setEditable(false);
-        campoMercado.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoMercado.setForeground(new java.awt.Color(51, 51, 51));
-        campoMercado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        campoMercado.setPreferredSize(new java.awt.Dimension(150, 35));
-        panelTotais.add(campoMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
+        campoTotalMercado.setEditable(false);
+        campoTotalMercado.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        campoTotalMercado.setForeground(new java.awt.Color(51, 51, 51));
+        campoTotalMercado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoTotalMercado.setPreferredSize(new java.awt.Dimension(200, 35));
+        panelTotais.add(campoTotalMercado, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, -1, -1));
 
         labelTotalLazer.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         labelTotalLazer.setForeground(new java.awt.Color(242, 242, 242));
         labelTotalLazer.setText("Lazer");
         panelTotais.add(labelTotalLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 200, -1, -1));
 
-        campoLazer.setEditable(false);
-        campoLazer.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoLazer.setForeground(new java.awt.Color(51, 51, 51));
-        campoLazer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        campoLazer.setPreferredSize(new java.awt.Dimension(150, 35));
-        panelTotais.add(campoLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
+        campoTotalLazer.setEditable(false);
+        campoTotalLazer.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        campoTotalLazer.setForeground(new java.awt.Color(51, 51, 51));
+        campoTotalLazer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoTotalLazer.setPreferredSize(new java.awt.Dimension(200, 35));
+        panelTotais.add(campoTotalLazer, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, -1, -1));
 
         labelTotalOutros.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         labelTotalOutros.setForeground(new java.awt.Color(242, 242, 242));
         labelTotalOutros.setText("Outros");
         panelTotais.add(labelTotalOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, -1, -1));
 
-        campoOutros.setEditable(false);
-        campoOutros.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoOutros.setForeground(new java.awt.Color(51, 51, 51));
-        campoOutros.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        campoOutros.setPreferredSize(new java.awt.Dimension(150, 35));
-        panelTotais.add(campoOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
+        campoTotalOutros.setEditable(false);
+        campoTotalOutros.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
+        campoTotalOutros.setForeground(new java.awt.Color(51, 51, 51));
+        campoTotalOutros.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoTotalOutros.setPreferredSize(new java.awt.Dimension(200, 35));
+        panelTotais.add(campoTotalOutros, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
         labelTotalMes.setFont(new java.awt.Font("Segoe UI Black", 0, 18)); // NOI18N
         labelTotalMes.setForeground(new java.awt.Color(242, 242, 242));
-        labelTotalMes.setText("Total de Janeiro");
+        labelTotalMes.setText("Total");
         panelTotais.add(labelTotalMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, -1, -1));
 
         campoTotais.setEditable(false);
-        campoTotais.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        campoTotais.setFont(new java.awt.Font("Segoe UI", 1, 22)); // NOI18N
         campoTotais.setForeground(new java.awt.Color(51, 51, 51));
         campoTotais.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        campoTotais.setPreferredSize(new java.awt.Dimension(150, 35));
+        campoTotais.setPreferredSize(new java.awt.Dimension(200, 35));
         panelTotais.add(campoTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 370, -1, -1));
 
-        panelPrincipal.add(panelTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(882, 20, 250, 428));
+        panelPrincipal.add(panelTotais, new org.netbeans.lib.awtextra.AbsoluteConstraints(125, 20, -1, -1));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 120, -1, -1));
 
@@ -966,183 +915,129 @@ public class Gastos extends javax.swing.JInternalFrame {
 
     private void panelFixoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFixoMouseClicked
         desselecionar();
+        voltarCorTotal();
         panelFixo.setBackground(new Color(175, 234, 226));
         tipo_gastos = "fixo";
+        labelTotalFixo.setForeground(new Color(238, 238, 37));
+        campoTotalFixo.setForeground(new Color(238, 238, 37));
+        campoTotalFixo.setBackground(new Color(70, 70, 70));
         buscarDados();
-        somarTabela();
+        tabela.setEnabled(true);
     }//GEN-LAST:event_panelFixoMouseClicked
 
     private void panelMercadoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMercadoMouseClicked
         desselecionar();
+        voltarCorTotal();
         panelMercado.setBackground(new Color(175, 234, 226));
         tipo_gastos = "mercado";
+        labelTotalMercado.setForeground(new Color(238, 238, 37));
+        campoTotalMercado.setForeground(new Color(238, 238, 37));
+        campoTotalMercado.setBackground(new Color(70, 70, 70));
         buscarDados();
-        somarTabela();
+        tabela.setEnabled(true);
     }//GEN-LAST:event_panelMercadoMouseClicked
 
-    private void panelTotalMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTotalMouseClicked
+    private void panelRelatórioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRelatórioMouseClicked
+        voltarCorTotal();
         tipo_gastos = "total";
         relatarTotais();
-    }//GEN-LAST:event_panelTotalMouseClicked
+        tabela.setEnabled(false);
+    }//GEN-LAST:event_panelRelatórioMouseClicked
 
     private void panelLazerMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelLazerMouseClicked
         desselecionar();
+        voltarCorTotal();
         panelLazer.setBackground(new Color(175, 234, 226));
         tipo_gastos = "lazer";
+        labelTotalLazer.setForeground(new Color(238, 238, 37));
+        campoTotalLazer.setForeground(new Color(238, 238, 37));
+        campoTotalLazer.setBackground(new Color(70, 70, 70));
         buscarDados();
-        somarTabela();
+        tabela.setEnabled(true);
     }//GEN-LAST:event_panelLazerMouseClicked
 
     private void panelOutrosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutrosMouseClicked
         desselecionar();
+        voltarCorTotal();
         panelOutros.setBackground(new Color(175, 234, 226));
         tipo_gastos = "outros";
+        labelTotalOutros.setForeground(new Color(238, 238, 37));
+        campoTotalOutros.setForeground(new Color(238, 238, 37));
+        campoTotalOutros.setBackground(new Color(70, 70, 70));
         buscarDados();
-        somarTabela();
+        tabela.setEnabled(true);
     }//GEN-LAST:event_panelOutrosMouseClicked
 
     private void panelJaneiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJaneiroMouseClicked
-        desselecionarMes();
-        panelJaneiro.setBackground(new Color(175, 234, 226));
         mes = 1;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Janeiro");
-        labelTotalMes.setText("Total de Janeiro");
+        clicarBotaoMes();
+        panelJaneiro.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelJaneiroMouseClicked
 
     private void panelFevereiroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelFevereiroMouseClicked
-        desselecionarMes();
-        panelFevereiro.setBackground(new Color(175, 234, 226));
         mes = 2;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Fevereiro");
-        labelTotalMes.setText("Total de Fevereiro");
+        clicarBotaoMes();
+        panelFevereiro.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelFevereiroMouseClicked
 
     private void panelMarcoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMarcoMouseClicked
-        desselecionarMes();
-        panelMarco.setBackground(new Color(175, 234, 226));
         mes = 3;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Março");
-        labelTotalMes.setText("Total de Março");
+        clicarBotaoMes();
+        panelMarco.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelMarcoMouseClicked
 
     private void panelAbrilMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAbrilMouseClicked
-        desselecionarMes();
-        panelAbril.setBackground(new Color(175, 234, 226));
         mes = 4;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Abril");
-        labelTotalMes.setText("Total de Abril");
+        clicarBotaoMes();
+        panelAbril.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelAbrilMouseClicked
 
     private void panelMaioMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelMaioMouseClicked
-        desselecionarMes();
-        panelMaio.setBackground(new Color(175, 234, 226));
         mes = 5;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Maio");
-        labelTotalMes.setText("Total de Maio");
+        clicarBotaoMes();
+        panelMaio.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelMaioMouseClicked
 
     private void panelJunhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJunhoMouseClicked
-        desselecionarMes();
-        panelJunho.setBackground(new Color(175, 234, 226));
         mes = 6;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Junho");
-        labelTotalMes.setText("Total de Junho");
+        clicarBotaoMes();
+        panelJunho.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelJunhoMouseClicked
 
     private void panelJulhoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJulhoMouseClicked
-        desselecionarMes();
-        panelJulho.setBackground(new Color(175, 234, 226));
         mes = 7;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Julho");
-        labelTotalMes.setText("Total de Julho");
+        clicarBotaoMes();
+        panelJulho.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelJulhoMouseClicked
 
     private void panelAgostoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelAgostoMouseClicked
-        desselecionarMes();
-        panelAgosto.setBackground(new Color(175, 234, 226));
         mes = 8;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Agosto");
-        labelTotalMes.setText("Total de Agosto");
+        clicarBotaoMes();
+        panelAgosto.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelAgostoMouseClicked
 
     private void panelSetembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelSetembroMouseClicked
-        desselecionarMes();
-        panelSetembro.setBackground(new Color(175, 234, 226));
         mes = 9;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Setembro");
-        labelTotalMes.setText("Total de Setembro");
+        clicarBotaoMes();
+        panelSetembro.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelSetembroMouseClicked
 
     private void panelOutubroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelOutubroMouseClicked
-        desselecionarMes();
-        panelOutubro.setBackground(new Color(175, 234, 226));
         mes = 10;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Outubro");
-        labelTotalMes.setText("Total de Outubro");
+        clicarBotaoMes();
+        panelOutubro.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelOutubroMouseClicked
 
     private void panelNovembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelNovembroMouseClicked
-        desselecionarMes();
-        panelNovembro.setBackground(new Color(175, 234, 226));
         mes = 11;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Novembro");
-        labelTotalMes.setText("Total de Novembro");
+        clicarBotaoMes();
+        panelNovembro.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelNovembroMouseClicked
 
     private void panelDezembroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelDezembroMouseClicked
-        desselecionarMes();
-        panelDezembro.setBackground(new Color(175, 234, 226));
         mes = 12;
-        buscarDados();
-        somarTabela();
-        buscarTotais();
-        relatarTotais();
-        labelMes.setText("Gastos de Dezembro");
-        labelTotalMes.setText("Total de Dezembro");
+        clicarBotaoMes();
+        panelDezembro.setBackground(new Color(175, 234, 226));
     }//GEN-LAST:event_panelDezembroMouseClicked
 
     private void tabelaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_tabelaKeyReleased
@@ -1150,8 +1045,6 @@ public class Gastos extends javax.swing.JInternalFrame {
             DefaultTableModel model = (DefaultTableModel) tabela.getModel();
             model.addRow(new Object[]{"", ""});
         }
-
-        somarTabela();
         salvar();
     }//GEN-LAST:event_tabelaKeyReleased
 
@@ -1211,19 +1104,19 @@ public class Gastos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_panelOutrosMouseExited
 
-    private void panelTotalMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTotalMouseEntered
+    private void panelRelatórioMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRelatórioMouseEntered
         if (tipo_gastos != "total") {
-            panelTotal.setBackground(new Color(111, 233, 216));
+            panelRelatório.setBackground(new Color(111, 233, 216));
         }
-    }//GEN-LAST:event_panelTotalMouseEntered
+    }//GEN-LAST:event_panelRelatórioMouseEntered
 
-    private void panelTotalMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelTotalMouseExited
+    private void panelRelatórioMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelRelatórioMouseExited
         if (tipo_gastos != "total") {
-            panelTotal.setBackground(new Color(90, 215, 198));
+            panelRelatório.setBackground(new Color(90, 215, 198));
         } else {
-            panelTotal.setBackground(new Color(175, 234, 226));
+            panelRelatório.setBackground(new Color(175, 234, 226));
         }
-    }//GEN-LAST:event_panelTotalMouseExited
+    }//GEN-LAST:event_panelRelatórioMouseExited
 
     private void panelJaneiroMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_panelJaneiroMouseEntered
         if (mes != 1) {
@@ -1393,56 +1286,13 @@ public class Gastos extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_panelDezembroMouseExited
 
-    private void botaoSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoSalvarActionPerformed
-        GastosDados gastosDados = new GastosDados();
-        GastosBD gastosBD = new GastosBD();
-        for (int i = 0; i < tabela.getRowCount(); i++) {
-            if (tabela.getModel().getValueAt(i, 0).toString() == null || "".equals(tabela.getModel().getValueAt(i, 0).toString())) {
-                descricao = "";
-            } else {
-                descricao = tabela.getModel().getValueAt(i, 0).toString();
-            }
-            if (tabela.getModel().getValueAt(i, 1).toString() == null || "".equals(tabela.getModel().getValueAt(i, 1).toString())) {
-                valor = 0;
-            } else {
-                valor = Float.parseFloat(tabela.getModel().getValueAt(i, 1).toString());
-            }
-
-            gastosDados.setCod_usuario(cod_usuario);
-            gastosDados.setTipo_gastos(tipo_gastos);
-            gastosDados.setAno(ano);
-            gastosDados.setMes(mes);
-            gastosDados.setLinha_item(i);
-            gastosDados.setDescricao(descricao);
-            gastosDados.setValor(valor);
-
-            if (descricao != "" && valor != 0) {
-                if (gastosBD.verificarGastos(gastosDados) == null && gastosBD.verificarGastosDescricao(gastosDados) == null) {
-                    gastosBD.inserirGastos(gastosDados);
-                } else {
-                    gastosBD.atualizarGastos(gastosDados);
-                }
-            } else {
-                gastosBD.atualizarGastos(gastosDados);
-            }
-
-            /*if (descricao.equals("") && valor == 0) {
-                gastosBD.excluirGastos(gastosDados);
-            }*/
-            
-            buscarTotais();
-        }
-    }//GEN-LAST:event_botaoSalvarActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton botaoSalvar;
-    private javax.swing.JTextField campoFixo;
-    private javax.swing.JTextField campoLazer;
-    private javax.swing.JTextField campoMercado;
-    private javax.swing.JTextField campoOutros;
     private javax.swing.JTextField campoTotais;
-    private javax.swing.JTextField campoTotal;
+    private javax.swing.JTextField campoTotalFixo;
+    private javax.swing.JTextField campoTotalLazer;
+    private javax.swing.JTextField campoTotalMercado;
+    private javax.swing.JTextField campoTotalOutros;
     private javax.swing.JLabel iconeFixo;
     private javax.swing.JLabel iconeLazer;
     private javax.swing.JLabel iconeMercado;
@@ -1462,12 +1312,12 @@ public class Gastos extends javax.swing.JInternalFrame {
     private javax.swing.JLabel labelMaio;
     private javax.swing.JLabel labelMarco;
     private javax.swing.JLabel labelMercado;
-    private javax.swing.JLabel labelMes;
     private javax.swing.JLabel labelNovembro;
     private javax.swing.JLabel labelOutros;
     private javax.swing.JLabel labelOutubro;
     private javax.swing.JLabel labelSetembro;
     private javax.swing.JLabel labelTotais;
+    private javax.swing.JLabel labelTotaisDe;
     private javax.swing.JLabel labelTotal;
     private javax.swing.JLabel labelTotalFixo;
     private javax.swing.JLabel labelTotalLazer;
@@ -1491,10 +1341,9 @@ public class Gastos extends javax.swing.JInternalFrame {
     private javax.swing.JPanel panelOutros;
     private javax.swing.JPanel panelOutubro;
     private javax.swing.JPanel panelPrincipal;
+    private javax.swing.JPanel panelRelatório;
     private javax.swing.JPanel panelSetembro;
     private javax.swing.JPanel panelTotais;
-    private javax.swing.JPanel panelTotal;
     private javax.swing.JTable tabela;
-    private javax.swing.JLabel totalGastos;
     // End of variables declaration//GEN-END:variables
 }

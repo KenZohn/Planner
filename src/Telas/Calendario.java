@@ -29,12 +29,9 @@ public class Calendario extends javax.swing.JInternalFrame {
 
         UsuarioDados usuarioDados = new UsuarioDados();
 
-        Login loginTela = new Login();
-        cod_usuario = loginTela.cod_usuario;
+        cod_usuario = Login.codUsuario;
         usuarioDados.setCod_usuario(cod_usuario);
         
-        
-
         Date dataAtual = new Date();
         ano = Integer.parseInt(new SimpleDateFormat("yyyy").format(dataAtual));
         mes = Integer.parseInt(new SimpleDateFormat("MM").format(dataAtual));
@@ -1155,18 +1152,18 @@ public class Calendario extends javax.swing.JInternalFrame {
 
         panelNotas.add(scrollPaneCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 93, 560, 380));
 
-        labelDia.setFont(new java.awt.Font("Segoe UI", 0, 36)); // NOI18N
+        labelDia.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
         labelDia.setForeground(new java.awt.Color(51, 51, 51));
         labelDia.setText("Dia 1");
-        panelNotas.add(labelDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        panelNotas.add(labelDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 25, -1, -1));
 
         panelPrincipal.add(panelNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(537, 15, -1, -1));
 
-        panelCalendario.setBackground(new java.awt.Color(224, 236, 247));
-        panelCalendario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelCalendario.setBackground(new java.awt.Color(239, 245, 250));
+        panelCalendario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         panelCalendario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelMes.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
+        labelMes.setFont(new java.awt.Font("Monospaced", 0, 26)); // NOI18N
         labelMes.setForeground(new java.awt.Color(51, 51, 51));
         labelMes.setText("Janeiro");
         panelCalendario.add(labelMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
@@ -1239,13 +1236,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia1.setMaximumSize(new java.awt.Dimension(35, 35));
         dia1.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia1.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia1.setPreferredSize(new java.awt.Dimension(50, 37));
         dia1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia1MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 129, -1, -1));
+        panelCalendario.add(dia1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 128, -1, -1));
 
         dia2.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia2.setForeground(new java.awt.Color(51, 51, 51));
@@ -1253,18 +1250,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia2.setText("1");
         dia2.setMaximumSize(new java.awt.Dimension(35, 35));
         dia2.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia2.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia2.setPreferredSize(new java.awt.Dimension(50, 37));
         dia2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia2MouseClicked(evt);
             }
         });
-        dia2.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyReleased(java.awt.event.KeyEvent evt) {
-                dia2KeyReleased(evt);
-            }
-        });
-        panelCalendario.add(dia2, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 129, -1, -1));
+        panelCalendario.add(dia2, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 128, -1, -1));
 
         dia3.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia3.setForeground(new java.awt.Color(51, 51, 51));
@@ -1272,13 +1264,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia3.setText("2");
         dia3.setMaximumSize(new java.awt.Dimension(35, 35));
         dia3.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia3.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia3.setPreferredSize(new java.awt.Dimension(50, 37));
         dia3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia3MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia3, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 129, -1, -1));
+        panelCalendario.add(dia3, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 128, -1, -1));
 
         dia4.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia4.setForeground(new java.awt.Color(51, 51, 51));
@@ -1286,13 +1278,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia4.setText("3");
         dia4.setMaximumSize(new java.awt.Dimension(35, 35));
         dia4.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia4.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia4.setPreferredSize(new java.awt.Dimension(50, 37));
         dia4.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia4MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia4, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 129, -1, -1));
+        panelCalendario.add(dia4, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 128, -1, -1));
 
         dia5.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia5.setForeground(new java.awt.Color(51, 51, 51));
@@ -1300,13 +1292,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia5.setText("4");
         dia5.setMaximumSize(new java.awt.Dimension(35, 35));
         dia5.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia5.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia5.setPreferredSize(new java.awt.Dimension(50, 37));
         dia5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia5MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia5, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 129, -1, -1));
+        panelCalendario.add(dia5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 128, -1, -1));
 
         dia6.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia6.setForeground(new java.awt.Color(51, 51, 51));
@@ -1314,13 +1306,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia6.setText("5");
         dia6.setMaximumSize(new java.awt.Dimension(35, 35));
         dia6.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia6.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia6.setPreferredSize(new java.awt.Dimension(50, 37));
         dia6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia6MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia6, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 129, -1, -1));
+        panelCalendario.add(dia6, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 128, -1, -1));
 
         dia7.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia7.setForeground(new java.awt.Color(51, 51, 51));
@@ -1328,13 +1320,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia7.setText("6");
         dia7.setMaximumSize(new java.awt.Dimension(35, 35));
         dia7.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia7.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia7.setPreferredSize(new java.awt.Dimension(50, 37));
         dia7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia7MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia7, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 129, -1, -1));
+        panelCalendario.add(dia7, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 128, -1, -1));
 
         dia8.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia8.setForeground(new java.awt.Color(51, 51, 51));
@@ -1343,13 +1335,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia8.setToolTipText("");
         dia8.setMaximumSize(new java.awt.Dimension(35, 35));
         dia8.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia8.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia8.setPreferredSize(new java.awt.Dimension(50, 37));
         dia8.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia8MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia8, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 169, -1, -1));
+        panelCalendario.add(dia8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 168, -1, -1));
 
         dia9.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia9.setForeground(new java.awt.Color(51, 51, 51));
@@ -1358,13 +1350,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia9.setToolTipText("");
         dia9.setMaximumSize(new java.awt.Dimension(35, 35));
         dia9.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia9.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia9.setPreferredSize(new java.awt.Dimension(50, 37));
         dia9.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia9MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia9, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 169, -1, -1));
+        panelCalendario.add(dia9, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 168, -1, -1));
 
         dia10.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia10.setForeground(new java.awt.Color(51, 51, 51));
@@ -1373,13 +1365,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia10.setToolTipText("");
         dia10.setMaximumSize(new java.awt.Dimension(35, 35));
         dia10.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia10.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia10.setPreferredSize(new java.awt.Dimension(50, 37));
         dia10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia10MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia10, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 169, -1, -1));
+        panelCalendario.add(dia10, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 168, -1, -1));
 
         dia11.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia11.setForeground(new java.awt.Color(51, 51, 51));
@@ -1388,13 +1380,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia11.setToolTipText("");
         dia11.setMaximumSize(new java.awt.Dimension(35, 35));
         dia11.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia11.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia11.setPreferredSize(new java.awt.Dimension(50, 37));
         dia11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia11MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia11, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 169, -1, -1));
+        panelCalendario.add(dia11, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 168, -1, -1));
 
         dia12.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia12.setForeground(new java.awt.Color(51, 51, 51));
@@ -1403,13 +1395,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia12.setToolTipText("");
         dia12.setMaximumSize(new java.awt.Dimension(35, 35));
         dia12.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia12.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia12.setPreferredSize(new java.awt.Dimension(50, 37));
         dia12.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia12MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia12, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 169, -1, -1));
+        panelCalendario.add(dia12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 168, -1, -1));
 
         dia13.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia13.setForeground(new java.awt.Color(51, 51, 51));
@@ -1418,13 +1410,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia13.setToolTipText("");
         dia13.setMaximumSize(new java.awt.Dimension(35, 35));
         dia13.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia13.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia13.setPreferredSize(new java.awt.Dimension(50, 37));
         dia13.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia13MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia13, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 169, -1, -1));
+        panelCalendario.add(dia13, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 168, -1, -1));
 
         dia14.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia14.setForeground(new java.awt.Color(51, 51, 51));
@@ -1433,13 +1425,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia14.setToolTipText("");
         dia14.setMaximumSize(new java.awt.Dimension(35, 35));
         dia14.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia14.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia14.setPreferredSize(new java.awt.Dimension(50, 37));
         dia14.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia14MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia14, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 169, -1, -1));
+        panelCalendario.add(dia14, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 168, -1, -1));
 
         dia15.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia15.setForeground(new java.awt.Color(51, 51, 51));
@@ -1448,13 +1440,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia15.setToolTipText("");
         dia15.setMaximumSize(new java.awt.Dimension(35, 35));
         dia15.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia15.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia15.setPreferredSize(new java.awt.Dimension(50, 37));
         dia15.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia15MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia15, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 209, -1, -1));
+        panelCalendario.add(dia15, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 208, -1, -1));
 
         dia16.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia16.setForeground(new java.awt.Color(51, 51, 51));
@@ -1463,13 +1455,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia16.setToolTipText("");
         dia16.setMaximumSize(new java.awt.Dimension(35, 35));
         dia16.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia16.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia16.setPreferredSize(new java.awt.Dimension(50, 37));
         dia16.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia16MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia16, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 209, -1, -1));
+        panelCalendario.add(dia16, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 208, -1, -1));
 
         dia17.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia17.setForeground(new java.awt.Color(51, 51, 51));
@@ -1478,13 +1470,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia17.setToolTipText("");
         dia17.setMaximumSize(new java.awt.Dimension(35, 35));
         dia17.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia17.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia17.setPreferredSize(new java.awt.Dimension(50, 37));
         dia17.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia17MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia17, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 209, -1, -1));
+        panelCalendario.add(dia17, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 208, -1, -1));
 
         dia18.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia18.setForeground(new java.awt.Color(51, 51, 51));
@@ -1493,13 +1485,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia18.setToolTipText("");
         dia18.setMaximumSize(new java.awt.Dimension(35, 35));
         dia18.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia18.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia18.setPreferredSize(new java.awt.Dimension(50, 37));
         dia18.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia18MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia18, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 209, -1, -1));
+        panelCalendario.add(dia18, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 208, -1, -1));
 
         dia19.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia19.setForeground(new java.awt.Color(51, 51, 51));
@@ -1507,13 +1499,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia19.setText("18");
         dia19.setMaximumSize(new java.awt.Dimension(35, 35));
         dia19.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia19.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia19.setPreferredSize(new java.awt.Dimension(50, 37));
         dia19.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia19MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia19, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 209, -1, -1));
+        panelCalendario.add(dia19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 208, -1, -1));
 
         dia20.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia20.setForeground(new java.awt.Color(51, 51, 51));
@@ -1522,13 +1514,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia20.setMaximumSize(new java.awt.Dimension(35, 35));
         dia20.setMinimumSize(new java.awt.Dimension(35, 35));
         dia20.setName(""); // NOI18N
-        dia20.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia20.setPreferredSize(new java.awt.Dimension(50, 37));
         dia20.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia20MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia20, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 209, -1, -1));
+        panelCalendario.add(dia20, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 208, -1, -1));
 
         dia21.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia21.setForeground(new java.awt.Color(51, 51, 51));
@@ -1536,13 +1528,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia21.setText("20");
         dia21.setMaximumSize(new java.awt.Dimension(35, 35));
         dia21.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia21.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia21.setPreferredSize(new java.awt.Dimension(50, 37));
         dia21.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia21MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia21, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 209, -1, -1));
+        panelCalendario.add(dia21, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 208, -1, -1));
 
         dia22.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia22.setForeground(new java.awt.Color(51, 51, 51));
@@ -1550,13 +1542,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia22.setText("21");
         dia22.setMaximumSize(new java.awt.Dimension(35, 35));
         dia22.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia22.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia22.setPreferredSize(new java.awt.Dimension(50, 37));
         dia22.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia22MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia22, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 249, -1, -1));
+        panelCalendario.add(dia22, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 248, -1, -1));
 
         dia23.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia23.setForeground(new java.awt.Color(51, 51, 51));
@@ -1564,13 +1556,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia23.setText("22");
         dia23.setMaximumSize(new java.awt.Dimension(35, 35));
         dia23.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia23.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia23.setPreferredSize(new java.awt.Dimension(50, 37));
         dia23.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia23MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia23, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 249, -1, -1));
+        panelCalendario.add(dia23, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 248, -1, -1));
 
         dia24.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia24.setForeground(new java.awt.Color(51, 51, 51));
@@ -1578,13 +1570,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia24.setText("23");
         dia24.setMaximumSize(new java.awt.Dimension(35, 35));
         dia24.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia24.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia24.setPreferredSize(new java.awt.Dimension(50, 37));
         dia24.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia24MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia24, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 249, -1, -1));
+        panelCalendario.add(dia24, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 248, -1, -1));
 
         dia25.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia25.setForeground(new java.awt.Color(51, 51, 51));
@@ -1592,13 +1584,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia25.setText("24");
         dia25.setMaximumSize(new java.awt.Dimension(35, 35));
         dia25.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia25.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia25.setPreferredSize(new java.awt.Dimension(50, 37));
         dia25.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia25MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia25, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 249, -1, -1));
+        panelCalendario.add(dia25, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 248, -1, -1));
 
         dia26.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia26.setForeground(new java.awt.Color(51, 51, 51));
@@ -1606,13 +1598,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia26.setText("25");
         dia26.setMaximumSize(new java.awt.Dimension(35, 35));
         dia26.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia26.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia26.setPreferredSize(new java.awt.Dimension(50, 37));
         dia26.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia26MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia26, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 249, -1, -1));
+        panelCalendario.add(dia26, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 248, -1, -1));
 
         dia27.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia27.setForeground(new java.awt.Color(51, 51, 51));
@@ -1620,13 +1612,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia27.setText("26");
         dia27.setMaximumSize(new java.awt.Dimension(35, 35));
         dia27.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia27.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia27.setPreferredSize(new java.awt.Dimension(50, 37));
         dia27.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia27MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia27, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 249, -1, -1));
+        panelCalendario.add(dia27, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 248, -1, -1));
 
         dia28.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia28.setForeground(new java.awt.Color(51, 51, 51));
@@ -1634,13 +1626,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia28.setText("27");
         dia28.setMaximumSize(new java.awt.Dimension(35, 35));
         dia28.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia28.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia28.setPreferredSize(new java.awt.Dimension(50, 37));
         dia28.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia28MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia28, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 249, -1, -1));
+        panelCalendario.add(dia28, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 248, -1, -1));
 
         dia29.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia29.setForeground(new java.awt.Color(51, 51, 51));
@@ -1648,13 +1640,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia29.setText("28");
         dia29.setMaximumSize(new java.awt.Dimension(35, 35));
         dia29.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia29.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia29.setPreferredSize(new java.awt.Dimension(50, 37));
         dia29.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia29MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia29, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 289, -1, -1));
+        panelCalendario.add(dia29, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 288, -1, -1));
 
         dia30.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia30.setForeground(new java.awt.Color(51, 51, 51));
@@ -1662,13 +1654,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia30.setText("29");
         dia30.setMaximumSize(new java.awt.Dimension(35, 35));
         dia30.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia30.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia30.setPreferredSize(new java.awt.Dimension(50, 37));
         dia30.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia30MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia30, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 289, -1, -1));
+        panelCalendario.add(dia30, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 288, -1, -1));
 
         dia31.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia31.setForeground(new java.awt.Color(51, 51, 51));
@@ -1676,13 +1668,13 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia31.setText("30");
         dia31.setMaximumSize(new java.awt.Dimension(35, 35));
         dia31.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia31.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia31.setPreferredSize(new java.awt.Dimension(50, 37));
         dia31.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia31MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia31, new org.netbeans.lib.awtextra.AbsoluteConstraints(152, 289, -1, -1));
+        panelCalendario.add(dia31, new org.netbeans.lib.awtextra.AbsoluteConstraints(145, 288, -1, -1));
 
         dia32.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia32.setForeground(new java.awt.Color(51, 51, 51));
@@ -1690,78 +1682,78 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia32.setText("31");
         dia32.setMaximumSize(new java.awt.Dimension(35, 35));
         dia32.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia32.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia32.setPreferredSize(new java.awt.Dimension(50, 37));
         dia32.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia32MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia32, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 289, -1, -1));
+        panelCalendario.add(dia32, new org.netbeans.lib.awtextra.AbsoluteConstraints(203, 288, -1, -1));
 
         dia33.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia33.setForeground(new java.awt.Color(51, 51, 51));
         dia33.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia33.setMaximumSize(new java.awt.Dimension(35, 35));
         dia33.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia33.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia33.setPreferredSize(new java.awt.Dimension(50, 37));
         dia33.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia33MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia33, new org.netbeans.lib.awtextra.AbsoluteConstraints(267, 289, -1, -1));
+        panelCalendario.add(dia33, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 288, -1, -1));
 
         dia34.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia34.setForeground(new java.awt.Color(51, 51, 51));
         dia34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia34.setMaximumSize(new java.awt.Dimension(35, 35));
         dia34.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia34.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia34.setPreferredSize(new java.awt.Dimension(50, 37));
         dia34.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia34MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia34, new org.netbeans.lib.awtextra.AbsoluteConstraints(325, 289, -1, -1));
+        panelCalendario.add(dia34, new org.netbeans.lib.awtextra.AbsoluteConstraints(318, 288, -1, -1));
 
         dia35.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia35.setForeground(new java.awt.Color(51, 51, 51));
         dia35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia35.setMaximumSize(new java.awt.Dimension(35, 35));
         dia35.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia35.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia35.setPreferredSize(new java.awt.Dimension(50, 37));
         dia35.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia35MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia35, new org.netbeans.lib.awtextra.AbsoluteConstraints(383, 289, -1, -1));
+        panelCalendario.add(dia35, new org.netbeans.lib.awtextra.AbsoluteConstraints(376, 288, -1, -1));
 
         dia36.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia36.setForeground(new java.awt.Color(51, 51, 51));
         dia36.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia36.setMaximumSize(new java.awt.Dimension(35, 35));
         dia36.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia36.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia36.setPreferredSize(new java.awt.Dimension(50, 37));
         dia36.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia36MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia36, new org.netbeans.lib.awtextra.AbsoluteConstraints(37, 329, -1, -1));
+        panelCalendario.add(dia36, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 328, -1, -1));
 
         dia37.setFont(new java.awt.Font("Monospaced", 0, 24)); // NOI18N
         dia37.setForeground(new java.awt.Color(51, 51, 51));
         dia37.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia37.setMaximumSize(new java.awt.Dimension(35, 35));
         dia37.setMinimumSize(new java.awt.Dimension(35, 35));
-        dia37.setPreferredSize(new java.awt.Dimension(35, 35));
+        dia37.setPreferredSize(new java.awt.Dimension(50, 37));
         dia37.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 dia37MouseClicked(evt);
             }
         });
-        panelCalendario.add(dia37, new org.netbeans.lib.awtextra.AbsoluteConstraints(95, 329, -1, -1));
+        panelCalendario.add(dia37, new org.netbeans.lib.awtextra.AbsoluteConstraints(88, 328, -1, -1));
 
         panelPrincipal.add(panelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 70, 450, 390));
 
@@ -2893,11 +2885,6 @@ public class Calendario extends javax.swing.JInternalFrame {
             panelDezembro.setBackground(new Color(224, 236, 247));
         }
     }//GEN-LAST:event_panelDezembroMouseExited
-
-    private void dia2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_dia2KeyReleased
-        // TODO add your handling code here:
-    }//GEN-LAST:event_dia2KeyReleased
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel dia1;

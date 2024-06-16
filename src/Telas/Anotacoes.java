@@ -18,8 +18,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
 
         UsuarioDados usuarioDados = new UsuarioDados();
 
-        Login loginTela = new Login();
-        cod_usuario = loginTela.cod_usuario;
+        cod_usuario = Login.codUsuario;
         usuarioDados.setCod_usuario(cod_usuario);
         System.out.println(cod_usuario);
 

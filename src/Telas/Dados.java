@@ -26,8 +26,7 @@ public class Dados extends javax.swing.JInternalFrame {
     public void buscarDadosUsuario() {
         UsuarioDados usuarioDados = new UsuarioDados();
         UsuarioBD usuarioBD = new UsuarioBD();
-        Login loginTela = new Login();
-        cod_usuario = loginTela.cod_usuario;
+        cod_usuario = Login.codUsuario;
         usuarioDados.setCod_usuario(cod_usuario);
         System.out.println("cod:" + cod_usuario);
 

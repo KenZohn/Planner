@@ -396,4 +396,36 @@ public class GastosBD {
         }
         return dados;
     }
+    
+    public String buscarTotalAnual(GastosDados gastosDados) {
+        String dados = "";
+        System.out.println("Buscar total anual");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado para buscar");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+            ResultSet res = stmt.executeQuery("SELECT SUM(valor) FROM gastos"
+                    + " WHERE cod_usuario = '" + gastosDados.getCod_usuario() + "';");
+
+            res.next();
+            dados = res.getString(1);
+
+            System.out.println("SQL: " + res);
+
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
+        return dados;
+    }
 }

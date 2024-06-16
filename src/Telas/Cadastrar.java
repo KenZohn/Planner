@@ -28,7 +28,6 @@ public class Cadastrar extends javax.swing.JFrame {
         campoNome = new javax.swing.JTextField();
         campoEmail = new javax.swing.JTextField();
         campoLogin = new javax.swing.JTextField();
-        campoSenha = new javax.swing.JTextField();
         botaoMinimizar = new javax.swing.JPanel();
         iconeFechar1 = new javax.swing.JLabel();
         botaoVoltar = new javax.swing.JPanel();
@@ -39,75 +38,71 @@ public class Cadastrar extends javax.swing.JFrame {
         campoPergunta = new javax.swing.JComboBox<>();
         labelResposta = new javax.swing.JLabel();
         labelPergunta = new javax.swing.JLabel();
+        campoSenha = new javax.swing.JPasswordField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(400, 350));
+        setMaximumSize(new java.awt.Dimension(700, 390));
         setMinimumSize(new java.awt.Dimension(400, 350));
         setUndecorated(true);
+        setPreferredSize(new java.awt.Dimension(700, 390));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        principal.setBackground(new java.awt.Color(255, 234, 189));
-        principal.setMaximumSize(new java.awt.Dimension(400, 350));
+        principal.setBackground(new java.awt.Color(252, 240, 216));
+        principal.setMaximumSize(new java.awt.Dimension(700, 390));
         principal.setMinimumSize(new java.awt.Dimension(400, 350));
-        principal.setPreferredSize(new java.awt.Dimension(400, 350));
+        principal.setPreferredSize(new java.awt.Dimension(700, 390));
         principal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelCriarConta.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        labelCriarConta.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         labelCriarConta.setText("Criar conta");
-        principal.add(labelCriarConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
+        principal.add(labelCriarConta, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         labelNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelNome.setText("Nome");
-        labelNome.setMaximumSize(new java.awt.Dimension(39, 30));
+        labelNome.setMaximumSize(new java.awt.Dimension(50, 30));
         labelNome.setMinimumSize(new java.awt.Dimension(39, 30));
-        labelNome.setPreferredSize(new java.awt.Dimension(39, 30));
-        principal.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 90, 50, -1));
+        labelNome.setPreferredSize(new java.awt.Dimension(50, 30));
+        principal.add(labelNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, -1, -1));
 
         labelEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelEmail.setText("E-mail");
         labelEmail.setMaximumSize(new java.awt.Dimension(39, 30));
         labelEmail.setMinimumSize(new java.awt.Dimension(39, 30));
         labelEmail.setPreferredSize(new java.awt.Dimension(39, 30));
-        principal.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 150, 80, -1));
+        principal.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 80, -1));
 
         labelLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelLogin.setText("Login");
         labelLogin.setMaximumSize(new java.awt.Dimension(35, 30));
         labelLogin.setMinimumSize(new java.awt.Dimension(35, 30));
         labelLogin.setPreferredSize(new java.awt.Dimension(35, 30));
-        principal.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 210, 50, -1));
+        principal.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 50, -1));
 
         labelSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelSenha.setText("Senha");
         labelSenha.setMaximumSize(new java.awt.Dimension(38, 30));
         labelSenha.setMinimumSize(new java.awt.Dimension(38, 30));
         labelSenha.setPreferredSize(new java.awt.Dimension(38, 30));
-        principal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 280, 50, -1));
+        principal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 50, -1));
 
         campoNome.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoNome.setToolTipText("");
-        campoNome.setPreferredSize(new java.awt.Dimension(250, 30));
-        principal.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 120, -1, -1));
+        campoNome.setPreferredSize(new java.awt.Dimension(280, 30));
+        principal.add(campoNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         campoEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoEmail.setMaximumSize(new java.awt.Dimension(250, 30));
         campoEmail.setMinimumSize(new java.awt.Dimension(250, 30));
-        campoEmail.setPreferredSize(new java.awt.Dimension(250, 30));
-        principal.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 180, -1, -1));
+        campoEmail.setPreferredSize(new java.awt.Dimension(280, 30));
+        principal.add(campoEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         campoLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoLogin.setMaximumSize(new java.awt.Dimension(250, 30));
         campoLogin.setMinimumSize(new java.awt.Dimension(250, 30));
-        campoLogin.setPreferredSize(new java.awt.Dimension(250, 30));
-        principal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 240, -1, -1));
+        campoLogin.setPreferredSize(new java.awt.Dimension(280, 30));
+        principal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
-        campoSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        campoSenha.setMaximumSize(new java.awt.Dimension(250, 30));
-        campoSenha.setMinimumSize(new java.awt.Dimension(250, 30));
-        campoSenha.setPreferredSize(new java.awt.Dimension(250, 30));
-        principal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 310, -1, -1));
-
-        botaoMinimizar.setBackground(new java.awt.Color(255, 234, 189));
+        botaoMinimizar.setBackground(new java.awt.Color(252, 240, 216));
         botaoMinimizar.setMaximumSize(new java.awt.Dimension(45, 30));
         botaoMinimizar.setMinimumSize(new java.awt.Dimension(45, 30));
         botaoMinimizar.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -130,9 +125,9 @@ public class Cadastrar extends javax.swing.JFrame {
         iconeFechar1.setPreferredSize(new java.awt.Dimension(30, 30));
         botaoMinimizar.add(iconeFechar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, -1, -1));
 
-        principal.add(botaoMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(725, 0, -1, -1));
+        principal.add(botaoMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, -1, -1));
 
-        botaoVoltar.setBackground(new java.awt.Color(255, 234, 189));
+        botaoVoltar.setBackground(new java.awt.Color(252, 240, 216));
         botaoVoltar.setPreferredSize(new java.awt.Dimension(45, 30));
         botaoVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -151,9 +146,9 @@ public class Cadastrar extends javax.swing.JFrame {
         iconeVoltar.setPreferredSize(new java.awt.Dimension(30, 30));
         botaoVoltar.add(iconeVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 0, -1, -1));
 
-        principal.add(botaoVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(775, 0, -1, -1));
+        principal.add(botaoVoltar, new org.netbeans.lib.awtextra.AbsoluteConstraints(655, 0, -1, -1));
 
-        botaoCancelar.setBackground(new java.awt.Color(253, 103, 103));
+        botaoCancelar.setBackground(new java.awt.Color(255, 139, 139));
         botaoCancelar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         botaoCancelar.setText("Cancelar");
         botaoCancelar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
@@ -165,7 +160,7 @@ public class Cadastrar extends javax.swing.JFrame {
                 botaoCancelarActionPerformed(evt);
             }
         });
-        principal.add(botaoCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 380, -1, -1));
+        principal.add(botaoCancelar, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, -1, -1));
 
         botaoFinalizarCadastro.setBackground(new java.awt.Color(153, 255, 204));
         botaoFinalizarCadastro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
@@ -179,37 +174,36 @@ public class Cadastrar extends javax.swing.JFrame {
                 botaoFinalizarCadastroActionPerformed(evt);
             }
         });
-        principal.add(botaoFinalizarCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 380, -1, -1));
+        principal.add(botaoFinalizarCadastro, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 330, -1, -1));
 
         campoResposta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoResposta.setMaximumSize(new java.awt.Dimension(250, 30));
         campoResposta.setMinimumSize(new java.awt.Dimension(250, 30));
-        campoResposta.setPreferredSize(new java.awt.Dimension(250, 30));
-        principal.add(campoResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 180, -1, -1));
+        campoResposta.setPreferredSize(new java.awt.Dimension(280, 30));
+        principal.add(campoResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
 
-        campoPergunta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qual é o nome do seu primeiro Pet?", "Qual é a cidade que sua mãe nasceu?", "Quem você era no RBD?", "Quem voce era no Naruto?", " ", " " }));
-        campoPergunta.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                campoPerguntaActionPerformed(evt);
-            }
-        });
-        principal.add(campoPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 120, 250, -1));
+        campoPergunta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qual é o nome do seu primeiro Pet?", "Qual é a cidade que sua mãe nasceu?", "Quem você era no RBD?", "Quem voce era no Naruto?" }));
+        campoPergunta.setPreferredSize(new java.awt.Dimension(280, 30));
+        principal.add(campoPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 120, -1, -1));
 
         labelResposta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelResposta.setText("Resposta");
         labelResposta.setMaximumSize(new java.awt.Dimension(39, 30));
         labelResposta.setMinimumSize(new java.awt.Dimension(39, 30));
         labelResposta.setPreferredSize(new java.awt.Dimension(39, 30));
-        principal.add(labelResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 150, 100, -1));
+        principal.add(labelResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 100, -1));
 
         labelPergunta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         labelPergunta.setText("Pergunta");
         labelPergunta.setMaximumSize(new java.awt.Dimension(39, 30));
         labelPergunta.setMinimumSize(new java.awt.Dimension(39, 30));
         labelPergunta.setPreferredSize(new java.awt.Dimension(39, 30));
-        principal.add(labelPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 90, 100, -1));
+        principal.add(labelPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 100, -1));
 
-        getContentPane().add(principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 430));
+        campoSenha.setPreferredSize(new java.awt.Dimension(280, 30));
+        principal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
+
+        getContentPane().add(principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -269,7 +263,7 @@ public class Cadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoMinimizarMouseEntered
 
     private void botaoMinimizarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoMinimizarMouseExited
-        botaoMinimizar.setBackground(new Color(255, 234, 189));
+        botaoMinimizar.setBackground(new Color(252, 240, 216));
     }//GEN-LAST:event_botaoMinimizarMouseExited
 
     private void botaoVoltarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseEntered
@@ -277,12 +271,8 @@ public class Cadastrar extends javax.swing.JFrame {
     }//GEN-LAST:event_botaoVoltarMouseEntered
 
     private void botaoVoltarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_botaoVoltarMouseExited
-        botaoVoltar.setBackground(new Color(255, 234, 189));
+        botaoVoltar.setBackground(new Color(252, 240, 216));
     }//GEN-LAST:event_botaoVoltarMouseExited
-
-    private void campoPerguntaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_campoPerguntaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_campoPerguntaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -295,7 +285,7 @@ public class Cadastrar extends javax.swing.JFrame {
     private javax.swing.JTextField campoNome;
     private javax.swing.JComboBox<String> campoPergunta;
     private javax.swing.JTextField campoResposta;
-    private javax.swing.JTextField campoSenha;
+    private javax.swing.JPasswordField campoSenha;
     private javax.swing.JLabel iconeFechar1;
     private javax.swing.JLabel iconeVoltar;
     private javax.swing.JLabel labelCriarConta;
