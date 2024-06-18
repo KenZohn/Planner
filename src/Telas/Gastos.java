@@ -795,6 +795,7 @@ public final class Gastos extends javax.swing.JInternalFrame {
         panelPrincipal.setPreferredSize(new java.awt.Dimension(1152, 468));
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPaneTabela.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
         jScrollPaneTabela.setPreferredSize(new java.awt.Dimension(500, 428));
 
         tabela.setBackground(new java.awt.Color(245, 245, 245));
@@ -831,7 +832,7 @@ public final class Gastos extends javax.swing.JInternalFrame {
         panelPrincipal.add(jScrollPaneTabela, new org.netbeans.lib.awtextra.AbsoluteConstraints(527, 20, -1, -1));
 
         panelTotais.setBackground(new java.awt.Color(102, 102, 102));
-        panelTotais.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelTotais.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51), 2));
         panelTotais.setPreferredSize(new java.awt.Dimension(300, 428));
         panelTotais.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

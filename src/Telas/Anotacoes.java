@@ -201,6 +201,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         labelTitulo.setText("To Do");
         panelNotasTela.add(labelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, -1, -1));
 
+        scrollNotas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         scrollNotas.setMaximumSize(new java.awt.Dimension(560, 380));
         scrollNotas.setMinimumSize(new java.awt.Dimension(560, 380));
         scrollNotas.setName(""); // NOI18N
@@ -208,12 +209,12 @@ public class Anotacoes extends javax.swing.JInternalFrame {
 
         textAreaNotas.setColumns(15);
         textAreaNotas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        textAreaNotas.setForeground(new java.awt.Color(102, 102, 102));
         textAreaNotas.setLineWrap(true);
         textAreaNotas.setRows(5);
         textAreaNotas.setBorder(null);
         textAreaNotas.setMaximumSize(new java.awt.Dimension(560, 160));
         textAreaNotas.setMinimumSize(new java.awt.Dimension(560, 160));
-        textAreaNotas.setPreferredSize(new java.awt.Dimension(560, 160));
         textAreaNotas.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 textAreaNotasKeyReleased(evt);

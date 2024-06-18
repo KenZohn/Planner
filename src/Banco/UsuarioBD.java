@@ -26,8 +26,8 @@ public class UsuarioBD {
                     + usuarioDados.getEmail() + "', '"
                     + usuarioDados.getLogin() + "', '"
                     + usuarioDados.getSenha() + "', '"
-                    + usuarioDados.getPergunta()+ "','"
-                    + usuarioDados.getResposta ()+ "')";
+                    + usuarioDados.getPergunta() + "','"
+                    + usuarioDados.getResposta() + "')";
 
             System.out.println("SQL: " + sql);
             stmt.executeUpdate(sql);
@@ -199,6 +199,7 @@ public class UsuarioBD {
             }
         }
     }
+
     public boolean atualizarSenha(UsuarioDados usuarioDados) {
         System.out.println("Atualizar usuario");
 
@@ -228,7 +229,7 @@ public class UsuarioBD {
             }
         }
     }
-    
+
     public boolean excluirUsuario(UsuarioDados usuarioDados) {
         boolean status = true;
 
@@ -263,5 +264,38 @@ public class UsuarioBD {
             }
         }
         return status;
+    }
+
+    public boolean redefinirSenha(UsuarioDados usuarioDados) {
+        System.out.println("Atualizar usuario");
+
+        connection = Conexao.getInstance().getConnection();
+        System.out.println("Conectado e pronto para redefinir");
+        Statement stmt = null;
+
+        try {
+            stmt = connection.createStatement();
+
+            String sql = "UPDATE usuario SET senha = '" + usuarioDados.getSenha()
+                    + "' WHERE login  = '" + usuarioDados.getLogin()
+                    + "' AND email  = '" + usuarioDados.getEmail()
+                    + "' AND pergunta  = '" + usuarioDados.getPergunta()
+                    + "' AND resposta  = '" + usuarioDados.getResposta() + "';";
+
+            System.out.println("SQL: " + sql);
+            stmt.executeUpdate(sql);
+
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return false;
+        } finally {
+            try {
+                stmt.close();
+                connection.close();
+            } catch (SQLException e) {
+                System.out.println("Erro ao desconectar" + e.getMessage());
+            }
+        }
     }
 }

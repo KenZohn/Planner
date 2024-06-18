@@ -68,7 +68,6 @@ public class Login extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(600, 390));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelPrincipal.setBackground(new java.awt.Color(255, 234, 189));
@@ -96,7 +95,7 @@ public class Login extends javax.swing.JFrame {
         campoLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoLogin.setMaximumSize(new java.awt.Dimension(200, 30));
         campoLogin.setMinimumSize(new java.awt.Dimension(200, 30));
-        campoLogin.setPreferredSize(new java.awt.Dimension(200, 30));
+        campoLogin.setPreferredSize(new java.awt.Dimension(220, 30));
         campoLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 campoLoginActionPerformed(evt);
@@ -112,6 +111,7 @@ public class Login extends javax.swing.JFrame {
         botaoEntrar.setBackground(new java.awt.Color(192, 231, 233));
         botaoEntrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoEntrar.setText("Entrar");
+        botaoEntrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         botaoEntrar.setMaximumSize(new java.awt.Dimension(160, 40));
         botaoEntrar.setMinimumSize(new java.awt.Dimension(220, 40));
         botaoEntrar.setPreferredSize(new java.awt.Dimension(220, 40));
@@ -122,9 +122,10 @@ public class Login extends javax.swing.JFrame {
         });
         panelPrincipal.add(botaoEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, -1, -1));
 
-        botaoCadastrar.setBackground(new java.awt.Color(192, 231, 233));
+        botaoCadastrar.setBackground(new java.awt.Color(245, 245, 245));
         botaoCadastrar.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoCadastrar.setText("Criar Conta");
+        botaoCadastrar.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         botaoCadastrar.setMaximumSize(new java.awt.Dimension(220, 40));
         botaoCadastrar.setMinimumSize(new java.awt.Dimension(160, 40));
         botaoCadastrar.setPreferredSize(new java.awt.Dimension(220, 40));
@@ -136,6 +137,7 @@ public class Login extends javax.swing.JFrame {
         panelPrincipal.add(botaoCadastrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 270, -1, -1));
 
         botaoFechar.setBackground(new java.awt.Color(255, 234, 189));
+        botaoFechar.setToolTipText("Fechar");
         botaoFechar.setMaximumSize(new java.awt.Dimension(45, 30));
         botaoFechar.setMinimumSize(new java.awt.Dimension(45, 30));
         botaoFechar.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -161,7 +163,7 @@ public class Login extends javax.swing.JFrame {
         campoSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoSenha.setMaximumSize(new java.awt.Dimension(200, 30));
         campoSenha.setMinimumSize(new java.awt.Dimension(200, 30));
-        campoSenha.setPreferredSize(new java.awt.Dimension(200, 30));
+        campoSenha.setPreferredSize(new java.awt.Dimension(220, 30));
         campoSenha.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
                 campoSenhaKeyPressed(evt);
@@ -181,6 +183,7 @@ public class Login extends javax.swing.JFrame {
         panelPrincipal.add(labelPlanner, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 300, -1, -1));
 
         panelMinimizar.setBackground(new java.awt.Color(255, 234, 189));
+        panelMinimizar.setToolTipText("Minimizar");
         panelMinimizar.setMaximumSize(new java.awt.Dimension(45, 30));
         panelMinimizar.setMinimumSize(new java.awt.Dimension(45, 30));
         panelMinimizar.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -205,9 +208,10 @@ public class Login extends javax.swing.JFrame {
 
         panelPrincipal.add(panelMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(511, 0, -1, -1));
 
-        botaoRedefinir.setBackground(new java.awt.Color(192, 231, 233));
+        botaoRedefinir.setBackground(new java.awt.Color(245, 245, 245));
         botaoRedefinir.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         botaoRedefinir.setText("Esqueci minha senha");
+        botaoRedefinir.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102)));
         botaoRedefinir.setMaximumSize(new java.awt.Dimension(220, 40));
         botaoRedefinir.setMinimumSize(new java.awt.Dimension(160, 40));
         botaoRedefinir.setPreferredSize(new java.awt.Dimension(220, 40));

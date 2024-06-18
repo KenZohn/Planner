@@ -44,7 +44,6 @@ public class Cadastrar extends javax.swing.JFrame {
         setMaximumSize(new java.awt.Dimension(700, 390));
         setMinimumSize(new java.awt.Dimension(400, 350));
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 390));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         principal.setBackground(new java.awt.Color(252, 240, 216));
@@ -103,6 +102,7 @@ public class Cadastrar extends javax.swing.JFrame {
         principal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
         botaoMinimizar.setBackground(new java.awt.Color(252, 240, 216));
+        botaoMinimizar.setToolTipText("Minimizar");
         botaoMinimizar.setMaximumSize(new java.awt.Dimension(45, 30));
         botaoMinimizar.setMinimumSize(new java.awt.Dimension(45, 30));
         botaoMinimizar.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -128,6 +128,7 @@ public class Cadastrar extends javax.swing.JFrame {
         principal.add(botaoMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, -1, -1));
 
         botaoVoltar.setBackground(new java.awt.Color(252, 240, 216));
+        botaoVoltar.setToolTipText("Voltar");
         botaoVoltar.setPreferredSize(new java.awt.Dimension(45, 30));
         botaoVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {

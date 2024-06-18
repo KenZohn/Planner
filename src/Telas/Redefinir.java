@@ -8,8 +8,11 @@ import javax.swing.JOptionPane;
 public class Redefinir extends javax.swing.JFrame {
 
     private String login, email, pergunta, resposta, senha;
+
     public Redefinir() {
         initComponents();
+        
+        setLocationRelativeTo(null);
     }
 
     @SuppressWarnings("unchecked")
@@ -39,7 +42,6 @@ public class Redefinir extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(700, 390));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         principal.setBackground(new java.awt.Color(252, 240, 216));
@@ -79,6 +81,7 @@ public class Redefinir extends javax.swing.JFrame {
         principal.add(campoLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, -1, -1));
 
         botaoMinimizar.setBackground(new java.awt.Color(252, 240, 216));
+        botaoMinimizar.setToolTipText("Minimizar");
         botaoMinimizar.setMaximumSize(new java.awt.Dimension(45, 30));
         botaoMinimizar.setMinimumSize(new java.awt.Dimension(45, 30));
         botaoMinimizar.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -104,6 +107,7 @@ public class Redefinir extends javax.swing.JFrame {
         principal.add(botaoMinimizar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, -1, -1));
 
         botaoVoltar.setBackground(new java.awt.Color(252, 240, 216));
+        botaoVoltar.setToolTipText("Voltar");
         botaoVoltar.setPreferredSize(new java.awt.Dimension(45, 30));
         botaoVoltar.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -177,15 +181,15 @@ public class Redefinir extends javax.swing.JFrame {
         principal.add(labelPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 100, -1));
 
         labelSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelSenha.setText("Senha");
+        labelSenha.setText("Nova Senha");
         labelSenha.setMaximumSize(new java.awt.Dimension(38, 30));
         labelSenha.setMinimumSize(new java.awt.Dimension(38, 30));
         labelSenha.setPreferredSize(new java.awt.Dimension(38, 30));
-        principal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 50, -1));
+        principal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 100, -1));
 
         labelConfirmarSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelConfirmarSenha.setText("Confirmar Senha");
-        principal.add(labelConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 150, -1));
+        labelConfirmarSenha.setText("Confirmar Nova Senha");
+        principal.add(labelConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 190, -1));
 
         campoSenha.setPreferredSize(new java.awt.Dimension(280, 30));
         principal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
@@ -246,16 +250,20 @@ public class Redefinir extends javax.swing.JFrame {
         usuarioDados.setPergunta(pergunta);
         usuarioDados.setResposta(resposta);
 
-        if ("".equals(campoEmail.getText()) || "".equals(campoLogin.getText()) || "".equals(campoSenha.getText()) || "".equals(campoPergunta.getSelectedItem().toString()) ||"".equals(campoResposta.getText())) {
+        if ("".equals(campoEmail.getText()) || "".equals(campoLogin.getText()) || "".equals(campoSenha.getText()) || "".equals(campoConfirmarSenha.getText()) || "".equals(campoPergunta.getSelectedItem().toString()) || "".equals(campoResposta.getText())) {
             JOptionPane.showMessageDialog(null, "Preencha os campos corretamente.", "Erro", JOptionPane.ERROR_MESSAGE);
         } else {
-            if (usuarioBD.inserirUsuario(usuarioDados) == true) {
-                JOptionPane.showMessageDialog(null, "Pessoa cadastrada com sucesso!!!", "Cadastro", JOptionPane.INFORMATION_MESSAGE);
-                Login telaLogin = new Login();
-                telaLogin.setVisible(true);
-                dispose();
+            if (campoSenha.getText() == campoConfirmarSenha.getText()) {
+                if (usuarioBD.redefinirSenha(usuarioDados) == true) {
+                    JOptionPane.showMessageDialog(null, "Senha redefinida com sucesso.", "Redefinir senha", JOptionPane.INFORMATION_MESSAGE);
+                    Login telaLogin = new Login();
+                    telaLogin.setVisible(true);
+                    dispose();
+                } else {
+                    JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro", JOptionPane.ERROR_MESSAGE);
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro", JOptionPane.ERROR_MESSAGE);
+                JOptionPane.showMessageDialog(null, "As senhas são diferentes. Insira a mesma senha.", "Erro", JOptionPane.ERROR_MESSAGE);
             }
         }
     }//GEN-LAST:event_botaoFinalizarRedefinicaoActionPerformed

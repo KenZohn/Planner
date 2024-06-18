@@ -220,7 +220,7 @@ public class Principal extends javax.swing.JFrame {
         labelData.setText("00/00");
         labelData.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         labelData.setPreferredSize(new java.awt.Dimension(68, 48));
-        panelAno.add(labelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 7, -1, -1));
+        panelAno.add(labelData, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 7, -1, -1));
 
         panelMenu.add(panelAno, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -246,7 +246,6 @@ public class Principal extends javax.swing.JFrame {
         panelInicio.add(labelInicio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
 
         iconeInicio.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Início (33px).png"))); // NOI18N
-        iconeInicio.setToolTipText("");
         iconeInicio.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconeInicioMouseClicked(evt);
@@ -284,7 +283,6 @@ public class Principal extends javax.swing.JFrame {
         panelCalendario.add(labelCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(33, 40, -1, -1));
 
         iconeCalendario.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Calendário (33px).png"))); // NOI18N
-        iconeCalendario.setToolTipText("");
         iconeCalendario.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconeCalendarioMouseClicked(evt);
@@ -322,7 +320,6 @@ public class Principal extends javax.swing.JFrame {
         panelAnotacoes.add(labelAnotacoes, new org.netbeans.lib.awtextra.AbsoluteConstraints(25, 40, 80, 20));
 
         iconeAnotacoes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Anotações (33px).png"))); // NOI18N
-        iconeAnotacoes.setToolTipText("");
         iconeAnotacoes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconeAnotacoesMouseClicked(evt);
@@ -360,7 +357,6 @@ public class Principal extends javax.swing.JFrame {
         panelGastos.add(labelGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(45, 40, -1, -1));
 
         iconeGastos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Gastos (33px).png"))); // NOI18N
-        iconeGastos.setToolTipText("");
         iconeGastos.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 iconeGastosMouseClicked(evt);
@@ -414,6 +410,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.add(panelDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 0, 130, 60));
 
         panelFechar.setBackground(new java.awt.Color(255, 255, 255));
+        panelFechar.setToolTipText("Fechar");
         panelFechar.setMaximumSize(new java.awt.Dimension(45, 30));
         panelFechar.setMinimumSize(new java.awt.Dimension(45, 30));
         panelFechar.setPreferredSize(new java.awt.Dimension(45, 30));
@@ -436,6 +433,7 @@ public class Principal extends javax.swing.JFrame {
         panelMenu.add(panelFechar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1108, 0, -1, -1));
 
         panelMinimizar.setBackground(new java.awt.Color(255, 255, 255));
+        panelMinimizar.setToolTipText("Minimizar");
         panelMinimizar.setMaximumSize(new java.awt.Dimension(45, 30));
         panelMinimizar.setMinimumSize(new java.awt.Dimension(45, 30));
         panelMinimizar.setPreferredSize(new java.awt.Dimension(45, 30));

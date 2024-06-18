@@ -1131,6 +1131,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelNotas.setPreferredSize(new java.awt.Dimension(600, 493));
         panelNotas.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        scrollPaneCalendario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         scrollPaneCalendario.setMaximumSize(new java.awt.Dimension(560, 403));
         scrollPaneCalendario.setMinimumSize(new java.awt.Dimension(560, 403));
         scrollPaneCalendario.setPreferredSize(new java.awt.Dimension(560, 403));
@@ -1142,7 +1143,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         textAreaCalendario.setBorder(null);
         textAreaCalendario.setMaximumSize(new java.awt.Dimension(560, 160));
         textAreaCalendario.setMinimumSize(new java.awt.Dimension(560, 160));
-        textAreaCalendario.setPreferredSize(new java.awt.Dimension(560, 160));
         textAreaCalendario.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
                 textAreaCalendarioKeyReleased(evt);
@@ -1152,7 +1152,7 @@ public class Calendario extends javax.swing.JInternalFrame {
 
         panelNotas.add(scrollPaneCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 93, 560, 380));
 
-        labelDia.setFont(new java.awt.Font("Segoe UI", 0, 30)); // NOI18N
+        labelDia.setFont(new java.awt.Font("Monospaced", 1, 30)); // NOI18N
         labelDia.setForeground(new java.awt.Color(51, 51, 51));
         labelDia.setText("Dia 1");
         panelNotas.add(labelDia, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 25, -1, -1));
@@ -1163,7 +1163,7 @@ public class Calendario extends javax.swing.JInternalFrame {
         panelCalendario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         panelCalendario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        labelMes.setFont(new java.awt.Font("Monospaced", 0, 26)); // NOI18N
+        labelMes.setFont(new java.awt.Font("Monospaced", 1, 26)); // NOI18N
         labelMes.setForeground(new java.awt.Color(51, 51, 51));
         labelMes.setText("Janeiro");
         panelCalendario.add(labelMes, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, -1, -1));
@@ -1332,7 +1332,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia8.setForeground(new java.awt.Color(51, 51, 51));
         dia8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia8.setText("7");
-        dia8.setToolTipText("");
         dia8.setMaximumSize(new java.awt.Dimension(35, 35));
         dia8.setMinimumSize(new java.awt.Dimension(35, 35));
         dia8.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1347,7 +1346,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia9.setForeground(new java.awt.Color(51, 51, 51));
         dia9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia9.setText("8");
-        dia9.setToolTipText("");
         dia9.setMaximumSize(new java.awt.Dimension(35, 35));
         dia9.setMinimumSize(new java.awt.Dimension(35, 35));
         dia9.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1362,7 +1360,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia10.setForeground(new java.awt.Color(51, 51, 51));
         dia10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia10.setText("9");
-        dia10.setToolTipText("");
         dia10.setMaximumSize(new java.awt.Dimension(35, 35));
         dia10.setMinimumSize(new java.awt.Dimension(35, 35));
         dia10.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1377,7 +1374,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia11.setForeground(new java.awt.Color(51, 51, 51));
         dia11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia11.setText("10");
-        dia11.setToolTipText("");
         dia11.setMaximumSize(new java.awt.Dimension(35, 35));
         dia11.setMinimumSize(new java.awt.Dimension(35, 35));
         dia11.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1392,7 +1388,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia12.setForeground(new java.awt.Color(51, 51, 51));
         dia12.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia12.setText("11");
-        dia12.setToolTipText("");
         dia12.setMaximumSize(new java.awt.Dimension(35, 35));
         dia12.setMinimumSize(new java.awt.Dimension(35, 35));
         dia12.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1407,7 +1402,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia13.setForeground(new java.awt.Color(51, 51, 51));
         dia13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia13.setText("12");
-        dia13.setToolTipText("");
         dia13.setMaximumSize(new java.awt.Dimension(35, 35));
         dia13.setMinimumSize(new java.awt.Dimension(35, 35));
         dia13.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1422,7 +1416,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia14.setForeground(new java.awt.Color(51, 51, 51));
         dia14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia14.setText("13");
-        dia14.setToolTipText("");
         dia14.setMaximumSize(new java.awt.Dimension(35, 35));
         dia14.setMinimumSize(new java.awt.Dimension(35, 35));
         dia14.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1437,7 +1430,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia15.setForeground(new java.awt.Color(51, 51, 51));
         dia15.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia15.setText("14");
-        dia15.setToolTipText("");
         dia15.setMaximumSize(new java.awt.Dimension(35, 35));
         dia15.setMinimumSize(new java.awt.Dimension(35, 35));
         dia15.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1452,7 +1444,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia16.setForeground(new java.awt.Color(51, 51, 51));
         dia16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia16.setText("15");
-        dia16.setToolTipText("");
         dia16.setMaximumSize(new java.awt.Dimension(35, 35));
         dia16.setMinimumSize(new java.awt.Dimension(35, 35));
         dia16.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1467,7 +1458,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia17.setForeground(new java.awt.Color(51, 51, 51));
         dia17.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia17.setText("16");
-        dia17.setToolTipText("");
         dia17.setMaximumSize(new java.awt.Dimension(35, 35));
         dia17.setMinimumSize(new java.awt.Dimension(35, 35));
         dia17.setPreferredSize(new java.awt.Dimension(50, 37));
@@ -1482,7 +1472,6 @@ public class Calendario extends javax.swing.JInternalFrame {
         dia18.setForeground(new java.awt.Color(51, 51, 51));
         dia18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dia18.setText("17");
-        dia18.setToolTipText("");
         dia18.setMaximumSize(new java.awt.Dimension(35, 35));
         dia18.setMinimumSize(new java.awt.Dimension(35, 35));
         dia18.setPreferredSize(new java.awt.Dimension(50, 37));

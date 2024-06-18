@@ -90,7 +90,7 @@ public class Dados extends javax.swing.JInternalFrame {
         panelPrincipal.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelAlterarDados.setBackground(new java.awt.Color(245, 245, 245));
-        panelAlterarDados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelAlterarDados.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         panelAlterarDados.setPreferredSize(new java.awt.Dimension(400, 430));
         panelAlterarDados.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -162,7 +162,7 @@ public class Dados extends javax.swing.JInternalFrame {
         panelPrincipal.add(panelAlterarDados, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 74, -1, -1));
 
         panelAlterarSenha.setBackground(new java.awt.Color(245, 245, 245));
-        panelAlterarSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        panelAlterarSenha.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         panelAlterarSenha.setPreferredSize(new java.awt.Dimension(400, 350));
         panelAlterarSenha.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 

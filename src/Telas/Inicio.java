@@ -195,6 +195,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         panelCalendario.setPreferredSize(new java.awt.Dimension(553, 400));
         panelCalendario.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPaneCalendario.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         jScrollPaneCalendario.setPreferredSize(new java.awt.Dimension(513, 322));
 
         campoCalendario.setEditable(false);
@@ -202,7 +203,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoCalendario.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoCalendario.setLineWrap(true);
         campoCalendario.setRows(5);
-        campoCalendario.setMargin(new java.awt.Insets(5, 15, 5, 15));
+        campoCalendario.setBorder(null);
         jScrollPaneCalendario.setViewportView(campoCalendario);
 
         panelCalendario.add(jScrollPaneCalendario, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, -1, -1));
@@ -227,6 +228,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoGastos.setBackground(new java.awt.Color(245, 245, 245));
         campoGastos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoGastos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoGastos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         campoGastos.setOpaque(true);
         campoGastos.setPreferredSize(new java.awt.Dimension(240, 40));
         panelGastos.add(campoGastos, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 63, -1, -1));
@@ -240,6 +242,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoGastosPassado.setBackground(new java.awt.Color(245, 245, 245));
         campoGastosPassado.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoGastosPassado.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        campoGastosPassado.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         campoGastosPassado.setOpaque(true);
         campoGastosPassado.setPreferredSize(new java.awt.Dimension(240, 40));
         panelGastos.add(campoGastosPassado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 63, -1, -1));
@@ -249,6 +252,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         panelAfazeres.setOpaque(false);
         panelAfazeres.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jScrollPaneAfazeres.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         jScrollPaneAfazeres.setPreferredSize(new java.awt.Dimension(514, 109));
 
         campoAfazeres.setEditable(false);
@@ -256,7 +260,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoAfazeres.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoAfazeres.setLineWrap(true);
         campoAfazeres.setRows(3);
-        campoAfazeres.setMargin(new java.awt.Insets(5, 15, 5, 15));
+        campoAfazeres.setBorder(null);
         jScrollPaneAfazeres.setViewportView(campoAfazeres);
 
         panelAfazeres.add(jScrollPaneAfazeres, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
@@ -276,6 +280,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         labelCompras.setText("Comprar");
         panelCompras.add(labelCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
+        jScrollPaneCompras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         jScrollPaneCompras.setPreferredSize(new java.awt.Dimension(514, 109));
 
         campoCompras.setEditable(false);
@@ -283,7 +288,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoCompras.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoCompras.setLineWrap(true);
         campoCompras.setRows(3);
-        campoCompras.setMargin(new java.awt.Insets(5, 15, 5, 15));
+        campoCompras.setBorder(null);
         jScrollPaneCompras.setViewportView(campoCompras);
 
         panelCompras.add(jScrollPaneCompras, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
@@ -298,6 +303,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         labelEstudos.setText("Estudar");
         panelEstudos.add(labelEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 15, -1, -1));
 
+        jScrollPaneEstudos.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(102, 102, 102), 2));
         jScrollPaneEstudos.setPreferredSize(new java.awt.Dimension(514, 109));
 
         campoEstudos.setEditable(false);
@@ -305,7 +311,7 @@ public class Inicio extends javax.swing.JInternalFrame {
         campoEstudos.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         campoEstudos.setLineWrap(true);
         campoEstudos.setRows(3);
-        campoEstudos.setMargin(new java.awt.Insets(5, 15, 5, 15));
+        campoEstudos.setBorder(null);
         jScrollPaneEstudos.setViewportView(campoEstudos);
 
         panelEstudos.add(jScrollPaneEstudos, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, -1, -1));
