@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 16/06/2024 às 19:09
+-- Tempo de geração: 18/06/2024 às 17:29
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -39,13 +39,13 @@ CREATE TABLE `anotacoes` (
 --
 
 INSERT INTO `anotacoes` (`cod_anotacoes`, `cod_usuario`, `tipo`, `conteudo`) VALUES
-(2, 2, 'afazeres', 'Não esquecer de lavar o uniforme\r\n\r\n'),
-(3, 2, 'estudos', 'Prova de Cálculo no dia 10'),
-(4, 2, 'compras', 'Shampoo\r\nCondicionador\r\n'),
+(2, 2, 'afazeres', 'não esquecer de entrar em contato com a Anhembi Morumbi.'),
+(3, 2, 'estudos', 'Sistemas operacionais\nPOO\nestrutura de Dados\ningles'),
+(4, 2, 'compras', 'Shampoo\r\nCondicionador\r\ndesodorante\nóleo'),
 (8, 6, 'afazeres', 'Limpar o banheiro'),
 (9, 6, 'compras', 'Banana\nFrango'),
 (10, 6, 'estudos', 'Estudar Framework'),
-(11, 6, 'outros', 'Johnny');
+(11, 2, 'outros', 'pesquisar como fazer Lombo assado');
 
 -- --------------------------------------------------------
 
@@ -75,9 +75,14 @@ INSERT INTO `calendario` (`cod_calendario`, `cod_usuario`, `ano`, `mes`, `dia`, 
 (11, 6, 2024, 6, 24, 'Prova de Contabilidade'),
 (12, 6, 2024, 6, 25, 'Apresentação do PI'),
 (14, 6, 2024, 7, 5, 'Último dia de aula!'),
-(15, 6, 2024, 12, 13, 'Níver de alguém...'),
+(15, 6, 2024, 12, 13, 'Meu níver'),
 (16, 6, 2024, 2, 15, 'Início das aulas'),
-(18, 6, 2024, 1, 1, 'Johnny');
+(17, 6, 2024, 6, 21, 'Maratona de Programação'),
+(18, 6, 2024, 8, 7, 'Previsão de início das aulas'),
+(20, 6, 2024, 3, 14, 'Um dia qualquer'),
+(21, 2, 2024, 6, 24, 'prova do Norio'),
+(22, 2, 2024, 6, 25, 'apresentação Feichas'),
+(23, 2, 2024, 6, 29, 'ultima aula de inglês');
 
 -- --------------------------------------------------------
 
@@ -118,8 +123,26 @@ INSERT INTO `gastos` (`cod_gastos`, `cod_usuario`, `tipo_gastos`, `ano`, `mes`, 
 (15, 6, 'fixo', 0, 1, 2, 'Celular', 33),
 (16, 6, 'fixo', 0, 1, 3, 'Água', 38),
 (17, 6, 'fixo', 0, 1, 4, 'Luz', 45),
-(18, 6, 'outros', 0, 1, 0, 'Johnny', 10),
-(19, 6, 'mercado', 0, 6, 2, 'Shampoo', 12);
+(18, 2, 'fixo', 0, 6, 0, 'aluguel', 700),
+(19, 2, 'fixo', 0, 6, 3, 'internet', 240),
+(20, 2, 'fixo', 0, 6, 1, 'agua', 200),
+(21, 2, 'mercado', 0, 6, 0, 'arroz', 30),
+(22, 2, 'mercado', 0, 6, 1, 'feijao', 12),
+(23, 2, 'mercado', 0, 6, 2, 'óleo', 10),
+(24, 2, 'mercado', 0, 6, 3, 'sal', 8),
+(25, 2, 'mercado', 0, 6, 4, 'açucar', 7),
+(26, 2, 'mercado', 0, 6, 5, 'pó de café', 15),
+(27, 2, 'lazer', 0, 6, 0, 'cinema', 50),
+(28, 2, 'outros', 0, 6, 0, 'gasolina', 200),
+(29, 2, 'fixo', 2024, 6, 2, 'Luz', 300),
+(30, 2, 'fixo', 0, 5, 0, 'aluguel', 700),
+(31, 2, 'fixo', 0, 5, 1, 'agua', 200),
+(32, 2, 'fixo', 0, 5, 2, 'luz', 300),
+(33, 2, 'fixo', 0, 5, 3, 'internet', 240),
+(34, 2, 'mercado', 0, 5, 0, 'macarrao', 5),
+(35, 2, 'mercado', 0, 5, 1, 'molho de tomate', 6),
+(36, 2, 'lazer', 0, 5, 0, 'show', 100),
+(37, 2, 'outros', 0, 5, 0, 'gasolina', 200);
 
 -- --------------------------------------------------------
 
@@ -132,17 +155,21 @@ CREATE TABLE `usuario` (
   `nome` varchar(60) NOT NULL,
   `email` varchar(60) NOT NULL,
   `login` varchar(30) NOT NULL,
-  `senha` varchar(30) NOT NULL
+  `senha` varchar(30) NOT NULL,
+  `pergunta` text NOT NULL,
+  `resposta` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuario`
 --
 
-INSERT INTO `usuario` (`cod_usuario`, `nome`, `email`, `login`, `senha`) VALUES
-(0, 'Aladim', 'lampadamagica123@email.com', 'admin', '123456'),
-(2, 'Thais', 'thais.ferreira@email.com', 'thaisf', '354679'),
-(6, 'Johnny Mukai', 'johnny.bravo@email.com', 'johnny', '1');
+INSERT INTO `usuario` (`cod_usuario`, `nome`, `email`, `login`, `senha`, `pergunta`, `resposta`) VALUES
+(0, 'Aladim', 'lampadamagica123@email.com', 'admin', '123456', '', ''),
+(2, 'Thais', 'thais.ferreira@email.com', 'thaisf', '123456', '', ''),
+(6, 'Johnny Mukai', 'johnny.bravo@email.com', 'johnny', '1', '', ''),
+(14, 'joao guilherme', 'joao.guilherme@fatec.com', 'joao', '123', 'Qual é o nome do seu primeiro Pet?', 'pancinha'),
+(15, 'sophia ferreira capucho', 'sophiacapucho@planner.com', 'sophia', '354679', 'Qual é o nome do seu primeiro Pet?', 'thor');
 
 --
 -- Índices para tabelas despejadas
@@ -188,19 +215,19 @@ ALTER TABLE `anotacoes`
 -- AUTO_INCREMENT de tabela `calendario`
 --
 ALTER TABLE `calendario`
-  MODIFY `cod_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `cod_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
 
 --
 -- AUTO_INCREMENT de tabela `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `cod_gastos` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `cod_gastos` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `cod_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

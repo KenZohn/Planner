@@ -1,9 +1,11 @@
+
 package Telas;
 
 import Banco.UsuarioBD;
 import Dados.UsuarioDados;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+
 
 public class Redefinir extends javax.swing.JFrame {
 
@@ -253,14 +255,14 @@ public class Redefinir extends javax.swing.JFrame {
         if ("".equals(campoEmail.getText()) || "".equals(campoLogin.getText()) || "".equals(campoSenha.getText()) || "".equals(campoConfirmarSenha.getText()) || "".equals(campoPergunta.getSelectedItem().toString()) || "".equals(campoResposta.getText())) {
             JOptionPane.showMessageDialog(null, "Preencha os campos corretamente.", "Erro", JOptionPane.ERROR_MESSAGE);
         } else {
-            if (campoSenha.getText() == campoConfirmarSenha.getText()) {
+            if (campoSenha.getText().equals(campoConfirmarSenha.getText())) {
                 if (usuarioBD.redefinirSenha(usuarioDados) == true) {
                     JOptionPane.showMessageDialog(null, "Senha redefinida com sucesso.", "Redefinir senha", JOptionPane.INFORMATION_MESSAGE);
                     Login telaLogin = new Login();
                     telaLogin.setVisible(true);
                     dispose();
                 } else {
-                    JOptionPane.showMessageDialog(null, "Erro no cadastro", "Erro", JOptionPane.ERROR_MESSAGE);
+                    JOptionPane.showMessageDialog(null, "Erro em redefinir ", "Erro", JOptionPane.ERROR_MESSAGE);
                 }
             } else {
                 JOptionPane.showMessageDialog(null, "As senhas são diferentes. Insira a mesma senha.", "Erro", JOptionPane.ERROR_MESSAGE);
@@ -268,13 +270,6 @@ public class Redefinir extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_botaoFinalizarRedefinicaoActionPerformed
 
-    public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Redefinir().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCancelar;

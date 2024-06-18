@@ -62,6 +62,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         labelTitulo = new javax.swing.JLabel();
         scrollNotas = new javax.swing.JScrollPane();
         textAreaNotas = new javax.swing.JTextArea();
+        jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(252, 219, 248));
         setBorder(null);
@@ -209,7 +210,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
 
         textAreaNotas.setColumns(15);
         textAreaNotas.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        textAreaNotas.setForeground(new java.awt.Color(102, 102, 102));
+        textAreaNotas.setForeground(new java.awt.Color(51, 51, 51));
         textAreaNotas.setLineWrap(true);
         textAreaNotas.setRows(5);
         textAreaNotas.setBorder(null);
@@ -225,6 +226,9 @@ public class Anotacoes extends javax.swing.JInternalFrame {
         panelNotasTela.add(scrollNotas, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 93, 560, 380));
 
         panelPrincipal.add(panelNotasTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 600, 493));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pensamentos.png"))); // NOI18N
+        panelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 320, 350));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 1152, 523));
 
@@ -349,6 +353,7 @@ public class Anotacoes extends javax.swing.JInternalFrame {
     private javax.swing.JLabel iconeCompras;
     private javax.swing.JLabel iconeEstudos;
     private javax.swing.JLabel iconeOutros;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel labelAfazeres;
     private javax.swing.JLabel labelCompras;
     private javax.swing.JLabel labelEstudos;
