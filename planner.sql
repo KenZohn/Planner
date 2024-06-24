@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 18/06/2024 às 17:29
+-- Tempo de geração: 24/06/2024 às 15:56
 -- Versão do servidor: 10.4.32-MariaDB
 -- Versão do PHP: 8.2.12
 
@@ -42,10 +42,16 @@ INSERT INTO `anotacoes` (`cod_anotacoes`, `cod_usuario`, `tipo`, `conteudo`) VAL
 (2, 2, 'afazeres', 'não esquecer de entrar em contato com a Anhembi Morumbi.'),
 (3, 2, 'estudos', 'Sistemas operacionais\nPOO\nestrutura de Dados\ningles'),
 (4, 2, 'compras', 'Shampoo\r\nCondicionador\r\ndesodorante\nóleo'),
-(8, 6, 'afazeres', 'Limpar o banheiro'),
-(9, 6, 'compras', 'Banana\nFrango'),
-(10, 6, 'estudos', 'Estudar Framework'),
-(11, 2, 'outros', 'pesquisar como fazer Lombo assado');
+(8, 6, 'afazeres', 'Limpar o banheiro\nAgendar dentista'),
+(9, 6, 'compras', 'Banana\nFrango\nCasa nova'),
+(10, 6, 'estudos', 'Estudar Framework\nEstudar para a Maratona de Programação'),
+(11, 2, 'outros', 'O que o MMC estava fazendo embaixo da escada?\nestava esperando o MDC.\nkkkk'),
+(12, 17, 'afazeres', 'Hoje é um dia de muito trabalho'),
+(13, 18, 'compras', 'presente da Mary (aniversário)'),
+(14, 18, 'estudos', 'enviar para Carol o feedback da banca '),
+(15, 18, 'outros', 'www.xyx'),
+(16, 18, 'afazeres', 'academia 20h'),
+(17, 6, 'outros', 'Salgado no mixaria: R$7,00\nSalgado na padaria: R$6,00\n\nO misto quente da pararia é muito bom.\nCusta R$8,50');
 
 -- --------------------------------------------------------
 
@@ -82,7 +88,10 @@ INSERT INTO `calendario` (`cod_calendario`, `cod_usuario`, `ano`, `mes`, `dia`, 
 (20, 6, 2024, 3, 14, 'Um dia qualquer'),
 (21, 2, 2024, 6, 24, 'prova do Norio'),
 (22, 2, 2024, 6, 25, 'apresentação Feichas'),
-(23, 2, 2024, 6, 29, 'ultima aula de inglês');
+(23, 2, 2024, 6, 29, 'ultima aula de inglês'),
+(25, 2, 2024, 6, 19, '14h banca João\n15h banc Claudinei\n16h banca Vanderleia'),
+(26, 18, 2024, 6, 19, '14h banca 1\n15h banca 2\n16h banca 3'),
+(28, 6, 2024, 7, 20, 'Churrasco com a galera');
 
 -- --------------------------------------------------------
 
@@ -111,8 +120,8 @@ INSERT INTO `gastos` (`cod_gastos`, `cod_usuario`, `tipo_gastos`, `ano`, `mes`, 
 (3, 6, 'fixo', 0, 6, 2, 'Celular', 33),
 (4, 6, 'fixo', 0, 6, 3, 'Água', 38.8),
 (5, 6, 'fixo', 0, 6, 4, 'Luz', 45),
-(6, 6, 'mercado', 0, 6, 0, 'Alimentos', 45.8),
-(7, 6, 'mercado', 0, 6, 1, 'Whey Protein', 75),
+(6, 6, 'mercado', 0, 6, 0, 'Semana 1', 120),
+(7, 6, 'mercado', 0, 6, 1, 'Semana 2', 130),
 (8, 6, 'fixo', 0, 5, 0, 'Aluguel', 670),
 (9, 6, 'fixo', 0, 5, 1, 'Água', 38),
 (10, 6, 'fixo', 0, 5, 2, 'Luz', 45),
@@ -142,7 +151,57 @@ INSERT INTO `gastos` (`cod_gastos`, `cod_usuario`, `tipo_gastos`, `ano`, `mes`, 
 (34, 2, 'mercado', 0, 5, 0, 'macarrao', 5),
 (35, 2, 'mercado', 0, 5, 1, 'molho de tomate', 6),
 (36, 2, 'lazer', 0, 5, 0, 'show', 100),
-(37, 2, 'outros', 0, 5, 0, 'gasolina', 200);
+(37, 2, 'outros', 0, 5, 0, 'gasolina', 200),
+(38, 18, 'lazer', 0, 6, 0, 'academia', 370),
+(39, 18, 'mercado', 0, 6, 0, 'spani', 600),
+(40, 18, 'outros', 0, 6, 0, 'carro', 300),
+(41, 6, 'fixo', 0, 3, 0, 'Aluguel', 670),
+(42, 6, 'fixo', 0, 2, 1, 'Internet', 94.9),
+(43, 6, 'fixo', 0, 2, 2, 'Celular', 33),
+(44, 6, 'fixo', 0, 2, 3, 'Luz', 45),
+(45, 6, 'fixo', 0, 2, 4, 'Água', 38),
+(46, 6, 'fixo', 0, 3, 1, 'Internet', 95),
+(47, 6, 'fixo', 0, 3, 2, 'Celular', 40),
+(48, 6, 'fixo', 0, 3, 3, 'Luz', 80),
+(49, 6, 'fixo', 0, 3, 4, 'Água', 40),
+(50, 6, 'fixo', 0, 4, 0, 'Aluguel', 700),
+(51, 6, 'fixo', 0, 4, 1, 'Internet', 100),
+(52, 6, 'fixo', 0, 4, 2, 'Celular', 33),
+(53, 6, 'fixo', 0, 4, 3, 'Luz', 45),
+(54, 6, 'fixo', 0, 4, 4, 'Água', 39),
+(55, 6, 'fixo', 0, 5, 3, 'Internet', 95),
+(56, 6, 'fixo', 0, 5, 4, 'Celular', 33),
+(57, 6, 'fixo', 0, 7, 0, 'Aluguel', 0),
+(58, 6, 'fixo', 0, 7, 1, '', 0),
+(59, 6, 'fixo', 0, 7, 2, '', 0),
+(60, 6, 'fixo', 0, 7, 3, '', 0),
+(61, 6, 'fixo', 0, 7, 4, '', 0),
+(62, 6, 'mercado', 0, 1, 0, 'Semana 1', 150),
+(63, 6, 'mercado', 0, 1, 1, 'Semana 2', 200),
+(64, 6, 'mercado', 0, 1, 2, 'Semana 3', 180),
+(65, 6, 'mercado', 0, 1, 3, 'Semana 4', 200),
+(66, 6, 'lazer', 0, 1, 0, 'Viagem', 95),
+(67, 6, 'mercado', 0, 2, 0, 'Semana 1', 200),
+(68, 6, 'mercado', 0, 2, 1, 'Semana 2', 250),
+(69, 6, 'mercado', 0, 2, 2, 'Semana 3', 300),
+(70, 6, 'mercado', 0, 2, 3, 'Semana 4', 400),
+(71, 6, 'lazer', 0, 2, 0, 'Cinema', 50),
+(72, 6, 'mercado', 0, 3, 0, 'Semana 1', 150),
+(73, 6, 'mercado', 0, 3, 1, 'Semana 2', 200),
+(74, 6, 'mercado', 0, 3, 2, 'Semana 3', 180),
+(75, 6, 'mercado', 0, 3, 3, 'Semana 4', 192.5),
+(76, 6, 'mercado', 0, 4, 0, 'Semana 1', 200),
+(77, 6, 'mercado', 0, 4, 1, 'Semana 2', 150),
+(78, 6, 'mercado', 0, 4, 2, 'Semana 3', 140),
+(79, 6, 'mercado', 0, 4, 3, 'Semana 4', 150),
+(80, 6, 'mercado', 0, 5, 0, 'Semana 1', 120),
+(81, 6, 'mercado', 0, 5, 1, 'Semana 2', 130),
+(82, 6, 'mercado', 0, 5, 2, 'Semana 3', 180),
+(83, 6, 'mercado', 0, 5, 3, 'Semana 4', 200),
+(84, 6, 'lazer', 0, 2, 1, 'Churrasco', 60),
+(85, 6, 'mercado', 0, 6, 2, 'Semana 3', 140),
+(86, 6, 'mercado', 0, 6, 3, 'Semana 4', 150),
+(87, 6, 'lazer', 0, 6, 1, 'Churrasco', 100);
 
 -- --------------------------------------------------------
 
@@ -165,11 +224,12 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`cod_usuario`, `nome`, `email`, `login`, `senha`, `pergunta`, `resposta`) VALUES
-(0, 'Aladim', 'lampadamagica123@email.com', 'admin', '123456', '', ''),
-(2, 'Thais', 'thais.ferreira@email.com', 'thaisf', '123456', '', ''),
-(6, 'Johnny Mukai', 'johnny.bravo@email.com', 'johnny', '1', '', ''),
-(14, 'joao guilherme', 'joao.guilherme@fatec.com', 'joao', '123', 'Qual é o nome do seu primeiro Pet?', 'pancinha'),
-(15, 'sophia ferreira capucho', 'sophiacapucho@planner.com', 'sophia', '354679', 'Qual é o nome do seu primeiro Pet?', 'thor');
+(0, 'Aladim', 'lampadamagica123@email.com', 'admin', '123456', 'Qual é a cidade que sua mãe nasceu?', 'China'),
+(2, 'Thais', 'thais.ferreira@email.com', 'thaisf', '123456', 'Quem você era no Naruto?', 'Itachi'),
+(6, 'Johnny Mukai', 'johnny.bravo@email.com', 'johnny', '1', 'Quem você era no RBD?', 'Lupita'),
+(14, 'joao guilherme', 'joao.guilherme@fatec.com', 'joao', '123', 'Qual é o nome do seu primeiro Pet?', 'Pancinha'),
+(15, 'sophia ferreira capucho', 'sophiacapucho@planner.com', 'sophia', '354679', 'Qual é o nome do seu primeiro Pet?', 'Thor'),
+(17, 'Billy Bruto', 'Seilá', 'kiling', 'kiling', 'Qual é o nome do seu primeiro Pet?', 'Titito');
 
 --
 -- Índices para tabelas despejadas
@@ -209,25 +269,25 @@ ALTER TABLE `usuario`
 -- AUTO_INCREMENT de tabela `anotacoes`
 --
 ALTER TABLE `anotacoes`
-  MODIFY `cod_anotacoes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cod_anotacoes` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT de tabela `calendario`
 --
 ALTER TABLE `calendario`
-  MODIFY `cod_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `cod_calendario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de tabela `gastos`
 --
 ALTER TABLE `gastos`
-  MODIFY `cod_gastos` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `cod_gastos` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
 
 --
 -- AUTO_INCREMENT de tabela `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `cod_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `cod_usuario` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

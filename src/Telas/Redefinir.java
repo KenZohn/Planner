@@ -41,6 +41,7 @@ public class Redefinir extends javax.swing.JFrame {
         labelConfirmarSenha = new javax.swing.JLabel();
         campoSenha = new javax.swing.JPasswordField();
         campoConfirmarSenha = new javax.swing.JPasswordField();
+        labelObrigatorio = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -57,18 +58,18 @@ public class Redefinir extends javax.swing.JFrame {
         principal.add(labelredefinirSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 30, -1, -1));
 
         labelEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelEmail.setText("E-mail");
+        labelEmail.setText("E-mail*");
         labelEmail.setMaximumSize(new java.awt.Dimension(39, 30));
         labelEmail.setMinimumSize(new java.awt.Dimension(39, 30));
         labelEmail.setPreferredSize(new java.awt.Dimension(39, 30));
         principal.add(labelEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 90, 80, -1));
 
         labelLogin.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelLogin.setText("Login");
+        labelLogin.setText("Login*");
         labelLogin.setMaximumSize(new java.awt.Dimension(35, 30));
         labelLogin.setMinimumSize(new java.awt.Dimension(35, 30));
         labelLogin.setPreferredSize(new java.awt.Dimension(35, 30));
-        principal.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 50, -1));
+        principal.add(labelLogin, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 90, 80, -1));
 
         campoEmail.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         campoEmail.setMaximumSize(new java.awt.Dimension(250, 30));
@@ -164,40 +165,46 @@ public class Redefinir extends javax.swing.JFrame {
         campoResposta.setPreferredSize(new java.awt.Dimension(280, 30));
         principal.add(campoResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
-        campoPergunta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qual é o nome do seu primeiro Pet?", "Qual é a cidade que sua mãe nasceu?", "Quem você era no RBD?", "Quem voce era no Naruto?", " ", " " }));
+        campoPergunta.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Qual é o nome do seu primeiro Pet?", "Qual é a cidade que sua mãe nasceu?", "Quem você era no RBD?", "Quem você era no Naruto?" }));
         campoPergunta.setPreferredSize(new java.awt.Dimension(280, 30));
         principal.add(campoPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 190, -1, -1));
 
         labelResposta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelResposta.setText("Resposta");
+        labelResposta.setText("Resposta*");
         labelResposta.setMaximumSize(new java.awt.Dimension(39, 30));
         labelResposta.setMinimumSize(new java.awt.Dimension(39, 30));
         labelResposta.setPreferredSize(new java.awt.Dimension(39, 30));
         principal.add(labelResposta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 230, 100, -1));
 
         labelPergunta.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelPergunta.setText("Pergunta");
+        labelPergunta.setText("Selecione a pergunta*");
         labelPergunta.setMaximumSize(new java.awt.Dimension(39, 30));
         labelPergunta.setMinimumSize(new java.awt.Dimension(39, 30));
         labelPergunta.setPreferredSize(new java.awt.Dimension(39, 30));
-        principal.add(labelPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 100, -1));
+        principal.add(labelPergunta, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 200, -1));
 
         labelSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelSenha.setText("Nova Senha");
+        labelSenha.setText("Nova Senha*");
         labelSenha.setMaximumSize(new java.awt.Dimension(38, 30));
         labelSenha.setMinimumSize(new java.awt.Dimension(38, 30));
         labelSenha.setPreferredSize(new java.awt.Dimension(38, 30));
-        principal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 100, -1));
+        principal.add(labelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 160, 130, -1));
 
         labelConfirmarSenha.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        labelConfirmarSenha.setText("Confirmar Nova Senha");
-        principal.add(labelConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 190, -1));
+        labelConfirmarSenha.setText("Confirmar Nova Senha*");
+        principal.add(labelConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 230, 200, -1));
 
         campoSenha.setPreferredSize(new java.awt.Dimension(280, 30));
         principal.add(campoSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, -1, -1));
 
         campoConfirmarSenha.setPreferredSize(new java.awt.Dimension(280, 30));
         principal.add(campoConfirmarSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 260, -1, -1));
+
+        labelObrigatorio.setText("* Campos obrigatórios");
+        labelObrigatorio.setMaximumSize(new java.awt.Dimension(35, 30));
+        labelObrigatorio.setMinimumSize(new java.awt.Dimension(35, 30));
+        labelObrigatorio.setPreferredSize(new java.awt.Dimension(35, 30));
+        principal.add(labelObrigatorio, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 230, -1));
 
         getContentPane().add(principal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -287,6 +294,7 @@ public class Redefinir extends javax.swing.JFrame {
     private javax.swing.JLabel labelConfirmarSenha;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelLogin;
+    private javax.swing.JLabel labelObrigatorio;
     private javax.swing.JLabel labelPergunta;
     private javax.swing.JLabel labelResposta;
     private javax.swing.JLabel labelSenha;

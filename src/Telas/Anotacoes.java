@@ -227,8 +227,8 @@ public class Anotacoes extends javax.swing.JInternalFrame {
 
         panelPrincipal.add(panelNotasTela, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 15, 600, 493));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/pensamentos.png"))); // NOI18N
-        panelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 110, 320, 350));
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Bloco de Notas 2.png"))); // NOI18N
+        panelPrincipal.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 60, -1, -1));
 
         getContentPane().add(panelPrincipal, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 65, 1152, 523));
 

@@ -36,7 +36,9 @@ public class Dados extends javax.swing.JInternalFrame {
     }
 
     public void excluirConta() {
-        int resultado = JOptionPane.showConfirmDialog(null, "Todos os dados serão perdidos. Deseja excluir a conta?", "Confirmar exclusão", JOptionPane.YES_NO_OPTION);
+        Object[] options = {"Sim", "Não"};
+        int resultado = JOptionPane.showOptionDialog(null, "Todos os dados serão perdidos. Deseja excluir a conta?", "Confirmar exclusão", JOptionPane.YES_NO_OPTION,
+				JOptionPane.QUESTION_MESSAGE, null, options, options[0]);
         if (resultado == JOptionPane.YES_OPTION) {
             UsuarioDados usuarioDados = new UsuarioDados();
             UsuarioBD usuarioBD = new UsuarioBD();
